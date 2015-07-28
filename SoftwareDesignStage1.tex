@@ -145,5 +145,21 @@ Rework elements of the gameplay that hinder enjoyment and possibly increase the 
 \section{Scope}
 \subsection{Inputs, Outputs and performance}
 The inputs and outputs are straight forward and recorded in the following table:
-
+\begin{table}[H]
+	\begin{center}
+		\noindent\makebox[\textwidth]{%
+			\begin{tabular}{|l|l|}
+				\hline
+				User Input&User Output\\
+				\hline
+				Right thumbstick moved in a given direction&The player in the game controlled by the controller moves in the given direction\\
+				Left thumbstick moved in a given direction&The player's view rotates in the given direction up to a set bounded value\\
+				Right trigger pressed&The player jumps in the direction of his movement\\
+				Left trigger pressed&The player slides in the direciton of his movement\\
+				Right bumber pressed&The player throws a smoke grenade onto the ground\\
+				\hline				
+			\end{tabular}}\caption{User inputs and expected outputs}\end{center}
+		\label{table:mem_usage}
+\end{table}
+The game will have to run with at least 60 frames per second on the games lab computers. if the the frame rate is less than 60, the game will not be smooth, which will be detrimental to the game-play and feel of the game.
 \end{document}
