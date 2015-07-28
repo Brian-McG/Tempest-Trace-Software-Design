@@ -27,112 +27,123 @@
 \abovedisplayskip 1 true pt
 \abovedisplayshortskip 1 true pt
 \topsep 0 true pt
+\newcommand*\varhrulefill[1][0.4pt]{\leavevmode\leaders\hrule height#1\hfill\kern0pt}
 
 %**************************************************************************************************
 % DOCUMENT DETAILS
 %**************************************************************************************************
 
-\title{Tempest Trace \\
-Software Design Stage One
-\\
-CSC3003S}
 
-\author{Timothy Gwynn, Jacques Heunis, Brian Mc George\\
-GWNTIM001, HNSJAC003, MCGBRI004}
 %**************************************************************************************************
 % MAIN DOCUMENT 
 %**************************************************************************************************
 
 \begin{document}
-\maketitle
+\begin{titlepage} \begin{center} 
+		\textsc{\LARGE University of Cape Town}
+		\\[1.5cm] \textsc{\Large Software Engineering Stage One\\CSC3003S}
+		\\[0.5cm]
+		\noindent\rule[0.4mm]{\textwidth}{0.4mm}
+		\\[0.4cm] { \huge \bfseries Tempest Trace \\[0.4cm] }
+		\noindent\rule[0.4mm]{\textwidth}{0.4mm}
+		\noindent
+		\\[1cm]
+		\begin{minipage}[t]{0.4\textwidth}
+		\begin{flushleft}\large \emph{Authors:}\\ Brian Mc George - MCGBRI004 \\ Jacques Heunis - HNSJAC003 \\ Timothy Gwynn - GWNTIM001\end{flushleft}
+		 \end{minipage} \begin{minipage}[t]{0.4\textwidth} 
+		\begin{flushright} \large \emph{Supervisor:} \\ Dr.~Patrick Marais\\patrick@cs.uct.ac.za\end{flushright}
+		\begin{flushright} \large \emph{Tutor:} \\ Codie Roelf\\Codie.Roelf@alumni.uct.ac.za\end{flushright}
+		 \end{minipage} \vfill {\large \today}
+		\end{center}
+		\end{titlepage}
 \newpage
 \tableofcontents
 \newpage
 
 \section{Risk Assessment}
 \subsection{Art assets not delivered}
-\textbf{Category:} Art assets\newline
-\textbf{Probability:} Medium\newline
+\textbf{Category:} Art assets\\
+\textbf{Probability:} Medium\\
 \textbf{Impact:} Critical
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 This would result in lower graphical quality in the game.
 Animations found on the internet would have to be modified to work with the game.
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 Keep to contact with the artists to get regular progress reports and to ensure that they are working on the deliverables. Investigate alternative assets to be used if assets are not delivered.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Track asset delivery timeline and check if there are assets which are past their expected delivery date.
-\subsubsection*{Management}
- Reduce the scope of the project to allow time to find art assets online and to re-purpose assets and animations to work with the game.
-
+\smallskip\\\textbf{Management}\\
+Reduce the scope of the project to allow time to find art assets online and to re-purpose assets and animations to work with the game.
 \subsection{Data loss}
 \textbf{Category:} Development\newline
 \textbf{Probability:} low\newline
 \textbf{Impact:} Catastrophic
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 If data is lost it will result in that work having to be re-done. This is delay the progress of the project and put it behind schedule. Certain features may have to be cut in order to get back on schedule to complete the project on time.
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 The project will be pushed onto a remote repository at the University of Cape Town (UCT) and each member will keep an up-to-date copy of the project on their respective machines. Each team member must push changes to the remote repository on a regular basis and pull the most recent version from the repository if other members have made a change.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Check that the remote repository has the most recent version of the project.
-\subsubsection*{Management}
+\smallskip\\\textbf{Management}\\
 Pull the most recent version of the project from the remote repository or a different members machine and continue working from that point.
 
 \subsection{Underestimated complexity}
 \textbf{Category:} Development\newline
 \textbf{Probability:} Medium\newline
 \textbf{Impact:} Marginal
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 The project will likely fall behind schedule as it will take extra time to develop the complex logic structures. 
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 Each member should update their task progress regularly and ask for assistance from the other group members if battling to complete a given task.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Keep track of task progress for each team member.
-\subsubsection*{Management}
+\smallskip\\\textbf{Management}\\
 The scope of the project may have to be reduced to allow the project to be completed on time. 
 
 \subsection{Loss of a team member}
 \textbf{Category:} Development\newline
 \textbf{Probability:} low\newline
 \textbf{Impact:} Critical
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 The tasks assigned to the member who has fallen out will have to be absorbed by the other group members. The work load on the other members will increase. Project progression will be slowed as a result.
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 Each member should voice their concerns and indicate early on if they are going to be away for a given time in the development process.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Regular communication between team members
-\subsubsection*{Management}
+\smallskip\\\textbf{Management}\\
 The scope of the project will have to be reduced to allow the project to be completed on time. 
 
 \subsection{Sound assets not delivered}
 \textbf{Category:} External\newline
 \textbf{Probability:} Medium\newline
 \textbf{Impact:} Negligible
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 This would result in lower sound quality in the game.
 The game would not be as original and distinct.
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 Keep to contact with the sound artists to get regular progress reports and to ensure that they are working on the deliverables.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Track asset delivery timeline and check if there are assets which are past their expected delivery date.
-\subsubsection*{Management}
+\smallskip\\\textbf{Management}\\
 The sound effects required are retentively common and most could be sourced quite easily online.
 
 \subsection{Game is not enjoyable to play}
 \textbf{Category:} Gameplay\newline
 \textbf{Probability:} low\newline
 \textbf{Impact:} Critical
-\subsubsection*{Consequences}
+\\\textbf{Consequences}\\
 This would result in a low return on investment for the project.
-\subsubsection*{Mitigation}
+\smallskip\\\textbf{Mitigation}\\
 Regular play-testing of the game and provide feedback to the team on changes to make in the next iteration.
-\subsubsection*{Monitoring}
+\smallskip\\\textbf{Monitoring}\\
 Keep track of play-test feedback from team members.
-\subsubsection*{Management}
-Rework elements of the gameplay that hinder enjoyment and possibly increase the scope of the project to add some diversity to the game. 
+\smallskip\\\textbf{Management}\\
+Rework elements of the gameplay that hinder enjoyment and possibly increase the scope of the project to add additional diversity to the game. 
 
 \section{Roles}
 
 \section{Scope}
-
+\subsection{Inputs, Outputs and performance}
+The inputs and outputs are straight forward and recorded in the following table:
 
 \end{document}
