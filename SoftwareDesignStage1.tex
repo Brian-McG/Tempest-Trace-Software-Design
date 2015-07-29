@@ -146,8 +146,9 @@ Rework elements of the gameplay that hinder enjoyment and possibly increase the 
 \section{Roles}
 
 \section{Scope}
-\subsection{Overall purpose and stakeholders}
-The purpose of our project is to complete a game that, when played, will provide the user with an enjoyable experience. The design of the game is orientated around making the player feel empowered, creating enjoyment/fun by a sort of power-trip sensation rather than through challenge or in-depth story telling.
+\subsection{Overview, purpose and stakeholders}
+The project is a first-person running game whereby the player competes against the clock and against another player to get from the start to the end of a parkour/free running track while trying to keep their movements smooth and free flowing. The player is tasked with traversing an obstacle course in as short a time as possible while avoiding enemies who would try to slow down or eliminate the player. In addition to this, the game will feature 2-player local multiplayer in which the players are pitted against each other to see who can complete the course the fastest. The multiplayer mode will also allow players to interact with each other, letting players try to slow their opponent down to get an edge. \\
+The purpose of our project is to complete a game that, when played, will provide the user with an enjoyable experience. The design of the game is orientated around making the player feel empowered, creating enjoyment and fun by a sort of power-trip sensation rather than through challenge or in-depth story telling. This sensation is triggered by the way in which the player's avatar is made to act out difficult but flowing motions without requiring particularly complex input, thus making the player feel as they might if they themselves were able to move in the way depicted by the game.
 \\ \\
 Stakeholders involved in the project are the development team, the project supervisors, and the players.<<Do we need names here?>> \\
 The development team consists of the programming team, the art team, and a sound designer. \\
@@ -155,23 +156,29 @@ The project supervisors are Prof. James Gain and Assoc. Prof. Patrick Marais, bo
 The players are all the people who will eventually play the game, including (but not limited to) the development team, friends or family of the development team, the project supervisors and other development teams.
 
 \subsection{SMART Goals}
-The required functionality can be roughly split up into X categories: Player motion, Enemy interaction...Do we even have a third category? \\
+The functionality goals can be roughly split up into 3 categories: Player motion, Enemy interaction, and Game world
 \textbf{Player motion}
 \begin{itemize}
 	\item The player can run forwards, backwards and strafe to either side
 	\item The player can jump over small obstacles
 	\item The player can climb onto small-to-medium sized obstacles
 	\item While running, the player can slide along the ground to get under low-hanging obstacles
-	\item ?
+	\item The player's avatar sports a number of animations appropriate to their movement and interaction with the world
+	\item The player will respawn if they get stuck or fail. The respawn location will update as the player progresses through the game.
 \end{itemize}
 \textbf{Enemy interaction}
 \begin{itemize}
+	\item There are two types of enemies, ones that simply chase down the player, and ranged enemies who try to get a clear line-of-sight and eliminate the player
 	\item While the player is in sight, enemies will chase in an attempt to catch and subdue the player
-	\item The player can place objects throughout the world which will obstruct enemies' vision and prevent them from continuing the chase
-	\item ?
+	\item The player can place objects throughout the world which will distract enemies or obstruct their vision and prevent them from continuing the chase
 \end{itemize}
-
-<<How do these differ from "goals"?>>
+\textbf{Game world}
+\begin{itemize}
+	\item The game world is a clean, brightly coloured 3D environment, viewed from a first person perspective
+	\item The game supports 2-player local multiplayer where players play against each other competitively
+	\item The game features context-sensitive audio feedback which helps inform the player of their situation via both sound effects and background music
+	\item There will only be one level but it will be of a reasonable length such that the player can properly immerse themselves in the game
+\end{itemize}
 
 \subsection{Inputs, outputs, and performance}
 The inputs and outputs are straight forward and recorded in the following table:
