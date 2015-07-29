@@ -129,7 +129,7 @@ The sound effects required are retentively common and most could be sourced quit
 
 \subsection{Game is not enjoyable to play}
 \textbf{Category:} Gameplay\newline
-\textbf{Probability:} low\newline
+\textbf{Probability:} Low\newline
 \textbf{Impact:} Critical
 \\\textbf{Consequences}\\
 This would result in a low return on investment for the project.
@@ -141,7 +141,17 @@ Keep track of play-test feedback from team members.
 Rework elements of the gameplay that hinder enjoyment and possibly increase the scope of the project to add additional diversity to the game. 
 
 \subsection{Game has performance issues}
-<<TODO>>
+\textbf{Category:} Development\newline
+\textbf{Probability:} Medium\newline
+\textbf{Impact:} Marginal
+\\\textbf{Consequences}\\
+This would cause the game to be less fun to play and make it harder for the player to achieve flow.
+\smallskip\\\textbf{Mitigation}\\
+Review and re-factor code on regular basis to ensure code ad-hears to software design patterns and is well optimised.
+\smallskip\\\textbf{Monitoring}\\
+Keep track of minimum, maximum and average frame rate during play testing.
+\smallskip\\\textbf{Management}\\
+Do an in-depth analysis to determine where the inefficiencies reside and re-design that aspect or cut it from the game if it cannot be optimised.
 
 \section{Roles}
 
@@ -198,7 +208,7 @@ The inputs and outputs are straight forward and recorded in the following table:
 			\end{tabular}}\caption{User inputs and expected outputs}\end{center}
 		\label{table:mem_usage}
 \end{table}
-The game will have to run with at least 60 frames per second on the games lab computers. if the the frame rate is less than 60, the game will not be smooth, which will be detrimental to the game-play and feel of the game.
+The game will have to run with at least 60 frames per second on the games lab computers. if the the frame rate is less than 60, the game will not be smooth, which will be detrimental to the game-play and feel of the game. Overall input delay from controller to screen should remain below 200ms so that it does not result in a distraction to the player \cite{Leadbetter09}.
 
 \subsection{Resources and constraints}
 In order to setup and test various possible control schemes, a physical game controller (such as those used by the Xbox 360) is necessary. Other than that there are no special resource development requirements apart from the standard computer hardware needed to develop any software. \\
@@ -206,4 +216,9 @@ From the user's perspective, the game may require a game controller in order to 
 With regards to the hardware required to allow the game to run smoothly, the game will not be particularly complicated and will easily run on any fairly modern CPU while keeping memory requirements comparatively small. The graphical style of the game may require decent graphics processing hardware but since this can be modified at run time, multiple levels of graphical fidelity will be supported to allow the game to run on older hardware.
 
 \subsection{Feasibility}
+
+\newpage
+\begin{thebibliography}{9} 
+	\bibitem{Leadbetter09} Leadbetter, R. (2009). Console Gaming: The Lag Factor. [online] Eurogamer.net. Available at: \\http://www.eurogamer.net/articles/digitalfoundry-lag-factor-article?page=2 [Accessed 29 Jul. 2015]. 
+\end{thebibliography}
 \end{document}
