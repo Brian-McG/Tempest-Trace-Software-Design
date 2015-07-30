@@ -48,10 +48,9 @@
 		\textsc{\LARGE University of Cape Town}
 		\\[1.5cm] \textsc{\Large Software Engineering Stage One\\CSC3003S}
 		\\[0.5cm]
-		\noindent\rule[0.4mm]{\textwidth}{0.4mm}
+		\noindent\rule[0.4mm]{\textwidth}{0.1mm}
 		\\[0.4cm] { \huge \bfseries Tempest Trace \\[0.4cm] }
-		\noindent\rule[0.4mm]{\textwidth}{0.4mm}
-		\noindent
+		\noindent\rule[0.4mm]{\textwidth}{0.1mm}
 		\\[1cm]
 		\begin{minipage}[t]{0.4\textwidth}
 		\begin{flushleft}\large \emph{Authors:}\\ Brian Mc George - MCGBRI004 \\ Jacques Heunis - HNSJAC003 \\ Timothy Gwynn - GWNTIM001\end{flushleft}
@@ -159,7 +158,8 @@ Keep track of minimum, maximum and average frame rate during play testing.
 Do an in-depth analysis to determine where the inefficiencies reside and re-design that aspect or cut it from the game if it cannot be optimised.
 
 \section{Roles}
-\subsection{Jacques Heunis}
+\subsection{Fixed Roles}
+\subsubsection{Jacques Heunis}
 \textbf{Team leader}\\
 The team leader is in charge of coordinating all the team members and ensuring that the project goal remains in focus. He is also in charge of identifying problems in the project and initiating steps to deal with them.
 \smallskip\\
@@ -169,21 +169,21 @@ The most experienced developer, often consulted if other team members require as
 \textbf{Point of contact}\\
 Point of contact is in charge of managing communication with the external project members such as the visual and sound artists.
 
-\subsection{Timothy Gwynn}
+\subsubsection{Timothy Gwynn}
 \textbf{Lead game designer}\\
-Responsible for game design and input regarding game-play and mechanics, integrate art and sound into game.
+Responsible for game design and input regarding game-play and mechanics. Integrates art and sound into game.
 \smallskip\\
 \textbf{Lead level designer}\\
-In charge of overall level design, ensures that the level supports the game-play options provided by the team. Is also responsible for the robustness of the level and fixing bugs in the game world.
+In charge of overall level design; ensures that the level supports the game-play options provided by the team. Is also responsible for the robustness of the level and fixing bugs in the game world.
 
-\subsection{Brian Mc George}
+\subsubsection{Brian Mc George}
 \textbf{Lead systems analyst}\\
-The lead systems analyst is in charge of maintaining all documentation for the project and managing the development of the systems architecture.
+The lead systems analyst is in charge of maintaining all software documentation for the project and managing the development of the systems architecture.
 \smallskip\\
 \textbf{Lead artificial intelligence (AI) developer}\\
 Responsible for creating the AI which controls the non-player characters within the game. Must work closely with the level designer to ensure that the AI is equipped to handle any proposed game world changes
 
-\subsection{Floating roles}
+\subsection{Rotating roles}
 \textbf{Quality assurance}\\
 All team members will fulfil this role at some point in ensuring that both their work and the rest of the team's work is of a high quality, is bug free and is consistent with the rest of the project.
 \smallskip\\
@@ -196,8 +196,8 @@ The project is a first-person running game whereby the player competes against t
 \smallskip\\
 The purpose of our project is to complete a game that, when played, will provide the user with an enjoyable experience. The design of the game is orientated around making the player feel empowered, creating enjoyment and fun by a sort of power-trip sensation rather than through challenge or in-depth story telling. This sensation is triggered by the way in which the player's avatar is made to act out difficult but flowing motions without requiring particularly complex input, thus making the player feel as they might if they themselves were able to move in the way depicted by the game.
 \smallskip\\
-Stakeholders involved in the project are the development team, the project supervisors, and the players. \\
-The development team consists of the programming team, the art team, and a sound designer. \\
+Stakeholders involved in the project are the development team, the project supervisor and the players. \\
+The development team consists of the software development team, the art team, and a sound designer. \\
 The project supervisor is Assoc. Prof. Patrick Marais, a lecturer at UCT. \\
 The players are all the people who will eventually play the game, including (but not limited to) the development team, friends or family of the development team, the project supervisors and other development teams.
 
@@ -209,7 +209,7 @@ The functionality goals can be roughly split up into 3 categories: Player motion
 	\item The player can jump over small obstacles
 	\item The player can climb onto small-to-medium sized obstacles
 	\item While running, the player can slide along the ground to get under low-hanging obstacles
-	\item The player's avatar sports a number of animations appropriate to their movement and interaction with the world
+	\item The player's avatar sports animations appropriate to their movement and interaction with the world
 	\item The player will respawn if they get stuck or fail. The respawn location will update as the player progresses through the game.
 \end{itemize}
 \textbf{Enemy interaction}
@@ -223,22 +223,25 @@ The functionality goals can be roughly split up into 3 categories: Player motion
 	\item The game world is a clean, brightly coloured 3D environment, viewed from a first person perspective
 	\item The game supports 2-player local multiplayer where players play against each other competitively
 	\item The game features context-sensitive audio feedback which helps inform the player of their situation via both sound effects and background music
-	\item There will only be one level but it will be of a reasonable length such that the player can properly immerse themselves in the game
+	\item There will only be one level but it will take a minimum of 10 minutes to complete such that the player can properly immerse themselves in the game
+    \item A level includes an introductory narrative to give the player context.
+    \item A level flyover occurs during the introductory narrative to allow the player to plan their desired route.
 \end{itemize}
 
 \subsection{Inputs, outputs, and performance}
 The inputs, in the form of buttons and thumbsticks, come from each player's game controller and will cause their character to react in a pre-defined manner. The input from the controllers will also be used to navigate the game's main menu, pause menu and end-level screen. The outputs come in the form of player motion as described in section \ref{goals} and various user interface screens. For example, clicking a button in the main menu may start the game or may lead to a new menu. Once a level is completed, the end-level user interface will show with information regarding the play-through.\smallskip\\The game will have to run with at least 60 frames per second on the games lab computers. If the frame rate is less than 60, the game will not run smoothly, which would be detrimental to the game-play and feel of the game. Overall input delay from controller to screen should remain below 200ms so that it does not result in a distraction to the player \cite{Leadbetter09}.
 
 \subsection{Resources and constraints}
-In order to setup and test various possible control schemes, a physical game controller (such as those used by the Xbox 360) is necessary. Other than that there are no special resource development requirements apart from the standard computer hardware needed to develop any software. \\
-From the user's perspective, the game may require a game controller in order to appropriately support two local players. In addition to this, the split-screen nature of the local two-player gameplay means that screen real estate might be an issue on smaller displays, potentially warranting the recommendation that players use larger screens, or two different screens attached to a single computer. \\
+In order to setup and test various possible control schemes, two physical game controllers (such as those used by the Xbox 360) are necessary. The Unity game engine (free) is required to develop the game. Other than that there are no special resource development requirements apart from the standard computer hardware needed to develop any software. From the user's perspective, the game may require a game controller in order to appropriately support two local players. In addition to this, the split-screen nature of the local two-player gameplay means that screen real estate might be an issue on smaller displays, potentially warranting the recommendation that players use larger screens, or two different screens attached to a single computer.
+\smallskip\\
 With regards to the hardware required to allow the game to run smoothly, the game will not be particularly complicated and will easily run on any fairly modern CPU while keeping memory requirements comparatively small. The graphical style of the game may require decent graphics processing hardware but since this can be modified at run time, multiple levels of graphical fidelity will be supported to allow the game to run on older hardware.
 
 \subsection{Feasibility}
-The scope defined above is essentially realistic within the given time and given the co-operation of all team members. However, since some aspects of the game (animations, art and sound) will be outsourced, the feasibility of the end product being as polished as desired is a concern. Additionally, while the SMART goals are well defined and reachable, whether or not the game is fun and whether it feels good to play is less well defined and as such may not be entirely feasible, certainly it is not feasible that such a game will be totally enjoyed by all players.
-\newline
+The scope is realistic within the given time and given the co-operation of all team members. However, since some aspects of the game (animations, art and sound) will be outsourced, the feasibility of the end product being as polished as desired is a concern. Additionally, while the SMART goals are well defined and reachable, whether or not the game is fun and whether it feels good to play is less well defined and as such may not be entirely feasible, certainly it is not feasible that such a game will be totally enjoyed by all players.
+\smallskip\\
  Overall, if the risks stated above are correctly accounted for and handled, it is very reasonable that this project will result in a quality game that the average user will find enjoyable.
 \newpage
+
 \begin{thebibliography}{9} 
 	\bibitem{Leadbetter09} Leadbetter, R. (2009). Console Gaming: The Lag Factor. [online] Eurogamer.net. Available at: \\http://www.eurogamer.net/articles/digitalfoundry-lag-factor-article?page=2 [Accessed 29 Jul. 2015]. 
 \end{thebibliography}
