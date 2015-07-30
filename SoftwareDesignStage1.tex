@@ -69,23 +69,24 @@
 This would result in lower graphical quality in the game.
 Animations found on the internet would have to be modified to work with the game.
 \smallskip\\\textbf{Mitigation}\\
-Keep to contact with the artists to get regular progress reports and to ensure that they are working on the deliverables. Investigate alternative assets to be used if assets are not delivered.
+Keep in contact with the artists to get regular progress reports and to ensure that they are working on the deliverables. Investigate alternative assets to be used for if assets are not delivered.
 \smallskip\\\textbf{Monitoring}\\
 Track asset delivery timeline and check if there are assets which are past their expected delivery date.
 \smallskip\\\textbf{Management}\\
 Reduce the scope of the project to allow time to find art assets online and to re-purpose assets and animations to work with the game.
+
 \subsection{Data loss}
 \textbf{Category:} Development\newline
-\textbf{Probability:} low\newline
-\textbf{Impact:} Catastrophic
+\textbf{Probability:} Low\newline
+\textbf{Impact:} Critical
 \\\textbf{Consequences}\\
-If data is lost it will result in that work having to be re-done. This is delay the progress of the project and put it behind schedule. Certain features may have to be cut in order to get back on schedule to complete the project on time.
+If data is lost it will result in that work having to be re-done. This will delay project progress and put it behind schedule. Certain features may have to be cut in order to get back on schedule to complete the project on time.
 \smallskip\\\textbf{Mitigation}\\
 The project will be pushed onto a remote repository at the University of Cape Town (UCT) and each member will keep an up-to-date copy of the project on their respective machines. Each team member must push changes to the remote repository on a regular basis and pull the most recent version from the repository if other members have made a change.
 \smallskip\\\textbf{Monitoring}\\
-Check that the remote repository has the most recent version of the project.
+Keep track of the number of commits that the remote repository at UCT is behind that of the local machine and the number of commits that the local machine is behind the remote repository. The greater the number the higher the probability of data loss.  
 \smallskip\\\textbf{Management}\\
-Pull the most recent version of the project from the remote repository or a different members machine and continue working from that point.
+Pull the most recent version of the project from the remote repository or a different members machine and continue working from that point. If all the data is lost from all the locations, then the project will have to be restarted with a much smaller scope.
 
 \subsection{Underestimated complexity}
 \textbf{Category:} Development\newline
@@ -98,7 +99,7 @@ Each member should update their task progress regularly and ask for assistance f
 \smallskip\\\textbf{Monitoring}\\
 Keep track of task progress for each team member.
 \smallskip\\\textbf{Management}\\
-The scope of the project may have to be reduced to allow the project to be completed on time. 
+The scope of the project may have to be reduced to allow the project to be completed on time. Pair programming techniques may be used to make it easier to complete the complex part of the system as ideas can be bounced off one another and the pair can debug a problem together.
 
 \subsection{Loss of a team member}
 \textbf{Category:} Development\newline
@@ -109,7 +110,7 @@ The tasks assigned to the member who has fallen out will have to be absorbed by 
 \smallskip\\\textbf{Mitigation}\\
 Each member should voice their concerns and indicate early on if they are going to be away for a given time in the development process.
 \smallskip\\\textbf{Monitoring}\\
-Regular communication between team members
+Regular communication between team members and track task progress of each member to ensure that each member is making progress on their allocated task.
 \smallskip\\\textbf{Management}\\
 The scope of the project will have to be reduced to allow the project to be completed on time. 
 
@@ -118,14 +119,13 @@ The scope of the project will have to be reduced to allow the project to be comp
 \textbf{Probability:} Medium\newline
 \textbf{Impact:} Negligible
 \\\textbf{Consequences}\\
-This would result in lower sound quality in the game.
-The game would not be as original and distinct.
+This would result in lower sound quality in the game. The game would not be as original and distinct.
 \smallskip\\\textbf{Mitigation}\\
-Keep to contact with the sound artists to get regular progress reports and to ensure that they are working on the deliverables.
+Keep in contact with the sound artists to get regular progress reports and to ensure that they are working on the deliverables.
 \smallskip\\\textbf{Monitoring}\\
 Track asset delivery timeline and check if there are assets which are past their expected delivery date.
 \smallskip\\\textbf{Management}\\
-The sound effects required are retentively common and most could be sourced quite easily online.
+The sound effects required are relatively common and most could be sourced quite easily online.
 
 \subsection{Game is not enjoyable to play}
 \textbf{Category:} Gameplay\newline
@@ -136,9 +136,9 @@ This would result in a low return on investment for the project.
 \smallskip\\\textbf{Mitigation}\\
 Regular play-testing of the game and provide feedback to the team on changes to make in the next iteration.
 \smallskip\\\textbf{Monitoring}\\
-Keep track of play-test feedback from team members.
+Keep track of play-test feedback from team members and external play testers.
 \smallskip\\\textbf{Management}\\
-Rework elements of the gameplay that hinder enjoyment and possibly increase the scope of the project to add additional diversity to the game. 
+Rework or remove elements of the game-play that hinder enjoyment and possibly increase the scope of the project to add additional diversity to the game. 
 
 \subsection{Game has performance issues}
 \textbf{Category:} Development\newline
@@ -191,8 +191,8 @@ The development team consists of the programming team, the art team, and a sound
 The project supervisors are Prof. James Gain and Assoc. Prof. Patrick Marais, both lecturers at UCT. <<What about other staff, e.g at the art/sound schools>> \\
 The players are all the people who will eventually play the game, including (but not limited to) the development team, friends or family of the development team, the project supervisors and other development teams.
 
-\subsection{SMART Goals}
-The functionality goals can be roughly split up into 3 categories: Player motion, Enemy interaction, and Game world
+\subsection{SMART Goals} \label{goals}
+The functionality goals can be roughly split up into 3 categories: Player motion, Enemy interaction, and Game world:\\
 \textbf{Player motion}
 \begin{itemize}
 	\item The player can run forwards, backwards and strafe to either side
@@ -217,24 +217,7 @@ The functionality goals can be roughly split up into 3 categories: Player motion
 \end{itemize}
 
 \subsection{Inputs, outputs, and performance}
-The inputs and outputs are straight forward and recorded in the following table:
-\begin{table}[H]
-	\begin{center}
-		\noindent\makebox[\textwidth]{%
-			\begin{tabular}{|l|l|}
-				\hline
-				User Input&User Output\\
-				\hline
-				Right thumbstick moved in a given direction&The player in the game controlled by the controller moves in the given direction\\
-				Left thumbstick moved in a given direction&The player's view rotates in the given direction up to a set bounded value\\
-				Right trigger pressed&The player jumps in the direction of his movement\\
-				Left trigger pressed&The player slides in the direciton of his movement\\
-				Right bumber pressed&The player throws a smoke grenade onto the ground\\
-				\hline				
-			\end{tabular}}\caption{User inputs and expected outputs}\end{center}
-		\label{table:mem_usage}
-\end{table}
-The game will have to run with at least 60 frames per second on the games lab computers. if the the frame rate is less than 60, the game will not be smooth, which will be detrimental to the game-play and feel of the game. Overall input delay from controller to screen should remain below 200ms so that it does not result in a distraction to the player \cite{Leadbetter09}.
+The inputs, in the form of buttons and thumbsticks, come from each player's game controller and will cause their character to react in a pre-defined manner. The input from the controllers will also be used to navigate the game's main menu, pause menu and end-level screen. The outputs come in the form of player motion as described in \ref{goals} and various user interface screens. For example, clicking a button in the main menu may start the game or may lead to a new menu. Once you complete a level, the end-level user interface will show with information regarding the play-through.\smallskip\\The game will have to run with at least 60 frames per second on the games lab computers. If the frame rate is less than 60, the game will not be smooth, which will be detrimental to the game-play and feel of the game. Overall input delay from controller to screen should remain below 200ms so that it does not result in a distraction to the player \cite{Leadbetter09}.
 
 \subsection{Resources and constraints}
 In order to setup and test various possible control schemes, a physical game controller (such as those used by the Xbox 360) is necessary. Other than that there are no special resource development requirements apart from the standard computer hardware needed to develop any software. \\
