@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>500</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>*RobotEnemy*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1150</x>
+      <y>570</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*BaseWeapon*
+--
+clipSize
+fireRate
+hitDamage
+--
+fire(direction)
+reload()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>180</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonInput*
+--
+runInput
+shouldJump
+shouldDropGadget
+--
+getLatestInput()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>540</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*RobotEnemyWeapon*
+--
+--
+shouldFire()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>360</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonCameraVertical*
+--
+sensitivity
+minXAngle
+maxXAngle
+--
+updateVerticalRotation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1130</x>
+      <y>170</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*MenuController*
+--
+menuState
+--
+startGame()
+showOptionsMenu()
+quitGame()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>490</y>
+      <w>220</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;130;70;130;70;30;200;30;200;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>590</x>
+      <y>360</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonCamerHorizontal*
+--
+sensitivity
+--
+updateHorizontalRotation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>140</y>
+      <w>480</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonPlayer*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>130</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*CinematicCameraMover*
+--
+motionWaypoints[]
+movementSpeed
+--
+startMotion()
+resetTransform()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>350</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*SmokeGadgetTimer*
+--
+duration
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>730</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*SniperEnemyWeapon*
+--
+--
+shouldFire()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>910</x>
+      <y>490</y>
+      <w>310</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>290;80;290;30;30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>590</x>
+      <y>180</y>
+      <w>210</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonMovement*
+--
+movementSpeed
+jumpForce
+--
+run(runInput)
+jump(shouldJump)
+dropGadget(shouldDropGadget)
+climbOntoObstacle()
+vaultOverObstacle()
+slide()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>680</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;200;30;200;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>910</x>
+      <y>670</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240;30;30;30;30;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>580</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*BaseEnemyAI*
+--
+currentActivity
+targetPlayer
+awarenessRadius
+responseTime
+--
+searchForPlayer()
+pursuePlayer()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>690</y>
+      <w>480</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>*SniperEnemy*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>590</x>
+      <y>730</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*SniperEnemyAI*
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>590</x>
+      <y>540</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*RobotEnemyMover*
+--
+horizontalMovespeed
+verticalMovespeed
+rotateSpeed
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
