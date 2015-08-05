@@ -65,6 +65,26 @@
 \newpage
 
 \section{Use Case Narratives}
+\subsection{Player Movement}
+Actor: Player\\\\
+The player specifies which direction he/she wants the character to move in. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system and the appropriate animation is played. The system represents this graphically for both players. The system makes updates the AI behaviour based on the new position of the player. The system checks whether the player has reached the end goal and if so ends the game.\\\\
+If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
+\subsection{Player Jump}
+Actor: Player\\\\
+The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. The system represents this graphically for both players. The system makes updates the AI behaviour based on the new position of the player. The system checks whether the player has reached the end goal and if so ends the game.\\\\
+If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
+\subsection{Player Slide}
+Actor: Player\\\\
+The player specifies he/she wants the character to slide. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what slope is in front of the player and the appropriate animation is played. The system represents this graphically for both players. The system makes updates the AI behaviour based on the new position of the player. The system checks whether the player has reached the end goal and if so ends the game.\\\\
+If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
+\subsection{Player Respawn}
+Actor: Player\\\\
+The player's character dies. The system checks where the closest respawn point behind the player is. If there are no obstacles at the spawn location the player's character appears at the location and the appropriate animation is played. The system represents this graphically for both players and updates the player's character's location.  The system makes updates the AI behaviour based on the new position of the player. \\\\
+If the spawn location is blocked, prehaps by the other player or an AI unit the game will delay the respawn up to 1.5 seconds until the spawn location is cleared otherwise it will pick the next closest spawn location.
+\newpage
+\subsection{AI Behaviour}
+Actor: Time\\\\
+Every 5 seconds the AI updates it's behaviour. The AI checks with the system whether it has a target, if it has a target it then checks whether that target is in line of sight, if the target is in line of sight then the ai moves towards the target and shoots towards it if it is in range. If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets, otherwise it will proceed to it's cureent target's last seen position. If the AI has no target it will continue to patrol between predifined points until a tartget enters line of sight at which point the system will assign the AI the target.
 
 \section{Analysis Class Model}
 \begin{figure}[H]
