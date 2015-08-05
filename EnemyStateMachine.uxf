@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>1010</x>
+      <y>360</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Attacking
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>610</x>
+      <y>630</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Tracking
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>1020</x>
+      <y>550</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Switching target
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>950</x>
+      <y>370</y>
+      <w>230</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target out of line of sight and
+new target in line of sight</panel_attributes>
+    <additional_attributes>120;180;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>690</x>
+      <y>350</y>
+      <w>340</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target in line of sight</panel_attributes>
+    <additional_attributes>320;30;140;30;140;290;30;290</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>680</x>
+      <y>240</y>
+      <w>400</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target out of line of sight and no new target visible</panel_attributes>
+    <additional_attributes>30;400;40;50;380;50;380;120</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>140</y>
+      <w>154</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target in range</panel_attributes>
+    <additional_attributes>90;30;80;490</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1100</x>
+      <y>350</y>
+      <w>248</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target in line of sight</panel_attributes>
+    <additional_attributes>30;30;160;30;160;220;40;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>320</x>
+      <y>120</y>
+      <w>320</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+No target in range
+or all targets outside of designated area</panel_attributes>
+    <additional_attributes>290;530;150;530;160;30;300;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>700</x>
+      <y>540</y>
+      <w>358</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Target out of range or target use a distraction
+and new target is in range</panel_attributes>
+    <additional_attributes>320;30;190;30;190;110;30;110</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>650</x>
+      <y>560</y>
+      <w>440</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Timeout</panel_attributes>
+    <additional_attributes>30;110;30;210;420;220;420;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>620</x>
+      <y>130</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Passive
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
