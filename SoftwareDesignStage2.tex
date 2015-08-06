@@ -102,6 +102,8 @@ If the target is not in line of sight the AI checks whether the other possible t
 		\caption{An analysis class model for the predicted class/object requirements}
 	\end{center}
 \end{figure}
+Here we show the classes that we predict will need to be implemented. In the above diagram FirstPersonPlayer, RobotEnemy, and SniperEnemy are used to indicate GameObjects or Prefabs in Unity, where the outer box (e.g RobotEnemy) represents a GameObject, and the classes within (RobotEnemyMover and RobotEnemyWeapon) are components attached to that object. \\
+This is done so that the organisation and interaction of the scripts can be better communicated in a sense that closely matches the implementation. It has only been done for the more complex objects (for example CinematicCameraMover is likely to be the only script attached to the object) so as to preserve readability.
 
 \section{State Diagrams}
 \begin{figure}[H]
