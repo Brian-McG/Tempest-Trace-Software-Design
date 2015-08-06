@@ -113,7 +113,7 @@ quitGame()
       <w>210</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>*FirstPersonCamerHorizontal*
+    <panel_attributes>*FirstPersonCameraHorizontal*
 --
 sensitivity
 --
