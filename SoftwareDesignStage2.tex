@@ -72,7 +72,7 @@ If the movement is not allowed the player's character will not move and no adjus
 
 \subsection{Jump player}
 \textbf{Actor:} Player\smallskip\\
-The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played.(i.e. if there is a box/low wall in front of the player character it will vault over it, if there is a taller wall the player character will grab the top of the wall and pull itself up, if the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump) The system represents this graphically for both players and outputs appropiate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
+The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. If there is a box/low wall in front of the player character it will vault over it. If there is a taller wall the player character will grab the top of the wall and pull itself up. If the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump. The system represents this graphically for both players and outputs appropriate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
 \subsection{Slide player}
@@ -82,24 +82,28 @@ If the movement is not allowed the player's character will not move and no adjus
 
 \subsection{Respawn player}
 \textbf{Actor:} Player\smallskip\\
-The player's character dies. The system checks where the closest respawn point behind the player is. If there are no obstacles at the spawn location the player's character appears at the location and the appropriate animation is played. The system represents this graphically for both players and updates the player's character's location.  The system is updated to reflect the player's new position.\smallskip\\
-If the spawn location is blocked, prehaps by the other player or an AI unit the game will delay the respawn up to 1.5 seconds until the spawn location is cleared otherwise it will pick the next closest spawn location.
+The player's character dies. The system checks where the closest respawn point behind the player is. If there are no obstacles at the spawn location, the player's character appears at the location and the appropriate animation is played. The system represents this graphically for both players and updates the player's character's location.  The system is updated to reflect the player's new position.\smallskip\\
+If the spawn location is blocked, perhaps by the other player or an AI unit the game will delay the respawn up to 1.5 seconds until the spawn location is cleared otherwise it will pick the next closest spawn location.
 
 \subsection{Use smoke grenade}
 \textbf{Actor:} Player\smallskip\\
-The player presses the use smoke grenade button on the controller. The system checks whether the player has smoke grenades playing. If the player has smoke grenades availible the appropriate animation is displayed along with the appropriate sound effect and a new smoke cloud object is created at the player's location. Over time the smoke cloud object will shrink and eventually be removed.\smallskip\\
+The player specifies he/she wants the character to use a smoke bomb. The system checks whether the player has smoke grenades playing. If the player has smoke grenades available the appropriate animation is displayed along with the appropriate sound effect and a new smoke cloud object is created at the player's location. Over time the smoke cloud object will shrink and eventually be removed.\smallskip\\
 If the player has no smoke grenade an error sound will be played.
 
-\subsection{Update mobile AI behavior}
+\subsection{Update mobile AI behaviour}
 \textbf{Actor:} Time\smallskip\\
 Every 2 seconds the mobile AI updates its behaviour. The AI checks with the system whether it has a target, if it has a target it then checks whether that target is in line of sight, if the target is in line of sight then the AI moves towards the target. If the target is within sufficiently small distance and moving sufficiently slowly the AI will then shoot towards the target.\smallskip\\
-If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets, otherwise it will proceed to it's current target's last seen position.\smallskip\\
+If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets, otherwise it will proceed to it's current target's last seen position. If it cannot find the player at the last seen position it will timeout and return back to patrolling. \smallskip\\
 If the AI has no target it will attempt to acquire one by checking if there are any player characters in line of sight and sufficiently close, if there are none it will continue to patrol between predefined points.
 
 \subsection{Update static AI behaviour}
 \textbf{Actor:} Time\smallskip\\
-Every 0.2 seconds the static AI updates its behaviour. The AI checks with the system whether it has a target, if it has a target it then checks whether that target is in line of sight, if the target is in line of sight then the AI increases its accuracy rating. The AI will then shoot towards the target.\smallskip\\
+Every 2 seconds the static AI updates its behaviour. The AI checks with the system whether it has a target, if it has a target, it then checks whether that target is in line of sight. If the target is in line of sight, then the AI increases its accuracy rating. The AI will then shoot towards the target.\smallskip\\
 If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets and reset its accuracy rating to a default. The AI will then shoot towards the target. If neither target is in line of sight the AI will remain in a passive state with a default accuracy rating until a valid target enters its line of sight at which point it will acquire the target.
+
+\subsection{Altering Background Music}
+\textbf{Actor:} Mobile AI\smallskip\\
+AI acquires player as a target. System checks if any other mobile AI is targeting that player, if not changes the background music for the targeted player to a faster tempo track. If the player is already targeted no change to the background music for that player is made. If the AI loses track of the target and is the only mobile AI targeting that player, the player's background music is set back to the default.
 
 \section{Analysis Class Model}
 \begin{figure}[H]
@@ -146,7 +150,7 @@ Refer to \textit{TempestTraceGanttChart.pdf}
         
     \subsection{Player climbs up ledge}
     \textbf{Pre-conditions}\\
-    Obstacle is within half a metre and its height within a range of 1.5 metres to 2 metres in front of player. 
+    Obstacle is within half a metre in front of player and its height within a range of 1.5 metres to 2 metres. 
     \smallskip\\\textbf{Input}\\
     A player presses the jump button.
     \smallskip\\\textbf{Expected output}\\
@@ -154,12 +158,20 @@ Refer to \textit{TempestTraceGanttChart.pdf}
     
     \subsection{Player vaults over obstacle}
     \textbf{Pre-conditions}\\
-    Player is moving. Obstacle is within half a metre and its height is less than 1.5 metres in front of player. 
+    Player is moving. Obstacle is within half a metre in front of player and its height is less than 1.5 metres. 
     \smallskip\\\textbf{Input}\\
     A player presses the jump button.
     \smallskip\\\textbf{Expected output}\\
     The player vault animation plays and the player moves onto the top of the obstacle.
     
+    \subsection{Player cannot climb over high wall}
+    \textbf{Pre-conditions}\\
+    Player is moving. Obstacle is within half a metre in front of player and its height is more than 2 metres. 
+    \smallskip\\\textbf{Input}\\
+    A player presses the jump button.
+    \smallskip\\\textbf{Expected output}\\
+    The player jump animation plays and the player jumps forward but does not climb over wall.
+        
     \subsection{Smoke bomb deployed}
     \textbf{Pre-conditions}\\
     Player has smoke bombs remaining.
@@ -168,21 +180,13 @@ Refer to \textit{TempestTraceGanttChart.pdf}
     \smallskip\\\textbf{Expected output}\\
     The player smoke bomb throw animations plays and the bomb is thrown to the ground. When the bomb reaches the ground, a small explosion occurs and a smoke cloud covers the area.
     
-    \subsection{Sniper hits player}
+    \subsection{Sniper fires at player}
     \textbf{Pre-conditions}\\
-    Player is tracked by sniper. Player is not moving.
+    Player is tracked by sniper.
     \smallskip\\\textbf{Input}\\
     No input from player.
     \smallskip\\\textbf{Expected output}\\
-    The player is shot by the sniper after two seconds.
-    
-    \subsection{Sniper does not hit player}
-    \textbf{Pre-conditions}\\
-    Player is tracked by sniper. Player is moving at running velocity.
-    \smallskip\\\textbf{Input}\\
-    Player stays moving.
-    \smallskip\\\textbf{Expected output}\\
-    The sniper misses 66\% of shots at player.
+    The player is fire at by the sniper after two seconds.
     
     \subsection{Drone tracks player}
     \textbf{Pre-conditions}\\
@@ -191,6 +195,14 @@ Refer to \textit{TempestTraceGanttChart.pdf}
     Player stays in vision of drone for at least one second.
     \smallskip\\\textbf{Expected output}\\
     The drone tries to get within range to fire at player. The drone fires at the player when within range.
+    
+    \subsection{Drone attacks player}
+    \textbf{Pre-conditions}\\
+    Player tracked by drone. Drone within attack range.
+    \smallskip\\\textbf{Input}\\
+    Player stays in vision of drone.
+    \smallskip\\\textbf{Expected output}\\
+    The drone fires at the player.    
     
     \subsection{Music changes when tracked by AI}
     \textbf{Pre-conditions}\\
