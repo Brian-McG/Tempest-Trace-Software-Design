@@ -5,7 +5,7 @@
     <type>com.baselet.element.old.element.UseCase</type>
     <coordinates>
       <x>1080</x>
-      <y>310</y>
+      <y>290</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -17,7 +17,7 @@
     <type>com.baselet.element.old.element.UseCase</type>
     <coordinates>
       <x>680</x>
-      <y>460</y>
+      <y>440</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -28,70 +28,70 @@
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1000</x>
-      <y>310</y>
-      <w>260</w>
+      <x>1010</x>
+      <y>290</y>
+      <w>240</w>
       <h>194</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Target out of line of sight and
-new target in line of sight</panel_attributes>
-    <additional_attributes>180;30;240;150;30;150;90;30</additional_attributes>
+Target out of line of sight
+and new target in range</panel_attributes>
+    <additional_attributes>170;30;220;150;30;150;80;30</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
       <x>760</x>
-      <y>300</y>
+      <y>280</y>
       <w>340</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Target in line of sight</panel_attributes>
+Target in line of sight and
+target within attack range</panel_attributes>
     <additional_attributes>320;30;140;30;140;170;30;170</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>750</x>
-      <y>180</y>
-      <w>360</w>
+      <x>740</x>
+      <y>160</y>
+      <w>382</w>
       <h>310</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Target out of line of sight and no new target visible</panel_attributes>
-    <additional_attributes>30;290;30;50;340;50;340;140</additional_attributes>
+Target out of line of sight and no new target in range</panel_attributes>
+    <additional_attributes>40;290;40;50;350;50;350;140</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
       <x>400</x>
-      <y>300</y>
+      <y>280</y>
       <w>360</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-Target in range</panel_attributes>
+Target in line of sight</panel_attributes>
     <additional_attributes>30;120;30;50;340;50;340;160</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
       <x>400</x>
-      <y>430</y>
+      <y>410</y>
       <w>340</w>
-      <h>214</h>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-No target in range
-or all targets outside of designated area</panel_attributes>
+Timeout</panel_attributes>
     <additional_attributes>320;70;320;170;30;170;30;30</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
       <x>700</x>
-      <y>460</y>
+      <y>440</y>
       <w>400</w>
       <h>214</h>
     </coordinates>
@@ -104,7 +104,7 @@ and new target is in range</panel_attributes>
     <type>com.baselet.element.old.element.UseCase</type>
     <coordinates>
       <x>380</x>
-      <y>420</y>
+      <y>400</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
