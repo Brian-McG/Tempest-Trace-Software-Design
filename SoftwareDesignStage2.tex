@@ -191,5 +191,21 @@ Refer to \textit{TempestTraceGanttChart.pdf}
     Player stays in vision of drone for at least one second.
     \smallskip\\\textbf{Expected output}\\
     The drone tries to get within range to fire at player. The drone fires at the player when within range.
+    
+    \subsection{Music changes when tracked by AI}
+    \textbf{Pre-conditions}\\
+    Not currently tracked by AI.
+    \smallskip\\\textbf{Input}\\
+    Player moves into vision of AI.
+    \smallskip\\\textbf{Expected output}\\
+    The player gets tracked by AI. Once tracked, the music transitions over three seconds to the intense music.
+    
+    \subsection{Music changes when no longer tracked by AI}
+    \textbf{Pre-conditions}\\
+    Currently tracked by AI.
+    \smallskip\\\textbf{Input}\\
+    Player stays out of sight of AI.
+    \smallskip\\\textbf{Expected output}\\
+    The drone state times out and transitions to passive state. Music transitions over three seconds to calm invigorating music.
         
 \end{document}
