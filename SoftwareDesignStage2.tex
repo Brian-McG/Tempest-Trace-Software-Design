@@ -72,7 +72,7 @@ If the movement is not allowed the player's character will not move and no adjus
 
 \subsection{Jump player}
 \textbf{Actor:} Player\smallskip\\
-The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. The system represents this graphically for both players and outputs appropiate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
+The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played.(i.e. if there is a box/low wall in front of the player character it will vault over it, if there is a taller wall the player character will grab the top of the wall and pull itself up, if the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump) The system represents this graphically for both players and outputs appropiate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
 \subsection{Slide player}
