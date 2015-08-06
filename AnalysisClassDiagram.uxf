@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="12.0">
+<diagram program="umlet" version="13.3">
   <zoom_level>10</zoom_level>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>570</x>
-      <y>500</y>
+      <x>540</x>
+      <y>510</y>
       <w>480</w>
       <h>160</h>
     </coordinates>
@@ -13,10 +13,10 @@
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
       <x>1150</x>
-      <y>570</y>
+      <y>580</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -31,27 +31,25 @@ reload()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>820</x>
-      <y>180</y>
+      <x>790</x>
+      <y>300</y>
       <w>210</w>
-      <h>100</h>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>*FirstPersonInput*
+    <panel_attributes>*FirstPersonInventory*
 --
-runInput
-shouldJump
-shouldDropGadget
+availableGadgets
 --
-getLatestInput()</panel_attributes>
+dropGadget(shouldDropGadget)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>820</x>
-      <y>540</y>
+      <x>790</x>
+      <y>550</y>
       <w>210</w>
       <h>60</h>
     </coordinates>
@@ -62,10 +60,10 @@ shouldFire()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>820</x>
-      <y>360</y>
+      <x>560</x>
+      <y>370</y>
       <w>210</w>
       <h>110</h>
     </coordinates>
@@ -79,10 +77,10 @@ updateVerticalRotation()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1130</x>
-      <y>170</y>
+      <x>180</x>
+      <y>350</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -97,21 +95,21 @@ quitGame()
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>480</x>
-      <y>490</y>
-      <w>220</w>
-      <h>150</h>
+      <x>360</x>
+      <y>500</y>
+      <w>310</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;130;70;130;70;30;200;30;200;50</additional_attributes>
+    <additional_attributes>30;140;160;140;160;30;290;30;290;50</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>590</x>
-      <y>360</y>
+      <x>790</x>
+      <y>400</y>
       <w>210</w>
       <h>80</h>
     </coordinates>
@@ -123,10 +121,10 @@ updateHorizontalRotation()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>570</x>
-      <y>140</y>
+      <x>540</x>
+      <y>150</y>
       <w>480</w>
       <h>350</h>
     </coordinates>
@@ -134,10 +132,10 @@ updateHorizontalRotation()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>300</x>
-      <y>130</y>
+      <x>180</x>
+      <y>140</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -151,14 +149,14 @@ resetTransform()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>300</x>
-      <y>350</y>
+      <x>1160</x>
+      <y>260</y>
       <w>210</w>
-      <h>190</h>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>*SmokeGadgetTimer*
+    <panel_attributes>*GadgetTimer*
 --
 duration
 --
@@ -166,10 +164,10 @@ duration
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>820</x>
-      <y>730</y>
+      <x>790</x>
+      <y>740</y>
       <w>210</w>
       <h>60</h>
     </coordinates>
@@ -180,21 +178,21 @@ shouldFire()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>910</x>
-      <y>490</y>
-      <w>310</w>
+      <x>880</x>
+      <y>500</y>
+      <w>340</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>290;80;290;30;30;30;30;50</additional_attributes>
+    <additional_attributes>320;80;320;30;30;30;30;50</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>590</x>
-      <y>180</y>
+      <x>560</x>
+      <y>190</y>
       <w>210</w>
       <h>170</h>
     </coordinates>
@@ -205,39 +203,39 @@ jumpForce
 --
 run(runInput)
 jump(shouldJump)
-dropGadget(shouldDropGadget)
+
 climbOntoObstacle()
 vaultOverObstacle()
 slide()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>480</x>
-      <y>680</y>
-      <w>220</w>
+      <x>360</x>
+      <y>690</y>
+      <w>310</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;200;30;200;50</additional_attributes>
+    <additional_attributes>30;30;290;30;290;50</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>910</x>
-      <y>670</y>
-      <w>260</w>
+      <x>880</x>
+      <y>680</y>
+      <w>290</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>240;30;30;30;30;60</additional_attributes>
+    <additional_attributes>270;30;30;30;30;60</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>300</x>
-      <y>580</y>
+      <x>180</x>
+      <y>560</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -254,10 +252,10 @@ pursuePlayer()
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>570</x>
-      <y>690</y>
+      <x>540</x>
+      <y>700</y>
       <w>480</w>
       <h>130</h>
     </coordinates>
@@ -265,10 +263,10 @@ pursuePlayer()
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>590</x>
-      <y>730</y>
+      <x>560</x>
+      <y>740</y>
       <w>210</w>
       <h>60</h>
     </coordinates>
@@ -279,10 +277,10 @@ pursuePlayer()
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>590</x>
-      <y>540</y>
+      <x>560</x>
+      <y>550</y>
       <w>210</w>
       <h>100</h>
     </coordinates>
@@ -293,6 +291,73 @@ verticalMovespeed
 rotateSpeed
 --
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>210</y>
+      <w>180</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..1
+targets &gt;</panel_attributes>
+    <additional_attributes>10.0;390.0;80.0;390.0;80.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>310</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+spawns &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1600</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>790</x>
+      <y>190</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonInput*
+--
+runInput
+shouldJump
+shouldDropGadget
+--
+getLatestInput()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>210</y>
+      <w>280</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>*SmokeGadget*</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
