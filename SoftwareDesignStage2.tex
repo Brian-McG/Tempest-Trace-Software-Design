@@ -102,8 +102,8 @@ Every 2 seconds the static AI updates its behaviour. The AI checks with the syst
 If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets and reset its accuracy rating to a default. The AI will then shoot towards the target. If neither target is in line of sight the AI will remain in a passive state with a default accuracy rating until a valid target enters its line of sight at which point it will acquire the target.
 
 \subsection{Altering Background Music}
-\textbf{Actor:} Mobile AI\smallskip\\
-AI acquires player as a target. System checks if any other mobile AI is targeting that player, if not changes the background music for the targeted player to a faster tempo track. If the player is already targeted no change to the background music for that player is made. If the AI loses track of the target and is the only mobile AI targeting that player, the player's background music is set back to the default.
+\textbf{Actor:} AI Agent\smallskip\\
+AI agent acquires player as a target. It notifies music system that it is tracking player. If the player is tracked, the music system transitions the background music for the targeted player to a faster tempo track. If the player is already targeted no change is made to the background music for that player. If the AI loses track of the target, it notifies the music system that it is no longer tracking the player. If it is the only AI agent targeting that player, the music system transitions the player's background music back to the default.
 
 \section{Analysis Class Model}
 \begin{figure}[H]
