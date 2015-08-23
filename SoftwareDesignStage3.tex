@@ -240,5 +240,39 @@ Status: Pass
 
 \subsection{Environment}
 \subsubsection{Aircon vent expels steam to slow player - \textit{Brian Mc George}}
-The aircon is activated by pressing a button on the 
+The aircon is activated by pressing a switch in the area. When activated, the aircon expels hot steam which slows the player down and decreases their vision if they interact with the steam. It uses two different parameters for slowing down and speeding up the player. This activity is fully implemented.
+\smallskip\\\textbf{Tests prepaired}\\
+Description: Player only slowed when the aircon is active.\\
+Expected Result: Player is slowed.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Steam only shows if aircon is active.\\
+Expected Result: Steam effect expelled from aircon vent.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player is not slowed when the aircon is not active.\\
+Expected Result: Player is not slowed.\\
+Actual Result: As expected.\\
+Status: Pass
+
+\subsubsection{Level Design - \textit{Timothy Gwynn and Brian Mc George}}
+85\% of level designed during report period. 
+
+\subsubsection{Level creation - \textit{Timothy Gwynn}}
+70\% of basic world created with 50\% of the props placed in the world. Majority of the world textures and normal mapping still need to be placed. Some of the colliders are outstanding.
+
+\subsection{Head-up display (HUD)}
+\subsubsection{Time - \textit{Brian Mc George}}
+The HUD displays the current time. The time on the HUD updates. This feature needs to be expanded to two players.
+\subsubsection{Position - \textit{Brian Mc George}}
+The HUD currently displays a place-holder position. The calculation of position still needs to be calculated.
+\subsubsection{Dynamic movement - \textit{Brian Mc George}}
+The HUD sways from side to side when the player runs and is grounded. The HUD sway speed and amount is configurable.
+\smallskip\\\textbf{Tests prepaired}\\
+Description: HUD only sways when player is grounded.\\
+Expected Result: HUD sways from side to side.\\
+Actual Result: As expected.\\
+Status: Pass
 \end{document}
