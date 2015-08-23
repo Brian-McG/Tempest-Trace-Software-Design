@@ -280,6 +280,18 @@ Status: Pass
 \subsubsection{Intro fly over script - \textit{Brian Mc George}}
 Takes a set of empty game objects and lerps the camera to each object's position and rotation in turn. The functionality is complete. Once the world is finalised the final flyover way-points and speed of fly over will be set.
 
+\section{Planned activities for the next period}
+\subsection{Complete layout and construction of levels}
+The creation of levels has been progressing well but is not yet complete. Level creation will continue as it has been, until all levels have been constructed to a reasonable degree. Finer details such as texturing and tessellation will be deferred to a slightly later period. 
+\subsection{Implement support for local multiplayer}
+In order to satisfy one of the original project requirements, the game needs to be playable by multiple players simultaneously. To do this the project will support split-screen local multiplayer for 2 players. The addition of multiplayer support also allows for the testing of more complex aspects of level design and player interaction.
+\subsection{Continue tuning and smoothing of player movement}
+Most player movements and interactions have been implemented but more work is needed to ensure that it feels smooth fits well into the environment. This is essential in order to achieve the primary goal of the game's design which is making the players feel immersed and empowered.
+\subsection{Implement the functionality for enemies and AI}
+Enemy assets and behaviour have yet to be included and are a necessary component to the feel and pacing of the game. This is also important in order for the project to satisfy one of the original requirements for the existence and actions of in-game enemies.
+\subsection{Link up player animations to player movement}
+As above, most player movements and interactions have been implemented, but they have yet to be linked with their associated animations. At the time of writing we have received some (but not all) of the necessary animation assets from the artists and they are on schedule to deliver those that remain.
+
 \section{Problems}
 \subsection{Player camera unexpectedly low (Resolved)}
 The player view was located near the bottom of the player controller capsule which caused many obstacles to appear much larger than intended. This was resolved by adding a y-offset to the camera to raise it to a more realistic height.
@@ -300,5 +312,5 @@ The assets from artists do not come with colliders so the player cannot interact
 The crane does not appear to be a solid surface and has a central tower in the middle both of which make using it as a path during gameplay unintuitive. The artists have been asked to redesign this asset.
 
 \section{Revised Schedule and Goals}
-Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage: head-up display, checkpoints, re-spawn, motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
+Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage such as the heads-up display, checkpoints, re-spawn, motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
 \end{document}
