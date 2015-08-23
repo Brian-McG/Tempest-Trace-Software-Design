@@ -74,7 +74,7 @@
 \subsection{Player}
 \subsubsection{Movement - \textit{Jacques Heunis}}
 The player can move within the world. The player can collide with objects in the world. The movement speed is configurable. The integration of the run animation is currently outstanding regarding this activity.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: Move player forward with no obstruction in the given direction.\\
 Expected Result: Player moves forward at the speed configured.\\
 Actual Result: As expected.\\
@@ -95,50 +95,50 @@ Expected Result: Player moves backwards at the speed configured.\\
 Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Move player forwards with obstruction in front of player.\\
+Description: Move player forwards with an obstruction in the given direction.\\
 Expected Result: Player moves forwards at the speed configured until its collider connects with the obstruction, the player can then no longer move forward.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Move player left with obstruction in front of player.\\
-Expected Result: Player moves left at the speed configured until its collider connects with the obstruction, the player can then no longer move forward.\\
-Actual Result:  As expected.\\
+Description: Move player left with an obstruction in the given direction.\\
+Expected Result: Player moves left at the speed configured until its collider connects with the obstruction, the player can then no longer move left.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Move player right with obstruction in front of player.\\
-Expected Result: Player moves right at the speed configured until its collider connects with the obstruction, the player can then no longer move forward.\\
-Actual Result:  As expected.\\
+Description: Move player right with an obstruction in the given direction.\\
+Expected Result: Player moves right at the speed configured until its collider connects with the obstruction, the player can then no longer move right.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Move player backwards with obstruction in front of player.\\
-Expected Result: Player moves backwards at the speed configured until its collider connects with the obstruction, the player can then no longer move forward.\\
-Actual Result:  As expected.\\
+Description: Move player backwards with an obstruction in the given direction.\\
+Expected Result: Player moves backwards at the speed configured until its collider connects with the obstruction, the player can then no longer move backwards.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Run animation players in direction of movement.\\
+Description: Run animation plays in direction of movement.\\
 Expected Result: The run animation plays and makes player model look as if it is running in the given direction\\
 Actual Result: No animation plays\\
 Status: Failure
 \subsubsection{Look - \textit{Jacques Heunis}}
-The player can look within the world. The vertical look is locked to a configurable angle to be realistic. The head movement of the look is currently outstanding.
-\smallskip\\\textbf{Tests prepaired}\\
+The player can look within the world. The vertical look is locked to a configurable angle to be realistic. The head movement is currently outstanding.
+\smallskip\\\textbf{Tests prepared}\\
 Description: Player can can turn full 360 degrees horizontally\\
 Expected Result: Players view turns horizontally by a configurable angle in the direction of the horizontal mouse movement.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Player can can turn head up to a bounded angle vertically\\
-Expected Result: Player view turns vertically by a configurable angle in the direction of the vertical mouse movement. The the players vertical view angle is prevented from exceeding the defined range\\
-Actual Result:  As expected.\\
+Expected Result: Player view turns vertically by a configurable angle in the direction of the vertical mouse movement. The players vertical view angle is prevented from exceeding the defined range\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Player faces direction of look\\
+Description: Player head faces direction of look\\
 Expected Result: Player head looks in the direction of the view.\\
 Actual Result:  Head remains static.\\
 Status: Failure
 \subsubsection{Vault - \textit{Jacques Heunis}}
 The player can vault over objects which are under a defined height (currently 1 metre) and are under a defined distance (currently 3 metres). The player must be running at least a defined speed (currently 5 metres per second) to initiate the vault action. The control of the player is taken away during the vault action. The integration of the vault animation is currently outstanding regarding this activity.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: Player can vault over object that is less than 1 metre high and has a distance that is less than 3 metres and is moving at least 5 metres per second. \\
 Expected Result: Player vaults over object.\\
 Actual Result:  As expected.\\
@@ -151,7 +151,7 @@ Status: Pass
 \smallskip\\
 Description: Player can not vault over object that is more than 1 metre high\\
 Expected Result: Player initiates a climb if it meets the climb parameters else initiates a jump.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Player vault animation plays if vault action initiated\\
@@ -160,7 +160,7 @@ Actual Result:  No animation plays.\\
 Status: Failure
 \subsubsection{Jump - \textit{Jacques Heunis}}
 The player can jump if no other contextual action is available. Player jumps a defined amount upwards if the player is stationary. The player jumps a defined amount in the direction of movement if the player is moving. The integration of the  jump animation is outstanding regarding this activity.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: The player jumps upwards if no other contextual action available and player is stationary. \\
 Expected Result: Player jumps upwards.\\
 Actual Result:  As expected.\\
@@ -168,40 +168,40 @@ Status: Pass
 \smallskip\\
 Description: The player jumps in direction of motion if no other contextual action available and player is moving. \\
 Expected Result: Player jumps in direction of motion.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: The player jumps animation plays if player jumps. \\
+Description: The player jump animation plays if player jumps. \\
 Expected Result: Jump animation plays.\\
 Actual Result:  No animation plays.\\
 Status: Failure
 \subsubsection{Climb - \textit{Jacques Heunis}}
-The player climbs if it does not match the parameters of a vault and the object is less than a defined height (currently 3.05 metres). The player climbs up and onto the object on which the climb was initiated. The climb takes control away from the player during the action. The integration of the climb animation is outstanding regarding this activity.\smallskip\\\textbf{Tests prepaired}\\
-Description: The player climbs object in front of player if it is unable to initiate a vault on the object and it is less than 3.05 metres tall. \\
+The player climbs if it does not match the parameters of a vault and the object is less than a defined height (currently 3.05 metres). The player climbs up and onto the object on which the climb was initiated. The climb takes control away from the player during the action. The integration of the climb animation is outstanding regarding this activity.\smallskip\\\textbf{Tests prepared}\\
+Description: The player climbs the object in front of it if it is unable to initiate a vault on the object and it is less than 3.05 metres tall. \\
 Expected Result: Player climbs object.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: The player climbs animation plays if player jumps. \\
-Expected Result: Jump animation plays.\\
+Description: The player climbs animation plays during a climb. \\
+Expected Result: Climb animation plays.\\
 Actual Result:  No animation plays.\\
 Status: Failure
 \subsubsection{Slide - \textit{Jacques Heunis}}
 The player slides if initiated by the player. The player can only slide if grounded. The player goes closer the the ground during the slide. The players velocity decreases during the slide. This activity is not yet completed. The gradient of the slope needs to affect the player slide velocity. The slide animation needs to be implemented.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: Slide can only be initiated when the player is grounded and is not in a different action\\
 Expected Result: Player slides.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Slide decreases player velocity at a defined rate. \\
 Expected Result: Player slows down during slide.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
-Description: Slide can only be initiated during if player is moving above a defined amount. \\
+Description: Slide can only be initiated if player is moving above a defined amount. \\
 Expected Result: Player slides if moving above defined amount. Else, player does not slide\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Slide animation plays if a slide is initiated. \\
@@ -209,16 +209,16 @@ Expected Result: Player slide animation plays which makes the model look as if i
 Actual Result: No animation plays.\\
 Status: Failure
 \subsubsection{Re-spawn - \textit{Brian Mc George}}
-The player will automatically re-spawn at the the last checkpoint reached. The re-spawn triggers at a defined vertical velocity (currently 15 metres per second). The screen starts to dim once triggered, once the screen dims to a defined value the player then re-spawns at the last checkpoint reached. The screen then clears at a defined rate. This activity still needs to be implemented for coop. The 
-\smallskip\\\textbf{Tests prepaired}\\
+The player will automatically re-spawn at the the last checkpoint reached. The re-spawn triggers at a defined vertical velocity (currently 15 metres per second). The screen starts to dim once triggered, once the screen dims to a defined value the player then re-spawns at the last checkpoint reached. The screen then clears at a defined rate. This activity still needs to be implemented for coop.
+\smallskip\\\textbf{Tests prepared}\\
 Description: Screen dims when the velocity the player is falling at a defined rate\\
 Expected Result: Screen starts to dim.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Screen clears when the velocity the player is not falling at a defined rate\\
 Expected Result: Screen starts to clear.\\
-Actual Result:  As expected.\\
+Actual Result: As expected.\\
 Status: Pass
 \smallskip\\
 Description: Player re-spawns when the screen dims beyond a defined amount\\
@@ -226,8 +226,8 @@ Expected Result: Player re-spawns at last checkpoint reached and screen clears.\
 Actual Result: As expected.\\
 Status: Pass
 \subsubsection{Checkpoints - \textit{Brian Mc George}}
-When the player reaches a defined checkpoint, if that checkpoint has not been reached before, the system updates the latest checkpoint and sets it to that checkpoint. The adds that checkpoint to the set of checkpoints reached already. The functionality is complete for both players. Checkpoints need to be added to the new parts of the level.
-\smallskip\\\textbf{Tests prepaired}\\
+When the player reaches a defined checkpoint, if that checkpoint has not been reached before, the system updates the latest checkpoint and sets it to that checkpoint. The system adds that checkpoint to the set of checkpoints reached already. The functionality is complete for both players. Checkpoints need to be added to the new parts of the level.
+\smallskip\\\textbf{Tests prepared}\\
 Description: Latest checkpoint updates if the players reaches a checkpoint not in set of checkpoints reached.\\
 Expected Result: Latest checkpoint set as the current checkpoint reached.\\
 Actual Result: As expected.\\
@@ -241,7 +241,7 @@ Status: Pass
 \subsection{Environment}
 \subsubsection{Aircon vent expels steam to slow player - \textit{Brian Mc George}}
 The aircon is activated by pressing a switch in the area. When activated, the aircon expels hot steam which slows the player down and decreases their vision if they interact with the steam. It uses two different parameters for slowing down and speeding up the player. This activity is fully implemented.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: Player only slowed when the aircon is active.\\
 Expected Result: Player is slowed.\\
 Actual Result: As expected.\\
@@ -270,7 +270,7 @@ The HUD displays the current time. The time on the HUD updates. This feature nee
 The HUD currently displays a place-holder position. The calculation of position still needs to be calculated.
 \subsubsection{Dynamic movement - \textit{Brian Mc George}}
 The HUD sways from side to side when the player runs and is grounded. The HUD sway speed and amount is configurable.
-\smallskip\\\textbf{Tests prepaired}\\
+\smallskip\\\textbf{Tests prepared}\\
 Description: HUD only sways when player is grounded.\\
 Expected Result: HUD sways from side to side.\\
 Actual Result: As expected.\\
@@ -278,8 +278,8 @@ Status: Pass
 
 \subsection{Miscellaneous}
 \subsubsection{Intro fly over script - \textit{Brian Mc George}}
-Takes a set of empty game objects and lerps the camera to each objects position and rotation in turn. The functionality is complete. Once the world is finalised the final objects and speed of fly over will be set. 
+Takes a set of empty game objects and lerps the camera to each objects position and rotation in turn. The functionality is complete. Once the world is finalised the final flyover way-points and speed of fly over will be set. 
 
 \section{Revised Schedule and Goals}
-Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage: head-up display, checkpoints, re-spawn, Motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
+Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage: head-up display, checkpoints, re-spawn, motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
 \end{document}
