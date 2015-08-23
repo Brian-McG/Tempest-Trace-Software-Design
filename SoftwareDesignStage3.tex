@@ -282,4 +282,24 @@ Takes a set of empty game objects and lerps the camera to each objects position 
 
 \section{Revised Schedule and Goals}
 Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage: head-up display, checkpoints, re-spawn, Motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
+
+\section{Problems}
+\subsection{Player camera unexpectedly low (Resolved)}
+The player view was located near the bottom of the player controller capsule which caused many obstacles to appear much larger than intended. This was resolved by adding a y-offset to the camera to raise it to a more realistic height.
+
+\subsection{Player Vault caused player to get stuck in objects (Resolved)}
+The vault mechanic would sometimes drop a player into an object if it was too wide. This was resolved by doing a check on how wide the object being vaulted over was.
+
+\subsection{Player vault does not shrink the player collider vertically as intended (Unresolved)}
+This means that the player controller may be unable to vault over objects in enviroments with a low barrier above such as the passage. Will be fixed when animations are added to the player controller.
+
+\subsection{Player can "climb" through walls (Unresolved)}
+Some objects close to walls are a suitable height for the player to climb onto. Since the climb mechanic forces the player controller to move forward as well this can result in the player moving through thin walls. Should be resolved by labelling such objects as unclimbable.
+
+\subsection{Art assets have no colliders (Partially Resolved)}
+The assets from artists do not come with colliders so the player cannot interact with them. Resolved by manually adding colliders to art assets and creating prefabs
+
+\subsection{No way for the player to run along top of crane (Unresolved)}
+The crane does not appear to be a solid surface and has a central tower in the middle both of which make using it as a path during gameplay unintuitive. The artists have been asked to redesign this asset.
+
 \end{document}
