@@ -9,7 +9,7 @@
 %**************************************************************************************************
 \usepackage{amsmath, amsthm, amsfonts, amssymb}
 \usepackage{graphicx,color}
-\usepackage{bm}	
+\usepackage{bm}
 \usepackage{float}
 \usepackage{caption, subcaption}
 %\usepackage{vector}
@@ -40,11 +40,11 @@
 
 
 %**************************************************************************************************
-% MAIN DOCUMENT 
+% MAIN DOCUMENT
 %**************************************************************************************************
 
 \begin{document}
-\begin{titlepage} \begin{center} 
+\begin{titlepage} \begin{center}
 		\textsc{\LARGE University of Cape Town}
 		\\[1.5cm] \textsc{\Large Software Engineering Stage Three} \\\smallskip
         \textsc{\Large Progress Report} \\\smallskip
@@ -60,10 +60,10 @@
 		\begin{flushleft}\large \emph{Authors:}\\ Brian Mc George - MCGBRI004 \\ Jacques Heunis - HNSJAC003 \\ Timothy Gwynn - GWYTIM001
         \\[2cm]
             \end{flushleft}
-		 \end{minipage} \begin{minipage}[t]{0.4\textwidth} 
+		 \end{minipage} \begin{minipage}[t]{0.4\textwidth}
 		\begin{flushright} \large \emph{Supervisor:} \\ Assoc. Prof.~Patrick Marais\\patrick@cs.uct.ac.za\end{flushright}
 		\begin{flushright} \large \emph{Tutor:} \\ Codie Roelf\\Codie.Roelf@alumni.uct.ac.za\end{flushright}
-		 \end{minipage} 
+		 \end{minipage}
 		\end{center}
 		\end{titlepage}
 \newpage
@@ -258,7 +258,7 @@ Actual Result: As expected.\\
 Status: Pass
 
 \subsubsection{Level Design - \textit{Timothy Gwynn and Brian Mc George}}
-85\% of level designed during report period. 
+85\% of level designed during report period.
 
 \subsubsection{Level creation - \textit{Timothy Gwynn}}
 70\% of basic world created with 50\% of the props placed in the world. Majority of the world textures and normal mapping still need to be placed. Some of the colliders are outstanding.
@@ -278,7 +278,26 @@ Status: Pass
 
 \subsection{Miscellaneous}
 \subsubsection{Intro fly over script - \textit{Brian Mc George}}
-Takes a set of empty game objects and lerps the camera to each objects position and rotation in turn. The functionality is complete. Once the world is finalised the final flyover way-points and speed of fly over will be set. 
+Takes a set of empty game objects and lerps the camera to each object's position and rotation in turn. The functionality is complete. Once the world is finalised the final flyover way-points and speed of fly over will be set.
+
+\section{Problems}
+\subsection{Player camera unexpectedly low (Resolved)}
+The player view was located near the bottom of the player controller capsule which caused many obstacles to appear much larger than intended. This was resolved by adding a y-offset to the camera to raise it to a more realistic height.
+
+\subsection{Player Vault caused player to get stuck in objects (Resolved)}
+The vault mechanic would sometimes drop a player into an object if it was too wide. This was resolved by doing a check on how wide the object being vaulted over was.
+
+\subsection{Player vault does not shrink the player collider vertically as intended (Unresolved)}
+This means that the player controller may be unable to vault over objects in environments with a low barrier above such as the passage. Will be fixed when animations are added to the player controller.
+
+\subsection{Player can "climb" through walls (Unresolved)}
+Some objects close to walls are a suitable height for the player to climb onto. Since the climb mechanic forces the player controller to move forward as well this can result in the player moving through thin walls. Should be resolved by labelling such objects as un-climbable.
+
+\subsection{Art assets have no colliders (Partially Resolved)}
+The assets from artists do not come with colliders so the player cannot interact with them. Resolved by manually adding colliders to art assets and creating prefabs
+
+\subsection{No way for the player to run along top of crane (Unresolved)}
+The crane does not appear to be a solid surface and has a central tower in the middle both of which make using it as a path during gameplay unintuitive. The artists have been asked to redesign this asset.
 
 \section{Revised Schedule and Goals}
 Please see updated Gantt chart, \textit{TempestTraceGanttChart.pdf}. Some deliverables were not thought of at the last stage: head-up display, checkpoints, re-spawn, motion blur and head bob. The level creation has taken longer than expected and more time has been allocated to the task.
