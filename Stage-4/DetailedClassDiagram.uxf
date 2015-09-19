@@ -423,7 +423,7 @@ __+exportLevelGeomtry(filename: string)__</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>256</x>
+      <x>240</x>
       <y>1728</y>
       <w>224</w>
       <h>64</h>
@@ -512,9 +512,9 @@ __+exportLevelGeomtry(filename: string)__</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>328</x>
+      <x>312</x>
       <y>1648</y>
-      <w>104</w>
+      <w>110</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -603,7 +603,7 @@ m2=1
     <coordinates>
       <x>1048</x>
       <y>1584</y>
-      <w>104</w>
+      <w>110</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -617,7 +617,7 @@ m2=1
     <coordinates>
       <x>1176</x>
       <y>1584</y>
-      <w>96</w>
+      <w>98</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -631,7 +631,7 @@ m2=1
     <coordinates>
       <x>1192</x>
       <y>1456</y>
-      <w>120</w>
+      <w>122</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -643,16 +643,16 @@ fires&gt;</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>368</x>
+      <x>448</x>
       <y>1592</y>
-      <w>1200</w>
+      <w>1120</w>
       <h>456</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 fires&gt;</panel_attributes>
-    <additional_attributes>24;200;24;440;1184;440;1184;24</additional_attributes>
+    <additional_attributes>24;80;24;440;1104;440;1104;24</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -692,7 +692,7 @@ fires&gt;</panel_attributes>
     <coordinates>
       <x>376</x>
       <y>1208</y>
-      <w>888</w>
+      <w>894</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -706,7 +706,7 @@ m2=1
     <coordinates>
       <x>1104</x>
       <y>1200</y>
-      <w>72</w>
+      <w>76</w>
       <h>152</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -720,8 +720,8 @@ m2=0..*
     <coordinates>
       <x>144</x>
       <y>1048</y>
-      <w>560</w>
-      <h>488</h>
+      <w>568</w>
+      <h>496</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
@@ -1512,7 +1512,7 @@ notifies of targeting player&gt;</panel_attributes>
     <coordinates>
       <x>920</x>
       <y>1584</y>
-      <w>136</w>
+      <w>142</w>
       <h>280</h>
     </coordinates>
     <panel_attributes>lt=-
