@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>130</x>
+      <y>230</y>
+      <w>510</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Domain
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>260</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>160</x>
+      <y>290</y>
+      <w>80</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Look
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>30</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>World
+--
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>310</x>
+      <y>30</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Heads-up Display
+--
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>470</x>
+      <y>30</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Menus
+--
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>120</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Game Input
+--
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>130</x>
+      <y>0</y>
+      <w>500</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>User Interface
+--
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>250</x>
+      <y>290</y>
+      <w>90</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Movement
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>160</x>
+      <y>350</y>
+      <w>80</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Health
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>450</x>
+      <y>420</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Artificial Intelligence
+--
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>460</x>
+      <y>450</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Drone
+--
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>540</x>
+      <y>450</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Sniper
+--
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>370</x>
+      <y>260</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Interactables
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>380</x>
+      <y>290</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Aircon
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>460</x>
+      <y>290</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Door
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>540</x>
+      <y>290</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Elavator
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>380</x>
+      <y>350</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Smoke Bomb
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>420</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Game Start
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>260</x>
+      <y>420</y>
+      <w>90</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Game End
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>150</x>
+      <y>480</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Camera Effects
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>130</x>
+      <y>570</y>
+      <w>510</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Engine
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>160</x>
+      <y>610</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Animations
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>320</x>
+      <y>610</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Physics
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>470</x>
+      <y>610</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Rendering
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>160</x>
+      <y>710</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Sound
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>360</x>
+      <y>420</y>
+      <w>80</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Sound
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>290</x>
+      <y>480</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Checkpoint
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>190</y>
+      <w>130</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>20.0;400.0;20.0;370.0;110.0;370.0;110.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>190</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>530</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
