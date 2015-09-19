@@ -1,4 +1,9 @@
 \documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{color}
+\usepackage{bm}	
+\usepackage{float}
+\usepackage{caption, subcaption}
 \usepackage{times}
 \usepackage{fancyhdr}           % Allows better control over headers and footers
 %\usepackage{layout}            % use with \layout to see the page layout for
@@ -139,7 +144,22 @@ class hierarchy diagram.
 
 \subsection{Design Overview}
 \label{ss:design-overview}
-
+\subsubsection{Introduction}
+The system has made use of a number of design patterns to facilitate re-usability and scalability. Specifically the classes relating to the player, since two players are present in the game. As well as the artificial intelligence where there may be several drones or snipers active in the game at a given time. The classes have also been designed to allow tweaking of their internal variables on the fly via the Unity editor. This allows one to make changes to various variables during the game to immediately see the effect the change has on the game. This significantly speeds up the rate at which the game can be balanced and the optimal parameters can be found.
+\subsubsection{Model-View-Controller}
+The game can be seen to use a model-view-controller pattern. The benefits of this pattern for the game is that the view of the world is separated from the internal representation of that information. An object's position can be updated in the model and it need not worry about how each player is viewing that object. It helps to maintain consistency as we only update the state once so results in a consistent view on the world for each player. Specifically for games, this pattern holds another advantage; the game back-end can be updated at a rate independent of the rate that the view of the world updates. For example, physics calculations may only be run at 10Hz while the view of the world updates at 60Hz. This allows for better performance management.\smallskip\\
+Within the game the models can either be other classes or GameObjects within the game world. The controllers are scripts and classes which send commands to the models to update their state. This state could be a GameObject's position or the current behaviour of a drone for example. The view is what the player sees on the screen. In this game, there are two camera's viewing the world at the same time.
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.5]{MVC.png}}
+    \caption{Model-View-Controller within a game context.}
+    \label{fig:mvc}
+\end{figure}
+\subsubsection{Design class diagram}
+The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{DesignClassDiagram.pdf}.
+\newline
+\newline
+\newline
+%REMOVE INSTRUCTIONS BELOW:
 The next section is an overview of your design. The system design has
 to be justified in terms of the expected behaviour of the final
 product. 
@@ -259,7 +279,7 @@ that show this.
 \begin{description}
 	\item [Goal] Get to the top of the last building before the other player. Move quickly and efficiently while avoiding danger from enemies and falls.
 	\item [Enemies] Flying drones will attempt to chase you down if you get too close to them. Snipers will shoot you if you expose yourself in their field of vision.
-	\item [Enviroment] Interact with objects such as doors and buttons in your enviroment by pressing the object interaction button. Buttons will often let you gain a tactical advantage over your oponent.
+	\item [Environment] Interact with objects such as doors and buttons in your environment by pressing the object interaction button. Buttons will often let you gain a tactical advantage over your opponent.
 	\item [Player 1 Controls]\hfill \\
 	\begin{description}
 		\item \itab{Look:}\tab{Mouse}
