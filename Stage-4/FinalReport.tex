@@ -150,15 +150,36 @@ This section outlays the architecture of the system at a class and package level
 The game can be seen to use a model-view-controller pattern. The benefits of this pattern for the game is that the view of the world is separated from the internal representation of that information. An object's position can be updated in the model and it need not worry about how each player is viewing that object. It helps to maintain consistency as we only update the state once so results in a consistent view on the world for each player. Specifically for games, this pattern holds another advantage; the game back-end can be updated at a rate independent of the rate that the view of the world updates. For example, physics calculations may only be run at 10Hz while the view of the world updates at 60Hz. This allows for better performance management.\smallskip\\
 Within the game the models can either be other classes or GameObjects within the game world. The controllers are scripts and classes which send commands to the models to update their state. This state could be a GameObject's position or the current behaviour of a drone for example. The view is what the player sees on the screen. In this game, there are two camera's viewing the world at the same time.
 \begin{figure}[H]
-    \center{\includegraphics[scale=0.5]{MVC.png}}
+    \center{\includegraphics[scale=0.5]{images/MVC.png}}
     \caption{Model-View-Controller within a game context.}
     \label{fig:mvc}
 \end{figure}
 \subsubsection{Design class diagram}
-The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{DesignClassDiagram.pdf}.
+The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{DesignClassDiagram.pdf}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Symbol} & \textbf{Description} \\
+        \hline
+        + & Public \\
+        \textasciitilde  & Internal \\
+        - & Private \\
+        underline & Static \\
+        italic & Abstract \\
+        \hline
+    \end{tabular}    
+\end{center}
+\subsubsection{Layered architecture}
+The game is build upon the Unity engine. It forms the core or foundation layer of the system. The Unity engine provides functionality for physics calculations, controlling animations, rendering the scene, lighting calculations and collision detection to name a few. No technical services layer was included as the game does not have application-independent services such as connections to databases or extensive logging of errors to file. This layer will be added if in a later iteration a use case that requires such services is developed. The layer above that is the domain layer. It holds software objects representing domain concepts that fulfil application requirements. The majority of the classes belong to this layer since they are specific to the context of this game. At the topmost layer lies the user interface layer. It is highly specific to the application and contains services that the user will interact with. Such services include the world, menus and heads-up display.\smallskip\\
+The game makes use of a relaxed layered architecture as the both the user interface layer and domain layer call the engine layer directly. It was decided that a strict layered architecture was inadvisable. The performance impact would be far too high. In a game, the performance is a primary concern. Secondly, it would require a wrapper in the domain layer to allow commands to be passed from the user interface through to the engine layer. \smallskip\\
+In this game, the world and level design is a critical factor. It is therefore important to identify where it belongs within the architecture of the system in order to see how changes to it would effect the system as a whole. It was identified that the world should belong to the user interface layer. This is justified as the user can see and interact with the world just as they would see and interact with a web page. The world is therefore classified the same as one would classify the HyperText Markup Language (HTML) and Cascading Style Sheets (CSS) of a web page. The result is that we can make ascetic changes and changes to the layout of the level without affecting any other part of the system.
 \newline
 \newline
-\newline
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.7]{images/LayeredArchitectureDiagram.png}}
+    \caption{Architecture of the game}
+    \label{fig:architecture}
+\end{figure}
 %REMOVE INSTRUCTIONS BELOW:
 The next section is an overview of your design. The system design has
 to be justified in terms of the expected behaviour of the final
@@ -167,7 +188,7 @@ product.
 If you produced a design class diagram put it here.
 
 \begin{figure}[h!]
-  \center{\includegraphics[scale=0.8]{architecture.png}}
+  \center{\includegraphics[scale=0.8]{images/architecture.png}}
   \caption{An architecture diagram. Caption to go below figure}
   \label{fig:architecture}
 \end{figure}
