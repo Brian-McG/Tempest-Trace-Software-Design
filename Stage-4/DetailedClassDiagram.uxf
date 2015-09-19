@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1248</x>
+      <y>1288</y>
+      <w>368</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>/*BaseWeapon*/
+--
+&lt;&lt;get&gt;&gt;
+-damage: float
+-shootRate: float
+-playerOneHealth: PlayerHealth
+-playerTwoHealth: PlayerHealth
+-hitFlash: HitFlash
+&lt;&lt;get/set&gt;&gt;
+-currentShootDelay = 0: float
+--
+/+Fire(position: Vector3,/
+/         direction: Vector3,/
+/         range: float, ignoreLayer: int)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1424</x>
+      <y>1536</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*DroneWeapon*
+--
+-droneFireSound: GameObject
+-muzzleFlashInterval = 0: float
+-muzzleFlash: GameObject[2]
+-droneAnimator: Animator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1120</x>
+      <y>536</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonCameraVertical*
+--
++sensitivity = 6: float
++minXAngle = -60: float
++maxXAngle = 60: float
+-currentAngle: float
+--
++ResetState(): void
+~Awake(): void
+~Update(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>408</x>
+      <y>888</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*MenuController*
+--
+&lt;&lt;get&gt;&gt;
+-menuState: Enum
+--
++StartGame(): void
++ShowOptionsMenu(): void
++QuitGame(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1120</x>
+      <y>456</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonCameraHorizontal*
+--
++sensitivity: float
+--
+updateHorizontalRotation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>696</x>
+      <y>144</y>
+      <w>616</w>
+      <h>1080</h>
+    </coordinates>
+    <panel_attributes>*Player*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>224</x>
+      <y>784</y>
+      <w>168</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>*CinematicCameraMover*
+--
++Speed: float
++TransformEpsilon = 1: float
++RotationEpsilon = 1: float
++ScaleEpsilon = 1: float
++Locations: GameObject[]
++MovementSpeed: float
+-currentLocation: float
+-currentLerpTime = 0: float
+-startTransform: Transform
+--
++LerpTransform(t1: Transform
+                           t2: Transform
+                           time: float)
+~Start(): void
+~Update(): void
+~ApplyCameraLerp(): void       </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1224</x>
+      <y>1536</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*SniperWeapon*
+--
+-playerOneSlow: PlayerSlow
+-playerTwoSlow: PlayerSlow
+-sniperFireSound: AudioSource
+-speedPenalty: float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1304</x>
+      <y>1440</y>
+      <w>40</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;96</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>728</x>
+      <y>176</y>
+      <w>168</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonMovement*
+--
++PlayerID: int
++DefaultRunSpeed: float
++JumpForce: float
++MaxSafeYVelocity: float
++ObstacleCheckTime: float
++MinimumObstacleCheckDistance: float
++MinimumObstacleScanHeight: float
++MaximumVaultHeight: float
++MaximumVaultDistance: float
++MinimumSpeedToVault: float
++MaximumClimbHeight: float
++ClimbSpeed: float
++SlideDeceleration: float 
++SlideStopSpeedThreshold: float
++JumpSound: AudioSource
++ClimbSound: AudioSource
++VaultSound: AudioSource
++SlideSound: AudioSource
+-animator: Animator
+-animParamSpeed: int
+-animParamSlide: int
+-animParamClimb: int
+-charController: CharacterController
+
+-motionTargets: List&lt;Vector3&gt;
+-motionProgress: int
+-isJumping: bool
+-wasGrounded: bool
+-movementX: float
+-movementY: float
+-shouldJump: bool
+-shouldSlide: bool
+&lt;&lt;get&gt;&gt;
+-currentMotion: DefinedMotion
+-velocity: Vector3
+-horizontalVelocity: Vector3
+&lt;&lt;get/set&gt;&gt;
+-runSpeed: float
+--
++ResetState(): void
+~Awake(): void
+~Update(): void
+~FixedUpdate(): void
+-CheckForVaultClimbMotion(): void
+-CheckForSlideMotion(): void
+-MoveAndUpdateVelocity(): void
+-UpdateOnPlayerInput(): void
+-UpdateVaultClimbMotion(): void
+-UpdateSlideMotion(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1528</x>
+      <y>1440</y>
+      <w>40</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;96</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>1376</y>
+      <w>296</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>*DirectableObject*
+--
+-directableObject: GameObject
+&lt;&lt;get&gt;&gt;
+-rotateSpeed: float
+--
++DirectableObject(rotateSpeed: float,
+                             directableObject: GameObject)
++FaceDirection(direction: Vector3,
+                         rotationRate&lt;&lt;optional&gt;&gt;: float)
++AngleBetween(directionOne: Vector3,
+                          directionTwo: Vector3,
+                          normal: Vector3)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1016</x>
+      <y>1336</y>
+      <w>200</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>*Sniper*
+--
+-colliders: BoxCollider[0..]
+-previousDirection: Vector3
+-playerOne: GameObject
+-playerTwo: GameObject
+-heightOffset: Vector3
+-transformScale: Vector3
+&lt;&lt;get&gt;&gt;
+-inverseIgnoredColliders: int
+-targetedPlayer: byte
+-sniper: GameObject
+--
++UpdateState(): void
++Patrol(): void
++Chase(): void
++Shoot(): void
+-UpdateLaser(direction: Vector3): void
+-GenerateRandomTarget(): void
+-UpdatePlayerTarget(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>408</x>
+      <y>712</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>*UserInterfaceHandler*
+--
+-isPaused: bool
+-isGameOver: bool
+--
++openPauseMenu(): void
++closePauseMenu(): void
++showEndgameScreen(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>936</x>
+      <y>1848</y>
+      <w>168</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>*MusicManager*
+--
++DefaultAudio: AudioSource
++IntenseAudio: AudioSource
++currentMusicVolume: float
+--
++fadeToIdleMusic(): void
++fadeToActionMusic(): void
+~Awake(): void
+~Update(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>408</x>
+      <y>824</y>
+      <w>168</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*__LevelGeometryExporter__*
+--
+__+exportLevelGeomtry(filename: string)__</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>1560</y>
+      <w>264</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>*MoveableObject*
+--
+-moveableObject: GameObject
+-moveRigidbody: Rigidbody
+&lt;&lt;get&gt;&gt;
+-movespeedSpeed: float
+--
++MoveableObject(moveSpeed: float,
+                             rotateSpeed: float,
+                             moveableObject: GameObject)
++Move(direction: Vector3)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>296</x>
+      <y>1296</y>
+      <w>264</w>
+      <h>376</h>
+    </coordinates>
+    <panel_attributes>*Drone*
+--
+-index=0: int
+-drone: GameObject
+-patrolRoute: GameObject[0..]
+-movementSpeed: float
+-chaseTimer=0: float
+-currentTarget: Vector3
+-stoppingDistance: float
+-chaseWaitTime: float
+-inverseIgnoredLayer: int
+-inverseIgnoredShootLayer: int
+-trackTime=0: float
+-droneAnimator: Animator
+-muzzleFlash: GameObject[2]
+--
++Patrol(): void
++Chase(): void
++Shoot(): void
++Rise(): void
++UpdateState(): void
+-CalculateShootOffset(distance: float): float
+-TimeTrackedShootOffset(timeTracked: float): float
+-PlayerMoveSpeedOffset(moveSpeed: float): float
+-DistanceToPlayerOffset(distance: float): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>1728</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>*DroneController*
+--
+~Awake(): void
+~Update(): void
+~OnCollisionStay(collision: Collision): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1016</x>
+      <y>1688</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*SniperController*
+--
+~Awake(): void
+~Update(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>568</x>
+      <y>1848</y>
+      <w>224</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>*EnemySighting*
+--
+-personalLastSighting: Vector3
+-droneCollider: SphereCollider
+-previousSighting: Vector3
+-inverseIgnoreLayer: int
+-heightOffset: Vector3
+&lt;&lt;get&gt;&gt;
+-targetedPlayer: byte
+--
+~Awake(): void
+~Update(): void
+~OnTriggerStay(collision: Collider): void
+~OnTriggerExit(collision: Collider): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>584</x>
+      <y>1720</y>
+      <w>232</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*LastPlayerSighting*
+--
+&lt;&lt;get/set&gt;&gt;
+-positon = (1000, 1000, 1000): Vector3
+&lt;&lt;get&gt;&gt;
+-resetPosition = (1000, 1000, 1000): Vector3
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1224</x>
+      <y>1680</y>
+      <w>232</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*SniperTrigger*
+--
++ReactionDelay: float
+--
+~Start(): void
+~OnTriggerStay(collision: Collider): void
+~OnTriggerExit(collision: Collider): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>312</x>
+      <y>1648</y>
+      <w>110</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;Updates state of</panel_attributes>
+    <additional_attributes>56;80;56;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>496</x>
+      <y>1648</y>
+      <w>104</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Retrieves&gt;</panel_attributes>
+    <additional_attributes>88;96;48;96;48;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>616</x>
+      <y>1776</y>
+      <w>72</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;Updates</panel_attributes>
+    <additional_attributes>40;72;40;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>456</x>
+      <y>1648</y>
+      <w>128</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;sets target of</panel_attributes>
+    <additional_attributes>112;240;56;240;56;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>792</x>
+      <y>1512</y>
+      <w>40</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;48</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>536</x>
+      <y>1616</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>144;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>952</x>
+      <y>1424</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;64;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1048</x>
+      <y>1584</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;Updates state of</panel_attributes>
+    <additional_attributes>56;104;56;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1176</x>
+      <y>1584</y>
+      <w>98</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;sets target of</panel_attributes>
+    <additional_attributes>80;96;80;64;24;64;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1192</x>
+      <y>1456</y>
+      <w>122</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+fires&gt;</panel_attributes>
+    <additional_attributes>24;32;96;32;96;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>448</x>
+      <y>1592</y>
+      <w>1120</w>
+      <h>456</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+fires&gt;</panel_attributes>
+    <additional_attributes>24;80;24;440;1104;440;1104;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>256</x>
+      <y>1088</y>
+      <w>384</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>*Camera*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>264</x>
+      <y>1104</y>
+      <w>184</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>*HitFlash*
+--
++ClearRate: float
+-defaultColor: Color
+-currentDurationPlayerOne: float
+-currentDurationPlayerTwo: float
+--
++FlashCamera(player: byte): void
+~Awake(): void
+~Update(): void
+-UnFadeOverlay(player: byte): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>376</x>
+      <y>1208</y>
+      <w>894</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;Applies</panel_attributes>
+    <additional_attributes>872;120;856;120;856;80;24;80;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1104</x>
+      <y>1200</y>
+      <w>76</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=0..*
+&lt;targets</panel_attributes>
+    <additional_attributes>40;24;40;136</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>144</x>
+      <y>1048</y>
+      <w>568</w>
+      <h>496</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=0..*
+targets&gt;</panel_attributes>
+    <additional_attributes>552;24;40;24;40;480;152;480</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>32</x>
+      <y>512</y>
+      <w>712</w>
+      <h>1128</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=0..*
+monitors run
+speed of&gt;</panel_attributes>
+    <additional_attributes>696;24;608;24;608;392;608;528;24;528;24;1112;264;1112</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>752</x>
+      <y>720</y>
+      <w>248</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>*FirstPersonHealth*
+--
++DefaultHealth: float
++TimeToStartRegeneratingAfterDamaged: float
++RegenerationRate: float
+-playerLifeHander: PlayerLifeHander
+-regenTimer: float
+&lt;&lt;get&gt;&gt;
+-hp: float
+--
++ResetHP(): void
++DeductHP(deduction: float): bool
+~Awake(): void
+~Update(): void
+-UpdateHealth(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>976</x>
+      <y>696</y>
+      <w>488</w>
+      <h>608</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;Deducts</panel_attributes>
+    <additional_attributes>456;592;456;296;456;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>456</x>
+      <y>1104</y>
+      <w>168</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>*Headbob*
+--
++XSwapTime: float
++YSwapTime: float
++XMovement: float
++YMovement: float
+-MovementX: float
+-MovementY: float
+-timeX: float
+-timeY: float
+--
+~Awake(): void
+~Update(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>776</x>
+      <y>984</y>
+      <w>168</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>*PlayerLifeHandler*
+--
++FadeOutSpeed: float
++FadeInSpeed: float
++FadeTriggerVelocity: float
+-isEnabled: bool
+-totalFadeout: float
+-killInitiated: bool
+-completedCouse: bool
+--
++KillPlayer(): void
++CompleteCourse(): void
+~Awake(): void
+~Update(): void
+-Kill(): void
+-FadeOverlay(): void
+-UnFadeOverlay(): void
+-ClearScreen(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1024</x>
+      <y>728</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>*Checkpoint*
+--
+-checkpoints: Hashtable
+&lt;&lt;get&gt;&gt;
+-position: Vector3
+-orientation: Vector3
+-count: uint
+--
+~Awake(): void
+~OnTriggerEnter(): void
+-CheckpointReached(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>776</x>
+      <y>872</y>
+      <w>72</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+resets&gt;</panel_attributes>
+    <additional_attributes>40;112;40;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>688</x>
+      <y>632</y>
+      <w>136</w>
+      <h>416</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+monitors vertical
+velocity of&gt;</panel_attributes>
+    <additional_attributes>120;24;120;72;56;72;56;400;88;400</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>816</x>
+      <y>736</y>
+      <w>224</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+respawns
+to&gt;</panel_attributes>
+    <additional_attributes>24;248;24;184;192;184;192;24;208;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>872</x>
+      <y>344</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; obtains player id from</panel_attributes>
+    <additional_attributes>24;32;280;32;280;112</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>872</x>
+      <y>504</y>
+      <w>264</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; obtains player id from</panel_attributes>
+    <additional_attributes>24;24;184;24;184;56;248;56</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1072</x>
+      <y>864</y>
+      <w>216</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>*PlayerSlow*
+--
++AirconLerpDownTime: float
++AirconLerpUpTime: float
++AirconSlowFactor = 3: float
+-currentLerpTime = 0: float
+-isEnabled: bool
+-calledSlow: bool
+-calledSlowEnabled: bool
+-currentDuration: float
+-generalDuration: float
+-generalLerpUpTime: float
+-generalLerpDownTime: float
+-generalSlowSpeed: float
+--
++ApplyGeneralSlow(duration: float,
+                                 lerpUpTime: float,
+                                 lerpDownTime: float,
+                                 slowFactor = 3: float)
+~Awake(): void
+~Update(): void
+~OnTriggerEnter(other: collider): void
+~OnTriggerExit(other: collider): void
+-VentSlow(): void
+-CalledSlow(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1472</x>
+      <y>984</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>*Aircon*
+--
++UnlockedMaterial: Material
++ActivatorSound: AudioSource
+-airconAnimator: Animator
+-airconParticle: ParticleSystem
+&lt;&lt;get&gt;&gt;
+-status: bool
+--
++Activate(): void
+~Awake(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>816</x>
+      <y>632</y>
+      <w>416</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; modifies runspeed of</panel_attributes>
+    <additional_attributes>400;232;400;48;24;48;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1264</x>
+      <y>872</y>
+      <w>224</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+monitors status of&gt;</panel_attributes>
+    <additional_attributes>24;24;112;24;112;168;208;168</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1712</x>
+      <y>1008</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>*Door*
+--
++OpenRate: float
++DegreesToOpen: float
+-status: bool
+-played: bool
+-totalOpened: float
+--
++Activate(): void
+~Awake(): void
+~Update(): void
+-OpenDoor(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1472</x>
+      <y>1128</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>*SmokeBomb*
+--
++ColliderGrowthRate: float
++GrowthStopTime: float
+-timer: float
+-smoke: ParticleSystem
+-activated: bool
+--
+~Awake(): void
+~OnCollisionEnter(collision: Collision): void
+~Update(): void
+-ExpandSmokebomb(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1744</x>
+      <y>1328</y>
+      <w>232</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>*Elevator*
+--
++Status: bool
++SlowStatus: bool
++UnlockedMaterial: Material
++DescendSpeed: float
++DoorCloseSpeed: float
++SlowFactor: float
++SlowDuration: float
++ActivatorSound: AudioSource
++SlowActivatorSound: AudioSource
+-dropHeight: float
+-currentAmountDescended: float
+-currentDoorAscended: float
+-currentSlowDuration: float
+-elevatorSoundEffect: AudioSource
+--
++Activate(): void
++ActivateSlow: void
+~Awake(): void
+~FixedUpdate(): void
+-MoveElevator(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>536</y>
+      <w>144</w>
+      <h>656</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+monitors&gt;</panel_attributes>
+    <additional_attributes>24;640;64;640;64;24;128;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1744</x>
+      <y>1168</y>
+      <w>200</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>*SmokeBombController*
+--
++numberOfbombs: int
+-currentBombCount: int
+-animator: Animator
+-animParamThrowing: int
+--
++Activate(): void
+~Awake(): void
+~Update(): void
+-ThrowSmokebomb(): IEnumerator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1616</x>
+      <y>1160</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..2
+&lt;Instantiates</panel_attributes>
+    <additional_attributes>128;56;88;56;88;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>328</y>
+      <w>192</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>*InputSplitter*
+--
+__+GetHorizontalViewAxis(player: int)__
+__+GetVerticalViewAxis(player: int)__
+__+GetHorizontalAxis(player: int)__
+__+GetVerticalAxis(player: int)__
+__+GetJumpPressed(player: int)__
+__+GetSlidePressed(player: int)__
+__+GetInteractPressed(player: int)__
+__+GetSmokePressed(player: int)__</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>288</y>
+      <w>216</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Reads input from</panel_attributes>
+    <additional_attributes>24;104;88;104;88;24;200;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1696</x>
+      <y>760</y>
+      <w>168</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*InteractHandler*
+--
+-interactLayer: int
+-airconLayer: int
+-doorLayerL int
+-elevatorActivateLayer: int
+-elevatorSlowActivateLayer: int
+--
+~Awake(): void
+~Update(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>872</x>
+      <y>312</y>
+      <w>912</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; obtains player id from</panel_attributes>
+    <additional_attributes>24;32;856;32;856;448</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1288</x>
+      <y>408</y>
+      <w>456</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;monitors
+look direction of</panel_attributes>
+    <additional_attributes>24;32;416;32;416;352</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1784</x>
+      <y>856</y>
+      <w>84</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+&lt;Activates</panel_attributes>
+    <additional_attributes>48;24;48;152</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1616</x>
+      <y>848</y>
+      <w>96</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+&lt;Activates</panel_attributes>
+    <additional_attributes>80;24;56;24;56;176;24;176</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1840</x>
+      <y>840</y>
+      <w>100</w>
+      <h>344</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+Activates&gt;</panel_attributes>
+    <additional_attributes>24;32;64;32;64;328</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1840</x>
+      <y>792</y>
+      <w>156</w>
+      <h>552</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+Activates&gt;</panel_attributes>
+    <additional_attributes>24;32;120;32;120;536</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>1720</y>
+      <w>224</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*DroneFireController*
+--
+-droneFireSound: AudioSource
+--
+~Awake(): void
+~Update(): void
+-DestroyWhenNotPlaying(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>64</x>
+      <y>1624</y>
+      <w>248</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;Instantiates</panel_attributes>
+    <additional_attributes>48;96;48;32;232;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>384</x>
+      <y>528</y>
+      <w>192</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>*WinCondition*
+--
+-index: byte
+-winner: byte
+&lt;&lt;get&gt;&gt;
+-completionOrder: byte[2]
+--
+~Awake(): void
+~OnTriggerEnter(other Collider): void
+-CapturePlayerCompletion(player: Collider): void
+-AllPlayersFinished(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>72</x>
+      <y>528</y>
+      <w>192</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>*GameTime*
+--
++PlayerOneActive: bool
++PlayerTwoActive: bool
+-playerOneTime: Text
+-playerTwoTime: Text
+-seconds: float
+-minutes: uint
+--
+~Awake(): void
+~Update(): void
+-UpdateTime(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>560</y>
+      <w>160</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;disables</panel_attributes>
+    <additional_attributes>24;32;144;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>496</x>
+      <y>80</y>
+      <w>1288</w>
+      <h>696</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;Reads input from</panel_attributes>
+    <additional_attributes>24;248;24;32;1272;32;1272;680</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>72</x>
+      <y>304</y>
+      <w>192</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>*DynamicHUDMovement*
+--
+-XSwapTime: float
+-YSwapTime: float
+-XMovement: float
+-YMovement: float
+-playerOneHudStartPositions: Vector2[]
+-playerTwoHudStartPositions: Vector2[]
+-playerOneXTime: float
+-playerOneYTime: float
+-playerTwoXTime: float
+-playerTwoYTime: float
+-playerOneXMovement: float
+-playerOneYMovement: float
+-playerTwoXMovement: float
+-playerTwoYMovement: float
+--
+~Awake(): void
+~Update(): void
+-UpdateHUDPosition(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>464</y>
+      <w>504</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=2
+monitors&gt;</panel_attributes>
+    <additional_attributes>24;24;72;24;72;40;488;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>72</x>
+      <y>680</y>
+      <w>192</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>*PositionManager*
+--
+-checkpoints: GameObject[]
+-playerOnePosition: Text
+-playerTwoPosition: Text
+--
+~Awake(): void
+~Update(): void
+-SetP1Ahead(): void
+-SetP2Ahead(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>8</x>
+      <y>0</y>
+      <w>1384</w>
+      <h>792</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=2
+reads&gt;</panel_attributes>
+    <additional_attributes>64;712;24;712;24;32;1368;32;1368;776;1184;776</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>632</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+triggers&gt;</panel_attributes>
+    <additional_attributes>40;24;40;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>592</y>
+      <w>184</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;disables or enables</panel_attributes>
+    <additional_attributes>24;24;112;24;112;136;168;136</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>768</x>
+      <y>1856</y>
+      <w>184</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+notifies of targeting player&gt;</panel_attributes>
+    <additional_attributes>24;32;168;32</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>920</x>
+      <y>1584</y>
+      <w>142</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt;notifies of targeting player</panel_attributes>
+    <additional_attributes>104;24;104;64;48;64;48;264</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>680</x>
+      <y>632</y>
+      <w>120</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt;kills</panel_attributes>
+    <additional_attributes>104;24;104;40;32;40;32;448;96;448</additional_attributes>
+  </element>
+</diagram>

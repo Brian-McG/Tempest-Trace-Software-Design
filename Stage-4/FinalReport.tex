@@ -1,4 +1,9 @@
 \documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{color}
+\usepackage{bm}	
+\usepackage{float}
+\usepackage{caption, subcaption}
 \usepackage{times}
 \usepackage{fancyhdr}           % Allows better control over headers and footers
 %\usepackage{layout}            % use with \layout to see the page layout for
@@ -17,6 +22,9 @@
 \renewcommand{\abstractname}{\vskip -5mm}  %  Change name of Abstract
                                 %  to nothing and loose some of the
                                 %  excessive white space
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
 \begin{document}
     \begin{titlepage} \begin{center}
             \textsc{\LARGE University of Cape Town}
@@ -53,10 +61,7 @@
                                 % under header.
 
 \begin{abstract}
-  This document outlines the requirements for the final report for the
-  Computer Science Capstone Project Report and describes the use of
-  the \LaTeXe for that purpose. Please follow this precise template
-  for your final report.
+ The Tempest Trace project is focused around providing a two player, parkour game. Players race against each other to reach the final goal in a competitive 1st person runner game. Players must move over, under, around and through obstacles efficiently while avoiding enemy AI elements such as flying drones and snipers. An aspect that the game focuses on is allowing the player to choose from a variety of possible routes to gain advantage over his/her opponent; certain routes will be better in different situations so every race requires new strategies.  Players must choose the most efficient route to reach the end goal using their parkour skills ahead of their competitor. The aesthetic is purposefully simplistic and clean to allow the player to focus on gameplay and easily identify obstacles and objects to interact with. Players are also able to interact with the world and each other in order to gain a competitive advantage by slowing their opponent down in a variety of ways. In parkour flow and smoothness of movement are imperative and this is reflected in Tempest Trace, the shortest path is often not the fastest and maintaining movement is often more important than achieving the highest speed.
 \end{abstract}
 
 \section{Introduction}
@@ -139,7 +144,43 @@ class hierarchy diagram.
 
 \subsection{Design Overview}
 \label{ss:design-overview}
-
+\subsubsection{Introduction}
+This section outlays the architecture of the system at a class and package level. It also examines the major software patterns that the software adhered to. The system has made use of a number of design patterns to facilitate re-usability and scalability. Specifically the classes relating to the player, since two players are present in the game. As well as the artificial intelligence where there may be several drones or snipers active in the game at a given time. The classes have also been designed to allow tweaking of their internal variables on the fly via the Unity editor. This allows one to make changes to various variables during the game to immediately see the effect the change has on the game. This significantly speeds up the rate at which the game can be balanced and the optimal parameters can be found.
+\subsubsection{Model-View-Controller}
+The game can be seen to use a model-view-controller pattern. The benefits of this pattern for the game is that the view of the world is separated from the internal representation of that information. An object's position can be updated in the model and it need not worry about how each player is viewing that object. It helps to maintain consistency as we only update the state once so results in a consistent view on the world for each player. Specifically for games, this pattern holds another advantage; the game back-end can be updated at a rate independent of the rate that the view of the world updates. For example, physics calculations may only be run at 10Hz while the view of the world updates at 60Hz. This allows for better performance management.\smallskip\\
+Within the game the models can either be other classes or GameObjects within the game world. The controllers are scripts and classes which send commands to the models to update their state. This state could be a GameObject's position or the current behaviour of a drone for example. The view is what the player sees on the screen. In this game, there are two camera's viewing the world at the same time.
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.5]{images/MVC.png}}
+    \caption{Model-View-Controller within a game context.}
+    \label{fig:mvc}
+\end{figure}
+\subsubsection{Design class diagram}
+The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{DesignClassDiagram.pdf}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Symbol} & \textbf{Description} \\
+        \hline
+        + & Public \\
+        \textasciitilde  & Internal \\
+        - & Private \\
+        underline & Static \\
+        italic & Abstract \\
+        \hline
+    \end{tabular}    
+\end{center}
+\subsubsection{Layered architecture}
+The game is build upon the Unity engine. It forms the core or foundation layer of the system. The Unity engine provides functionality for physics calculations, controlling animations, rendering the scene, lighting calculations and collision detection to name a few. No technical services layer was included as the game does not have application-independent services such as connections to databases or extensive logging of errors to file. This layer will be added if in a later iteration a use case that requires such services is developed. The layer above that is the domain layer. It holds software objects representing domain concepts that fulfil application requirements. The majority of the classes belong to this layer since they are specific to the context of this game. At the topmost layer lies the user interface layer. It is highly specific to the application and contains services that the user will interact with. Such services include the world, menus and heads-up display.\smallskip\\
+The game makes use of a relaxed layered architecture as the both the user interface layer and domain layer call the engine layer directly. It was decided that a strict layered architecture was inadvisable. The performance impact would be far too high. In a game, the performance is a primary concern. Secondly, it would require a wrapper in the domain layer to allow commands to be passed from the user interface through to the engine layer. \smallskip\\
+In this game, the world and level design is a critical factor. It is therefore important to identify where it belongs within the architecture of the system in order to see how changes to it would effect the system as a whole. It was identified that the world should belong to the user interface layer. This is justified as the user can see and interact with the world just as they would see and interact with a web page. The world is therefore classified the same as one would classify the HyperText Markup Language (HTML) and Cascading Style Sheets (CSS) of a web page. The result is that we can make ascetic changes and changes to the layout of the level without affecting any other part of the system.
+\newline
+\newline
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.7]{images/LayeredArchitectureDiagram.png}}
+    \caption{Architecture of the game}
+    \label{fig:architecture}
+\end{figure}
+%REMOVE INSTRUCTIONS BELOW:
 The next section is an overview of your design. The system design has
 to be justified in terms of the expected behaviour of the final
 product. 
@@ -147,7 +188,7 @@ product.
 If you produced a design class diagram put it here.
 
 \begin{figure}[h!]
-  \center{\includegraphics[scale=0.8]{architecture.png}}
+  \center{\includegraphics[scale=0.8]{images/architecture.png}}
   \caption{An architecture diagram. Caption to go below figure}
   \label{fig:architecture}
 \end{figure}
@@ -256,7 +297,29 @@ that show this.
 
 \subsection{User Manual}
 \label{ss:user-manual}
-
+\begin{description}
+	\item [Goal] Get to the top of the last building before the other player. Move quickly and efficiently while avoiding danger from enemies and falls.
+	\item [Enemies] Flying drones will attempt to chase you down if you get too close to them. Snipers will shoot you if you expose yourself in their field of vision.
+	\item [Environment] Interact with objects such as doors and buttons in your environment by pressing the object interaction button. Buttons will often let you gain a tactical advantage over your opponent.
+	\item [Player 1 Controls]\hfill \\
+	\begin{description}
+		\item \itab{Look:}\tab{Mouse}
+		\item \itab{Movement:}\tab{WASD}
+		\item \itab{Jump:}\tab{Spacebar}
+		\item \itab{Slide:}\tab{Shift}
+		\item \itab{Somkebomb:}\tab{F}
+		\item \itab{Object Interaction:}\tab{E}
+	\end{description}
+	\item [Player 2 Controls]\hfill \\
+	\begin{description}
+		\item \itab{Look:}\tab{Right Joystick}
+		\item \itab{Movement:}\tab{Left Joystick}
+		\item \itab{Jump:}\tab{Left Bumper}
+		\item \itab{Slide:}\tab{Right Bumper}
+		\item \itab{Somkebomb:}\tab{B Button}
+		\item \itab{Object Interaction:}\tab{A Button}
+	\end{description}
+\end{description}
 Your system must have a user manual. Append this to your report (make
 it Appendix A) or bind it separately if it is big. If your system is
 interactive and has a good user interface with context dependent help
