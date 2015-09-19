@@ -65,12 +65,12 @@
 \end{abstract}
 
 \section{Introduction}
-\label{ss:introduction}
+\label{s:introduction}
 
 \section{Requirements Captured}
 
 \section{Design Overview}
-\label{ss:design-overview}
+\label{s:design-overview}
 \subsection{Introduction}
 This section outlays the architecture of the system at a class and package level. It also examines the major software patterns that the software adhered to. The system has made use of a number of design patterns to facilitate re-usability and scalability. Specifically the classes relating to the player, since two players are present in the game. As well as the artificial intelligence where there may be several drones or snipers active in the game at a given time. The classes have also been designed to allow tweaking of their internal variables on the fly via the Unity editor. This allows one to make changes to various variables during the game to immediately see the effect the change has on the game. This significantly speeds up the rate at which the game can be balanced and the optimal parameters can be found.
 \subsection{Model-View-Controller}
@@ -105,11 +105,17 @@ In this game, the world and level design is a critical factor. It is therefore i
     \caption{Architecture of the game}
     \label{fig:architecture}
 \end{figure}
-\subsection{Data organisation and algorithms}
+\subsection{Data organisation}
+The system does not make use of any explicit databases or output to text files. However, since the Unity engine is used it it important to ensure that the data type of the assets used was one which the engine provided support for. The classes were written in C\#, models (possibly with animations) in the fbx format, textures as a png image and materials as a mat file.\smallskip\\
+The folder structure of the assets need to be structured and easy to manage to allow the game to scale. A folder for art assets from the artists is used, each assets is then seperated into a different folder. Each folder has the texture, fbx and materials. Fonts, other materials defined, prefabs, scenes, shaders, sound and standard assets are defined to their own folder. A folder called scripts is used to store all the classes. The scripts folder structure is the same as that defined in figure \ref{fig:architecture}.\smallskip\\
+The algorithms used will be covered in detail in section \ref{s:implementation} so it will not be covered in this section.
+
+
+
 
 
 \section{Implementation}
-
+\label{s:implementation}
 \section{Program Validation and Verification}
 
 
