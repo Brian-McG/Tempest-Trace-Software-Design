@@ -117,8 +117,184 @@ The algorithms used will be covered in detail in section \ref{s:implementation} 
 \section{Implementation}
 \label{s:implementation}
 \section{Program Validation and Verification}
+%I Copy-pasted my cases from Stage 3
+%This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
+\subsubsection{Movement}
+\textbf{Tests prepared}\\
+Description: Move player forward with no obstruction in the given direction.\\
+Expected Result: Player moves forward at the speed configured.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player left with no obstruction in the given direction.\\
+Expected Result: Player moves left at the speed configured.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player right with no obstruction in the given direction.\\
+Expected Result: Player moves right at the speed configured.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player backwards with no obstruction in the given direction.\\
+Expected Result: Player moves backwards at the speed configured.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player forwards with an obstruction in the given direction.\\
+Expected Result: Player moves forwards at the speed configured until its collider connects with the obstruction, the player can then no longer move forward.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player left with an obstruction in the given direction.\\
+Expected Result: Player moves left at the speed configured until its collider connects with the obstruction, the player can then no longer move left.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player right with an obstruction in the given direction.\\
+Expected Result: Player moves right at the speed configured until its collider connects with the obstruction, the player can then no longer move right.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Move player backwards with an obstruction in the given direction.\\
+Expected Result: Player moves backwards at the speed configured until its collider connects with the obstruction, the player can then no longer move backwards.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Run animation plays in direction of movement.\\
+Expected Result: The run animation plays and makes player model look as if it is running in the given direction\\
+Actual Result: No animation plays\\
+Status: Failure
+\subsubsection{Look}
+\textbf{Tests prepared}\\
+Description: Player can can turn full 360 degrees horizontally\\
+Expected Result: Players view turns horizontally by a configurable angle in the direction of the horizontal mouse movement.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player can can turn head up to a bounded angle vertically\\
+Expected Result: Player view turns vertically by a configurable angle in the direction of the vertical mouse movement. The players vertical view angle is prevented from exceeding the defined range\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player head faces direction of look\\
+Expected Result: Player head looks in the direction of the view.\\
+Actual Result:  Head remains static.\\
+Status: Failure
+\subsubsection{Vault}
+\textbf{Tests prepared}\\
+Description: Player can vault over object that is less than 1 metre high and has a distance that is less than 3 metres and is moving at least 5 metres per second. \\
+Expected Result: Player vaults over object.\\
+Actual Result:  As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player can not vault over object that is less than 1 metre high and a distance that is more than 3 metres or is moving at less than 5 metres per second. \\
+Expected Result: Player climbs onto object.\\
+Actual Result:  As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player can not vault over object that is more than 1 metre high\\
+Expected Result: Player initiates a climb if it meets the climb parameters else initiates a jump.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player vault animation plays if vault action initiated\\
+Expected Result: The vault animation plays and makes the model look as if it is vaulting over the object.\\
+Actual Result:  No animation plays.\\
+Status: Failure
+\subsubsection{Jump}
+\textbf{Tests prepared}\\
+Description: The player jumps upwards if no other contextual action available and player is stationary. \\
+Expected Result: Player jumps upwards.\\
+Actual Result:  As expected.\\
+Status: Pass
+\smallskip\\
+Description: The player jumps in direction of motion if no other contextual action available and player is moving. \\
+Expected Result: Player jumps in direction of motion.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: The player jump animation plays if player jumps. \\
+Expected Result: Jump animation plays.\\
+Actual Result:  No animation plays.\\
+Status: Failure
+\subsubsection{Climb}
+\textbf{Tests prepared}\\
+Description: The player climbs the object in front of it if it is unable to initiate a vault on the object and it is less than 3.05 metres tall. \\
+Expected Result: Player climbs object.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: The player climbs animation plays during a climb. \\
+Expected Result: Climb animation plays.\\
+Actual Result:  No animation plays.\\
+Status: Failure
+\subsubsection{Slide}
+\textbf{Tests prepared}\\
+Description: Slide can only be initiated when the player is grounded and is not in a different action\\
+Expected Result: Player slides.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Slide decreases player velocity at a defined rate. \\
+Expected Result: Player slows down during slide.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Slide can only be initiated if player is moving above a defined amount. \\
+Expected Result: Player slides if moving above defined amount. Else, player does not slide\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Slide animation plays if a slide is initiated. \\
+Expected Result: Player slide animation plays which makes the model look as if it is sliding.\\
+Actual Result: No animation plays.\\
+Status: Failure
+\subsubsection{Re-spawn}
+\textbf{Tests prepared}\\
+Description: Screen dims when the velocity the player is falling at a defined rate\\
+Expected Result: Screen starts to dim.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Screen clears when the velocity the player is not falling at a defined rate\\
+Expected Result: Screen starts to clear.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player re-spawns when the screen dims beyond a defined amount\\
+Expected Result: Player re-spawns at last checkpoint reached and screen clears.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{Checkpoints}
+\textbf{Tests prepared}\\
+Description: Latest checkpoint updates if the players reaches a checkpoint not in set of checkpoints reached.\\
+Expected Result: Latest checkpoint set as the current checkpoint reached.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Latest checkpoint does not update if the players reaches a checkpoint already in set of checkpoints reached.\\
+Expected Result: No change to system.\\
+Actual Result: As expected.\\
+Status: Pass
 
-
+\subsection{Environment}
+\subsubsection{Aircon vent expels steam to slow player}
+\textbf{Tests prepared}\\
+Description: Player only slowed when the aircon is active.\\
+Expected Result: Player is slowed.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Steam only shows if aircon is active.\\
+Expected Result: Steam effect expelled from aircon vent.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player is not slowed when the aircon is not active.\\
+Expected Result: Player is not slowed.\\
+Actual Result: As expected.\\
+Status: Pass
 \section{Conclusion}
 
 \newpage
