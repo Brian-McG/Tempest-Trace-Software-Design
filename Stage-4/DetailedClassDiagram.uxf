@@ -906,7 +906,7 @@ to&gt;</panel_attributes>
     <coordinates>
       <x>872</x>
       <y>344</y>
-      <w>338</w>
+      <w>336</w>
       <h>128</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -1198,7 +1198,7 @@ m2=1
     <coordinates>
       <x>872</x>
       <y>312</y>
-      <w>914</w>
+      <w>912</w>
       <h>464</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -1212,7 +1212,7 @@ m2=1
     <coordinates>
       <x>1288</x>
       <y>408</y>
-      <w>462</w>
+      <w>456</w>
       <h>368</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -1470,7 +1470,7 @@ reads&gt;</panel_attributes>
     <coordinates>
       <x>416</x>
       <y>632</y>
-      <w>78</w>
+      <w>72</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
