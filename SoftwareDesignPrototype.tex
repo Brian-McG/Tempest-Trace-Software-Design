@@ -1,0 +1,70 @@
+% Brian Mc George - MCGBRI004
+% Jacques Heunis - HNSJAC003
+% Timothy Gwynn - GWNTIM001
+% Due: 31-07-2015
+% Stage One - Software Engineering  - CSC3003S
+\documentclass[a4paper,10pt]{article}
+%**************************************************************************************************
+% PACKAGES
+%**************************************************************************************************
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{graphicx,color}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{caption, subcaption}
+%\usepackage{vector}
+
+%**************************************************************************************************
+% DEFAULT SETTINGS
+%**************************************************************************************************
+\marginparwidth -20 true pt    % Width of marginal notes.
+\oddsidemargin  -10 true pt       % Note that \oddsidemargin=\evensidemargin
+\evensidemargin -10 true pt
+\topmargin -0.5 true in        % Nominal distance from top of page to top of
+\textheight 9.75 true in         % Height of text (including footnotes and figures)
+\textwidth 7 true in        % Width of text line.
+\parindent=10pt                  % Do not indent paragraphs
+\parskip= 1 ex
+\columnseprule = 0.1pt
+\footskip = 30 true pt
+\hoffset = -0.1 true in
+\voffset = -0.1 true in
+\abovedisplayskip 1 true pt
+\abovedisplayshortskip 1 true pt
+\topsep 0 true pt
+\newcommand*\varhrulefill[1][0.4pt]{\leavevmode\leaders\hrule height#1\hfill\kern0pt}
+
+%**************************************************************************************************
+% DOCUMENT DETAILS
+%**************************************************************************************************
+\title{Tempest Trace \\
+Prototype Companion Document }
+
+\author{Timothy Gwynn, Jacques Heunis, Brian Mc George\\
+GWNTIM001, HNSJAC003, MCGBRI004}
+
+
+%**************************************************************************************************
+% MAIN DOCUMENT
+%**************************************************************************************************
+
+\begin{document}
+\maketitle
+
+\section{Choice of Prototype}
+We elected to build a vertical evolutionary prototype. \\
+Evolutionary was chosen over throw-away because no one area of the project seemed particularly risky or advanced and we felt that there would be little benefit to creating a throw-away prototype. \\
+We opted for a vertical prototype, focussing on the player's control-scheme and interaction with the world because the code controlling the player is of vital importance to the success of the project
+and can be tweaked, worked on and improved down to very fine details. This means that spending some time focussing specifically on some of the various aspects of the player controller can be useful to get a feel for how the game will play out, and can be instructive in the development of other areas of the project.
+\section{Class definitions and member functions}
+For information about the defined classes and their members, see the submitted code.
+\section{Inheritence}
+Since most of the inheritence used in our project lies within the enemy scripts, little of it has actually been written. As a demonstration of what is intended, some stub classes have been included in the AI folder, as is indicated there, we have a MoveableObject class which handles the movement for the AI. We then extend MoveableObject with Drone (and as they are developed, our other AI modules) and let the parent class handle the specifics of the movement, allowing the subclass to work at a higher (and for AI-focussed) level. \\
+One reason for the lack of a greater level of inheritence is Unity's object-component model. This model's use means that in most other cases inheritence is far more of an obstacle than it is an benefit in producing readable and maintainable code.
+
+\section{Scope}
+Since the focus of our prototype was the player's controlling scripts, we have completed most of the motion code that allows the player to run and jump around the world, as well as climb up tall objects, vault over low ones, or slide beneath low-hanging obstacles. \\
+In addition we have implemented the death and respawn functionality for the player as well as an initial user-interface with the player's runtime and whether they're in front or not. \\
+Since all of the player movement is naturally dependant on the world in which that movement takes place, the game world levels were also part of the focus of our prototype and the world geometry is mostly complete.
+
+\end{document}
