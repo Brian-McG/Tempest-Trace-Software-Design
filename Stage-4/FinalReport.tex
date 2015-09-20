@@ -117,22 +117,24 @@ The algorithms used will be covered in detail in section \ref{s:implementation} 
 Since the game must support two independent players, a large amount of code duplication is possible in supporting the interaction of the various game systems with both players. Naturally it is better to avoid code duplication (and in general to stick to the "DRY" - Don't Repeat Yourself - principle) and so extensive use of the engine's built-in object-component model to write instance-independent scripts that will handle the relevant interactions with the world and then simply attach them to the player object. \\
 This results in each player object functioning entirely independently, meaning that not only can we simply place an extra player in the world in order to support extra players, but bugs and code modifications only occur once and then the changes simply apply to both players.
 \subsubsection{Camera control}
-Control of the player's camera is handled by two different scripts, one for rotation in each of the X and Y axes. This separation of axes is useful because while the rotation in the X axis needs to only rotate the camera (and allow the player to look up or down), the rotation about the Y axis needs to also rotate the entire player object (containing the camera, the 3D model, all attached scripts etc). \\
-In both the X and Y cases, the script simply gets the relevant player's input for that frame and then rotates itself appropriately. \\
-<<Possibly some sort of image comparing the difference between the 2 control scripts, maybe showing what has to rotate? Or something, dunno how I'd show that nicely>>
+Control of the player's camera is handled by two different scripts, one for rotation in each of the X and Y axes. This separation of axes is useful because while the rotation in the X axis needs to rotate only the camera (and allow the player to look up or down), the rotation about the Y axis also needs to rotate the entire player object (containing the camera, the 3D model, all attached scripts etc). \\
+In both the X and Y cases, the script simply gets the relevant player's input for that frame and then rotates itself appropriately.
 \subsubsection{Input Separation}
 Since our support of multiple players is not over a network and both players must play on the same computer, we need a way to separate the input for either player so that player one does not respond to input intended for player two (for example). This separation is achieved by inserting an extra layer of abstraction between the code that handles player input, and the engine which acquires that input from the operating system/hardware. \\
-Instead of asking the engine for the state of input directly, the player scripts ask the "InputSplitter" class for the state of player input for only that player, InputSplitter then handles all separation of input entirely invisibly and only gives back the appropriate commands. \\
-<<Should we have some sort of diagram here that indicates the way that input is requested all the way from the player controller down to the engine and back?>>
+Instead of asking the engine for the state of input directly, the player scripts ask the "InputSplitter" class for the state of player input for only that player, InputSplitter then handles all separation of input entirely invisibly and only gives back the appropriate commands.
 \subsubsection{Environment interaction}
 Environment interaction forms the bulk of the code for the player controller. The player needs to be able to compute a number of distinct actions including running, jumping, sliding, climbing and vaulting, all of which require separate handling. Fortunately the transitions between these actions are (in most cases) fairly clear and well-defined, so we use a finite state machine-esque solution. \\
-<<Can we get a diagram for the state machine? Pretty much just a diagram of the animation controller>> \\
 The player's default state is "Idle", where the player is simply standing still and not moving around at all. We can even consider this to be the same state as the player's next most common state: "Running" (since we can think of idling as simply running with a speed of zero). Running is also the state with the most complicated situation regarding state transitions since all the other states transition in and out of Running. \\
 While in the Running state, the player can change state either by pressing the jump button, or pressing the slide button. When the slide button is pressed the player will go into a low slide across the ground, as long as they are moving fast enough in the first place. This slide will cause the player to slow down over time (which enforces a limit on how far the player can slide) but will allow them to move beneath low-hanging objects and possibly move around the level in an overall smoother or faster fashion. \\
 If the player presses the jump button, the controller first needs to examine the player's surroundings to see what obstacles there are. If there is a low obstacle on the floor in front of the player, then the player will either climb onto it if they are currently stationary, or vault over it if they are moving. If there is an obstacle in front of the player that is too tall to vault over, but not tall enough that the player cannot reach the top of it, then the player will climb up onto the obstacle. If no such obstacles are present, the player will simply jump. \\
-<<Possibly side-on diagram that shows the player along with where the raycasts happen and different obstacle heights>> \\
 In order to facilitate this process of checking the player's surroundings, we make extensive use of the engine's built in physics systems that allow code to easily shoot a ray through the world and provide information about what (if anything) the ray hits. Such a ray cast is used to check for the existence of obstacles at various heights in front of the player, as well as how far upwards those objects extend. \\
-<<Possibly a decision tree to illustrate what happens when the player presses space>>
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.4]{images/JumpDecisionTree.png}}
+    \caption{The decision tree that players out when the player presses the "jump" key}
+    \label{fig:jumpDecisionTree}
+\end{figure}
+\subsubsection{Issues encountered}
+qasdasdasd <<TODO>>
 
 \section{Program Validation and Verification}
 %I Copy-pasted my cases from Stage 3
