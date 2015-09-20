@@ -82,7 +82,7 @@ Within the game the models can either be other classes or GameObjects within the
     \label{fig:mvc}
 \end{figure}
 \subsection{Design class diagram}
-The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{DesignClassDiagram.pdf}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
+The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{\textbf{DesignClassDiagram.pdf}}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
 \begin{center}
     \begin{tabular}{|c|c|}
         \hline
@@ -98,7 +98,7 @@ The design class digram is too large to fit into an A4 page, it is therefore a s
 \end{center}
 \subsection{Layered architecture}
 The game is build upon the Unity engine. It forms the core or foundation layer of the system. The Unity engine provides functionality for physics calculations, controlling animations, rendering the scene, lighting calculations and collision detection to name a few. No technical services layer was included as the game does not have application-independent services such as connections to databases or extensive logging of errors to file. This layer will be added if in a later iteration a use case that requires such services is developed. The layer above that is the domain layer. It holds software objects representing domain concepts that fulfil application requirements. The majority of the classes belong to this layer since they are specific to the context of this game. At the topmost layer lies the user interface layer. It is highly specific to the application and contains services that the user will interact with. Such services include the world, menus and heads-up display.\smallskip\\
-The game makes use of a relaxed layered architecture as the both the user interface layer and domain layer call the engine layer directly. It was decided that a strict layered architecture was inadvisable. The performance impact would be far too high. In a game, the performance is a primary concern. Secondly, it would require a wrapper in the domain layer to allow commands to be passed from the user interface through to the engine layer. \smallskip\\
+The game makes use of a relaxed layered architecture as the both the user interface layer and domain layer call the engine layer directly. It was decided that a strict layered architecture was inadvisable. The performance impact would be far too high. In a game, the performance is a primary concern. Secondly, it would require a wrapper in the domain layer to allow commands to be passed from the user interface through to the engine layer which would be time consuming to develop. \smallskip\\
 In this game, the world and level design is a critical factor. It is therefore important to identify where it belongs within the architecture of the system in order to see how changes to it would effect the system as a whole. It was identified that the world should belong to the user interface layer. This is justified as the user can see and interact with the world just as they would see and interact with a web page. The world is therefore classified the same as one would classify the HyperText Markup Language (HTML) and Cascading Style Sheets (CSS) of a web page. The result is that one can make ascetic changes and changes to the layout of the level without affecting any other part of the system.
 \begin{figure}[H]
     \center{\includegraphics[scale=0.7]{images/LayeredArchitectureDiagram.png}}
@@ -107,8 +107,8 @@ In this game, the world and level design is a critical factor. It is therefore i
 \end{figure}
 \subsection{Data organisation}
 The system does not make use of any explicit databases or output to text files. However, since the Unity engine is used it it important to ensure that the data type of the assets used was one which the engine provided support for. The classes were written in C\#, models (possibly with animations) in the fbx format, textures as a png image and materials as a mat file.\smallskip\\
-The folder structure of the assets need to be structured and easy to manage to allow the game to scale. A folder for art assets from the artists is used, each assets is then seperated into a different folder. Each folder has the texture, fbx and materials. Fonts, other materials defined, prefabs, scenes, shaders, sound and standard assets are defined to their own folder. A folder called scripts is used to store all the classes. The scripts folder structure is the same as that defined in figure \ref{fig:architecture}.\smallskip\\
-The algorithms used will be covered in detail in section \ref{s:implementation} so it will not be covered in this section.
+The folder structure of the assets need to be well structured and easy to manage to allow the game to scale. A folder for art assets from the artists is used, each asset is then separated into a different folder. Each asset folder has the texture, fbx and materials. Fonts, other materials defined, prefabs, scenes, shaders, sound and standard assets are defined to their own folder. A folder called scripts is used to store all the classes. The scripts folder structure is the same as that defined in figure \ref{fig:architecture}.\smallskip\\
+The algorithms used will be covered in detail in section \ref{s:implementation} and will not be covered in this section.
 
 \section{Implementation}
 \label{s:implementation}
