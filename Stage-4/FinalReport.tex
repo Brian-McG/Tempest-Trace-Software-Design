@@ -134,7 +134,8 @@ In order to facilitate this process of checking the player's surroundings, we ma
     \label{fig:jumpDecisionTree}
 \end{figure}
 \subsubsection{Issues encountered}
-qasdasdasd <<TODO>>
+The main issue encountered while developing the code for controlling the player character is that the code would incorrectly classify the situation when the player pressed the "jump" key and would for example try to climb onto an obstacle that should have been vaulted over. This was mostly caused by badly tuned parameters for deciding at which height obstacles should be checked for, but was also caused by things such as having very thin pieces of world geometry that the system could fail to detect, resulting in incorrect behaviour. \\
+The other common issue was that when vaulting, climbing or sliding, the player would clip into world geometry and get stuck. This was a result of those motions failing to correctly make use of the engines physics systems, causing the player to move into geometry and then find themselves stuck when control was returned to the default code for running around. Once again, fixing these issues mostly involved ensuring that the engine's physics state is correctly updated in all the appropriate places while the player is moving.
 
 \section{Program Validation and Verification}
 %I Copy-pasted my cases from Stage 3
