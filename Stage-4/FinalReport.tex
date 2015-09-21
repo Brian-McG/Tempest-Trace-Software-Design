@@ -136,7 +136,45 @@ In order to facilitate this process of checking the player's surroundings, we ma
 \subsubsection{Issues encountered}
 The main issue encountered while developing the code for controlling the player character is that the code would incorrectly classify the situation when the player pressed the "jump" key and would for example try to climb onto an obstacle that should have been vaulted over. This was mostly caused by badly tuned parameters for deciding at which height obstacles should be checked for, but was also caused by things such as having very thin pieces of world geometry that the system could fail to detect, resulting in incorrect behaviour. \\
 The other common issue was that when vaulting, climbing or sliding, the player would clip into world geometry and get stuck. This was a result of those motions failing to correctly make use of the engines physics systems, causing the player to move into geometry and then find themselves stuck when control was returned to the default code for running around. Once again, fixing these issues mostly involved ensuring that the engine's physics state is correctly updated in all the appropriate places while the player is moving.
-
+\subsection{Configurable agents}
+In order to create a game that is balanced and fun to play, requires agents that are highly configurable. Unity provides an interface to configure class variables within the editor and while the game is running. This feature is leveraged to create configurable agents. An additional benefit this brings is that AI agents can be configured on the micro (per agent) level. It allows the level designer the ability to control the risk-reward ratio of the various routes which the player can take. Secondly, it provides a means to the level designer to be able to nudge the player towards certain desired behaviour. An example of the former is snipers which have been placed next to the first passage within the game. They are placed in order to encourage the player to slide below each window. 
+\subsection{Drone}
+\subsubsection{Introduction}
+The drone as four distinct states which it can be in at any given time: avoiding obstacle, patrolling, chasing and shooting. 
+\subsubsection{Obstacle avoidance}
+The drone makes use of a basic obstacle avoidance algorithm. It ray-casts forward 10 units and down 2 units. If the ray-cast hits an object which it deems it should avoid it will move upwards every game cycle until it no longer hits an object. The object can then move forward over the obstacle. In the level design stage it was declared that drones are always used in open areas and that the area above them is always free. As such this simple straightforward algorithm was used as it is not necessary to use a more complex technique to achieve the desired behaviour.
+\subsubsection{Patrolling}
+Patrolling is the default state of the drone. Each drone has a set of way-points that it faces and moves towards. The drone may only move towards its destination if it is within two degrees of facing the destination. Once the drone reaches its destination the next waypoint is set as the destination. If all the way-points are consumed the index is reset and the destination is set to the start of the list. The data structure used here is an array of Vector3's. The Vector3 represents the position in the game world that the drone should move towards. An array was used as it has O(1) access and because the number of way-points are static at runtime.
+\subsubsection{Chasing}
+Chasing occurs when a player triggers the drone's detection sphere causing the last seen position variable to be updated to a non-default value. Only one player can be targeted at a given time. Within the chasing state the drone maintains the position that the player was last seen as a Vector3. This position is updated at every game tick that the player is still triggering the detection sphere. If it loses sight of the player, it will move towards the last seen position. A counter starts that keeps track how long the drone has lost sight of the player for. If timer exceeds the defined threshold (currently five seconds) then the drone's state is reset. If the drone detects a player while moving towards the last known position then that player will become tracked.
+\subsubsection{Shooting}
+Shooting occurs if the player is tracked and the drone is facing towards the player. To keep the drone interesting and to add some variation the drone employs an offset function which offsets the bullet trajectory. The offset function is a summation of three sub-functions which each use different input variables to calculate their offset. Figure \ref{fig:offset} is a graph depicting the input and output for each sub-function (note that the second and third offsets use the same function but take different input).\smallskip\\
+The first sub-function takes the time the player has been tracked by the drone as input. It uses an exponential decay function so the offset rapidly decreases the longer the player is tracked. The second sub-function takes the movement speed of the player as input. It uses a linear function to compute the offset. If the player stays moving the probability of getting hit is slightly less. The third sub-function takes the distance from the player into account. Players that are close to the edge of the detection sphere are less likely to be hit then those who run through under the drone.\smallskip\\ 
+The constants for each function were found through play testing and through consultation with the level designer as to the desired accuracy. Through play-testing the initial constants were dramatically reduced to their current values. The exponential decay function started at an initial value too high. The movement offset was also too high and caused drone to miss all their shots as long as the player kept moving. 
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.65]{images/offset_graph.png}}
+    \caption{Plot of the offset functions where x is the input to the function and y is the offset}
+    \label{fig:offset}
+\end{figure}
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.5]{images/DroneDecisionTree.png}}
+    \caption{Decision tree for drone that plays out each game update cycle}
+    \label{fig:offset}
+\end{figure}
+\subsection{Sniper}
+\subsubsection{Introduction}
+Sniper has three distinct states that it can be in at any given time: patrolling, chasing and shooting. The sniper activates using triggers placed in the environment.
+\subsubsection{Patrolling}
+Patrolling is the default state of the sniper. The sniper tracks to a random position on the bottom of the trigger. Once the sniper reaches the random position a new random position is calculated. A ray-cast is done to calculate the length of the laser up to 1000 game units. Since the laser extends into the environment it means only the rotation of the laser needs to change at each game update cycle.
+\subsubsection{Chasing}
+When a player enters the trigger of the sniper there is a configurable delay until they become tracked. Once tracked, the laser moves towards the player.
+\subsubsection{Shooting}
+Shooting occurs when the player is tracked and the laser is pointing towards the player. There is a configurable delay before each bullet is fired. This is achieved using a simple timer that is updated at each game update cycle. The shoot timer is purposefully not reset when the sniper targets another player. This allows cunning players to decrease the timer such that the sniper cannot shoot yet but will be able to shoot near instantly if the player behind enters that snipers trigger area. While many of the mechanics in the game offer ways for the player behind to catch up, this offers a means for the player ahead to maintain their lead.
+\begin{figure}[H]
+    \center{\includegraphics[scale=0.5]{images/SniperDecisionTree.png}}
+    \caption{Decision tree for sniper that plays out each game update cycle}
+    \label{fig:offset}
+\end{figure}
 \section{Program Validation and Verification}
 %I Copy-pasted my cases from Stage 3
 %This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
