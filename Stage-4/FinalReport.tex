@@ -211,8 +211,125 @@ In the start-up method for the elevator it calculates the distance that the elev
 \subsubsection{Smoke bomb}
 When the smoke bomb input is given an animation plays which throws the smoke bomb to the ground. When the bomb hits the ground a smoke cloud particle effect plays. Associated with that is a collider that expands for up to 6 seconds with the radius growing at a rate of 0.5 units times the change in time between the update cycle. The AI cannot target a player through the smoke bomb, allowing the player to escape. The player is only given two smoke bombs for the level so the player has to chose wisely when to theirs.
 \section{Program Validation and Verification}
+
+\begin{table}[H]
+\caption{Testing Plan Summary}
+	\begin{center}
+		\begin{tabular}{ |l|p{10cm}| } 
+			\hline
+			Process & Technique \\ \hline
+			Integration Testing & Placed various game components in the game world together and tested whether they interacted correctly with each other. \\ \hline
+			Validation Testing & Tested various use cases relating to game mechanics by repetitive play testing of the game. \\ \hline
+			User Tests & Asked volunteers to play through the game and comment on various aspects of gameplay such as look and feel.\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\begin{table}[H]
+	\caption{Validation Tests Summary}
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Test Type & \multicolumn{3}{|c|}{Test Result}\\ \hline
+			& Functional Tests & Animation Tests & Rendering Test\\ \hline
+			Movement Tests & Passed & Passed & n/a\\ \hline
+			Look Tests & Passed & Failed & n/a\\ \hline
+			Vault Tests & Failed & Failed & n/a\\ \hline
+			Jump Tests & Passed & Failed & n/a\\ \hline
+			Climb Tests & Passed & Passed & n/a\\ \hline
+			Slide Tests & Passed & Passed & n/a\\ \hline
+			Ledge Grab Tests & Failed & Failed & n/a\\ \hline
+			Smokebomb Tests & Passed & Passed & Passed\\ \hline
+			Re-spawn Tests & Passed & n/a & Passed\\ \hline
+			Checkpoint Tests & Passed & n/a & n/a\\ \hline
+			Vent Tests & Passed & n/a & Passed\\ \hline
+			Elevator Tests & Passed & n/a & Passed\\ \hline
+			Door Tests & Passed & n/a & Passed\\ \hline
+			Drone Tests & Passed & Passed & Passed\\ \hline
+			Sniper Tests & Passed & n/a & Passed\\ \hline
+			UI Tests & Passed & n/a & Passed\\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 %I Copy-pasted my cases from Stage 3
 %This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
+\subsection{Integration Tests}
+%Direct input to function call tests seem to belong here, possibly will add some AI-World interaction tests here too
+\subsubsection{Keyboard/Mouse Input}
+\textbf{Tests prepared}
+Description: Mouse calls correct player look functions.\\
+Expected Result: Player look function called on mouse input.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: WASD keys calls correct player movement functions.\\
+Expected Result: Player movement function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Spacebar key calls player jump function.\\
+Expected Result: Playerjump function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Shift key calls correct player slide function.\\
+Expected Result: Player slide function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: F key calls correct deploy smokebomb function.\\
+Expected Result: Use smokebomb function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: E key calls door open function if used by player near a door\\
+Expected Result: Door open function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: E key calls button function if used by player near a unused button\\
+Expected Result: Button function called on key press.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{Controller Input}
+\textbf{Tests prepared}
+Description: Right Joystick calls correct player look functions.\\
+Expected Result: Player look function called on right joystick input.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Left Joystick calls correct player movement functions.\\
+Expected Result: Player movement function called on left joystick input.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Left bumper calls player jump function.\\
+Expected Result: Playerjump function called on left bumper press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Right bumper key called correct player slide function.\\
+Expected Result: Player slide function called on right bumper press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: B button press calls correct deploy smokebomb function.\\
+Expected Result: Use smokebomb function called on B button press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: A button calls door open function if used by player near a door\\
+Expected Result: Door open function called on A button press.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: A button key calls button function if used by player near a unused button\\
+Expected Result: Button function called on A button press.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsection{Validation Tests}
+%This section is mostly complete will add some more multiplayer specific tests once more multi-player testing has happened
 \subsubsection{Movement}
 \textbf{Tests prepared}\\
 Description: Move player forward with no obstruction in the given direction.\\
@@ -257,8 +374,8 @@ Status: Pass
 \smallskip\\
 Description: Run animation plays in direction of movement.\\
 Expected Result: The run animation plays and makes player model look as if it is running in the given direction\\
-Actual Result: No animation plays\\
-Status: Failure
+Actual Result: As expected\\
+Status: Pass
 \subsubsection{Look}
 \textbf{Tests prepared}\\
 Description: Player can can turn full 360 degrees horizontally\\
@@ -277,15 +394,15 @@ Actual Result:  Head remains static.\\
 Status: Failure
 \subsubsection{Vault}
 \textbf{Tests prepared}\\
-Description: Player can vault over object that is less than 1 metre high and has a distance that is less than 3 metres and is moving at least 5 metres per second. \\
+Description: Player can vault over object that is less than 1 metre high and has a length that is less than 3 metres and is moving at least 5 metres per second. \\
 Expected Result: Player vaults over object.\\
 Actual Result:  As expected.\\
 Status: Pass
 \smallskip\\
-Description: Player can not vault over object that is less than 1 metre high and a distance that is more than 3 metres or is moving at less than 5 metres per second. \\
+Description: Player can not vault over object that is less than 1 metre high and a length that is more than 3 metres or is moving at less than 5 metres per second. \\
 Expected Result: Player climbs onto object.\\
-Actual Result:  As expected.\\
-Status: Pass
+Actual Result:  Player is moved up and onto the object but with excessive velocity that projects them further.\\
+Status: Failure
 \smallskip\\
 Description: Player can not vault over object that is more than 1 metre high\\
 Expected Result: Player initiates a climb if it meets the climb parameters else initiates a jump.\\
@@ -321,8 +438,8 @@ Status: Pass
 \smallskip\\
 Description: The player climbs animation plays during a climb. \\
 Expected Result: Climb animation plays.\\
-Actual Result:  No animation plays.\\
-Status: Failure
+Actual Result:  As Expected.\\
+Status: Pass
 \subsubsection{Slide}
 \textbf{Tests prepared}\\
 Description: Slide can only be initiated when the player is grounded and is not in a different action\\
@@ -342,8 +459,50 @@ Status: Pass
 \smallskip\\
 Description: Slide animation plays if a slide is initiated. \\
 Expected Result: Player slide animation plays which makes the model look as if it is sliding.\\
-Actual Result: No animation plays.\\
+Actual Result: As Expected.\\
+Status: Pass
+\subsubsection{Ledge Grab}
+\textbf{Tests prepared}\\
+Description: The player hits an obstacle in front of them while not grounded and the obstacle does not extend above the player's head.\\
+Expected Result: Player drops down to hanging position and then climbs onto obstacle.\\
+Actual Result: Player climbs onto obstacle.\\
 Status: Failure
+\smallskip\\
+Description: The player hits an obstacle in front of them while not grounded and the obstacle extends above the player's head. \\
+Expected Result: Player falls down.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: The player hits an obstacle in front of them while grounded and the obstacle does not extend above the player's head. \\
+Expected Result: Player forward movement halts\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player should be animated to show the ledge grab and following climb\\
+Expected Result: Player animates to hanging position and then plays climbing animation\\
+Actual Result: Player Climbing animation plays\\
+Status: Failure
+\subsubsection{Smokebomb}
+\textbf{Tests prepared}\\
+Description: The player uses a smokebomb with smokebombs available\\
+Expected Result: Small collider is created and raycasts do not detect the player character for 2 seconds\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: The player uses a smokebomb with no smokebombs available \\
+Expected Result: Nothing occurs\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: A smokebomb is used \\
+Expected Result: Smokebomb particle effects rendered in the world\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player should be animated to show a downward throwing action\\
+Expected Result: Throwing animation plays on successfull use of smokebomb\\
+Actual Result: As Expected\\
+Status: Pass
 \subsubsection{Re-spawn}
 \textbf{Tests prepared}\\
 Description: Screen dims when the velocity the player is falling at a defined rate\\
@@ -371,8 +530,6 @@ Description: Latest checkpoint does not update if the players reaches a checkpoi
 Expected Result: No change to system.\\
 Actual Result: As expected.\\
 Status: Pass
-
-\subsection{Environment}
 \subsubsection{Aircon vent expels steam to slow player}
 \textbf{Tests prepared}\\
 Description: Player only slowed when the aircon is active.\\
@@ -389,6 +546,114 @@ Description: Player is not slowed when the aircon is not active.\\
 Expected Result: Player is not slowed.\\
 Actual Result: As expected.\\
 Status: Pass
+\subsubsection{Elevator}
+\textbf{Tests prepared}\\
+Description: Elevator moves down when elevator button is pressed.\\
+Expected Result: Elevator floor descends.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Elevator door closes when elevator button is pressed..\\
+Expected Result: Door moves up.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Elevator is slowed when elevator sabotage button is pressed\\
+Expected Result: Elavator floor descends more slowly for 2 seconds.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Particles effect plays when elevator sabotage button is pressed\\
+Expected Result: Particles are rendered and fall down elevator shaft.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{Door}
+\textbf{Tests prepared}\\
+Description: Door opens when player presses action button while near it and it is closed.\\
+Expected Result: Door opens.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Door does nothing when player presses action button while near it and it is open.\\
+Expected Result: No result.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Door prevents player from moving through doorway while closed.\\
+Expected Result: Player collides with door.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Door allows player from moving through doorway while open.\\
+Expected Result: Player moves through doorway.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Door is rendered correctly while open/closed\\
+Expected Result: Door is rendered in all states.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{Drone}
+\textbf{Tests prepared}\\
+Description: Drone patrols between checkpoints when no players are close and visible.\\
+Expected Result: Drone patrols between checkpoints.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Drone moves toward players that are close and visible.\\
+Expected Result: Drone moves toward player.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Drone shoots players that are sufficiently close and targeted and in sight.\\
+Expected Result: Drone shoots targeted player and player loses health.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Drone does not shoot players that are sufficiently close and targeted and not in sight.\\
+Expected Result: Drone moves to location the player was last visible at.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Drone avoids obstacles in it's path while chasing players or patrolling\\
+Expected Result: Drone flies over any obstacles it encounters.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{Sniper}
+\textbf{Tests prepared}\\
+Description: Sniper targets random locations at the bottom of sniper colliders while there are no players in any of the colliders assigned to the sniper\\
+Expected Result: Sniper laser moves around the bottom of sniper colliders.\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Sniper targets players in its colliders that are visible after a set amount of time.\\
+Expected Result: After a player has been in a sniper's collider and visible for some time the sniper will turn towards the player and shoot him\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Sniper will stop targeting the player as soon as he exits the sniper collider or is not in line of sight.\\
+Expected Result: Sniper returns to passive mode.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsubsection{UI}
+\textbf{Tests prepared}\\
+Description: Headbob occurs only while the player is moving\\
+Expected Result: Headbob occurs while the player is moving, headbob does not occur while the player is not moving\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Player position is accurately reflected in the UI.\\
+Expected Result: Player position should be 1 of 2 if the player is ahead of the other player and 2 of 2 otherwise\\
+Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Time should be accurately displayed by the UI.\\
+Expected Result: Time should start at 0:00 and be incremented to match real time passed since the game started.\\
+Actual Result: As expected.\\
+Status: Pass
+\subsection {User Testing}
+%Will add to this section once I get some more user tests
+A variety of users were asked to play the game on both controller and mouse/keyboard input methods. Players were then asked to rank the following gameplay aspects on a scale of 1 to 5 with 1 being very bad and 5 being very good; Controls, Flow, Visuals, Sound, Multi-player and Fun. Users were also asked to provide comments on aspects of the game that caught their attention whether positive or negative. Below is a graph showing the average rating of each aspect of the game that users ranked. Included is a table with comments that were common amongst a variety of users.
 \section{Conclusion}
 
 \newpage
@@ -404,11 +669,12 @@ Status: Pass
 	\item [Goal] Get to the top of the last building before the other player. Move quickly and efficiently while avoiding danger from enemies and falls.
 	\item [Enemies] Flying drones will attempt to chase you down if you get too close to them. Snipers will shoot you if you expose yourself in their field of vision.
 	\item [Environment] Interact with objects such as doors and buttons in your environment by pressing the object interaction button. Buttons will often let you gain a tactical advantage over your opponent.
+	\item [Abilities] Beyond basic movement You can jump, vault, climb and slide over and under objects. If you ever find yourself in trouble with an enemy you can use a smokebomb to cloud their sight of you, however you only have 3 of these, so use them wisely! 
 	\item [Player 1 Controls]\hfill \\
 	\begin{description}
 		\item \itab{Look:}\tab{Mouse}
 		\item \itab{Movement:}\tab{WASD}
-		\item \itab{Jump:}\tab{Spacebar}
+		\item \itab{Jump/Climb:}\tab{Spacebar}
 		\item \itab{Slide:}\tab{Shift}
 		\item \itab{Somkebomb:}\tab{F}
 		\item \itab{Object Interaction:}\tab{E}
@@ -417,7 +683,7 @@ Status: Pass
 	\begin{description}
 		\item \itab{Look:}\tab{Right Joystick}
 		\item \itab{Movement:}\tab{Left Joystick}
-		\item \itab{Jump:}\tab{Left Bumper}
+		\item \itab{Jump/Climb:}\tab{Left Bumper}
 		\item \itab{Slide:}\tab{Right Bumper}
 		\item \itab{Somkebomb:}\tab{B Button}
 		\item \itab{Object Interaction:}\tab{A Button}
