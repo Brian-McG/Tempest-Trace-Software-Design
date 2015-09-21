@@ -131,7 +131,7 @@ While in the Running state, the player can change state either by pressing the j
 If the player presses the jump button, the controller first needs to examine the player's surroundings to see what obstacles there are. If there is a low obstacle on the floor in front of the player, then the player will either climb onto it if they are currently stationary, or vault over it if they are moving. If there is an obstacle in front of the player that is too tall to vault over, but not tall enough that the player cannot reach the top of it, then the player will climb up onto the obstacle. If no such obstacles are present, the player will simply jump.
 \begin{figure}[H]
     \center{\includegraphics[scale=0.4]{images/JumpDecisionTree.png}}
-    \caption{The decision tree that players out when the player presses the "jump" key}
+    \caption{The decision tree that plays out when the player presses the "jump" key}
     \label{fig:jumpDecisionTree}
 \end{figure}
 In order to facilitate this process of checking the player's surroundings, we make extensive use of the engine's built in physics systems that allow code to easily shoot a ray through the world and provide information about what (if anything) the ray hits. Such a ray cast is used to check for the existence of obstacles at various heights in front of the player, as well as how far upwards those objects extend. \\
