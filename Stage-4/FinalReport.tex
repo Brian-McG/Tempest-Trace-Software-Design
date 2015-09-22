@@ -297,6 +297,9 @@ When the smoke bomb input is given, an animation plays which throws the smoke bo
         \caption{Testing Plan Summary}
 	\end{center}    
 \end{table}
+<<<<<<< HEAD
+These testing techniques were chosen as they are suitable to test interactive 3D games designed in Unity. Integration testing allowed us to test individual game elemnts in the enviroment they would be used in as well as allowing us to gradually build up smaller components into larger ones which were then tested via validation testing. Validation testing lends itself to intensive play testing which is suitable to testing games. Below there is an extensive record of how we tested a wide variety of possible use cases in order to ensure all apsects of our game worked as intended. User Tests were implemented as it is often impossible for game designers to judge certain aspects of their own game such as how intuitive the controls are. They also allow us to do a larger number of play tests as we are able to utilize a larger testing population.
+=======
 These testing techniques were chosen as they are suitable to test interactive 3D games designed in Unity. Integration testing allowed us to test individual game elements in the environment they would be used in as well as allowing us to gradually build up smaller components into larger ones which were then tested via validation testing. Validation testing lends itself to intensive play testing which is suitable to testing games. Table \ref{table:validation_tests} contains an extensive record of how we tested a wide variety the use cases in order to ensure all aspects of our game worked as intended. User tests were implemented as it is often impossible for game designers to judge certain aspects of their own game such as how intuitive the controls are. They also allow us to do a larger number of play tests as we are able to utilize a larger testing pool.
 \begin{table}[H]
 	\begin{center}
@@ -325,6 +328,7 @@ These testing techniques were chosen as they are suitable to test interactive 3D
         \label{table:validation_tests}
 	\end{center}       
 \end{table}
+>>>>>>> 2b8687176523753884218c9799eeab10a8aeb38f
 
 %I Copy-pasted my cases from Stage 3
 %This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
@@ -402,8 +406,36 @@ Description: A button key calls button function if used by player near a unused 
 Expected Result: Button function called on A button press.\\
 Actual Result: As expected.\\
 Status: Pass
+
 \subsection{Validation Tests}
 %This section is mostly complete will add some more multiplayer specific tests once more multi-player testing has happened
+\begin{table}[H]
+	\caption{Validation Tests Summary}
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c| } 
+			\hline
+			Test Type & \multicolumn{4}{|c|}{Test Result}\\ \hline
+			& Functional Tests & Animation Tests & Rendering Test & Sound Test\\ \hline
+			Movement Tests & Passed & Passed & n/a & Passed\\ \hline
+			Look Tests & Passed & Failed & n/a& n/a\\ \hline
+			Vault Tests & Failed & Failed & n/a& Passed\\ \hline
+			Jump Tests & Passed & Failed & n/a& Passed\\ \hline
+			Climb Tests & Passed & Passed & n/a& Passed\\ \hline
+			Slide Tests & Passed & Passed & n/a& Passed\\ \hline
+			Ledge Grab Tests & Failed & Failed & n/a& n/a\\ \hline
+			Smokebomb Tests & Passed & Passed & Passed& n/a\\ \hline
+			Re-spawn Tests & Passed & n/a & Passed& n/a\\ \hline
+			Checkpoint Tests & Passed & n/a & n/a& n/a\\ \hline
+			Vent Tests & Passed & n/a & Passed& n/a\\ \hline
+			Elevator Tests & Passed & n/a & Passed& Passed\\ \hline
+			Door Tests & Passed & n/a & Passed& n/a\\ \hline
+			Drone Tests & Passed & Passed & Passe& Passedd\\ \hline
+			Sniper Tests & Passed & n/a & Passe& Passedd\\ \hline
+			UI Tests & Passed & n/a & Passe& n/ad\\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+As displayed in the above table most tests have been passed and in the cases where functional tests failed it was generally with respect to edge cases. The result of this is that the game is functionally playable and even fun to play in certain aspects. However, the current version does not feel as polished as was originally desired. Additional work can be done to increase the user experience quality, particularily in the area of the player controller. Significant improvements can also be made in the level design to allow for a smoother, more intuitive gameplay experience.
 \subsubsection{Movement}
 \textbf{Tests prepared}\\
 Description: Move player forward with no obstruction in the given direction.\\
@@ -450,6 +482,11 @@ Description: Run animation plays in direction of movement.\\
 Expected Result: The run animation plays and makes player model look as if it is running in the given direction\\
 Actual Result: As expected\\
 Status: Pass
+\smallskip\\
+Description: Run sound plays during movement.\\
+Expected Result: The run sound plays while the player is moving\\
+Actual Result: As expected\\
+Status: Pass
 \subsubsection{Look}
 \textbf{Tests prepared}\\
 Description: Player can can turn full 360 degrees horizontally\\
@@ -487,6 +524,11 @@ Description: Player vault animation plays if vault action initiated\\
 Expected Result: The vault animation plays and makes the model look as if it is vaulting over the object.\\
 Actual Result:  No animation plays.\\
 Status: Failure
+\smallskip\\
+Description: Player vault sound plays if vault action initiated\\
+Expected Result: The vault sound plays\\
+Actual Result:  As expected\\
+Status: Pass
 \subsubsection{Jump}
 \textbf{Tests prepared}\\
 Description: The player jumps upwards if no other contextual action available and player is stationary. \\
@@ -503,6 +545,11 @@ Description: The player jump animation plays if player jumps. \\
 Expected Result: Jump animation plays.\\
 Actual Result:  No animation plays.\\
 Status: Failure
+\smallskip\\
+Description: Player jump sound plays if jump action initiated\\
+Expected Result: The jump sound plays\\
+Actual Result:  As expected\\
+Status: Pass
 \subsubsection{Climb}
 \textbf{Tests prepared}\\
 Description: The player climbs the object in front of it if it is unable to initiate a vault on the object and it is less than 3.05 metres tall. \\
@@ -513,6 +560,11 @@ Status: Pass
 Description: The player climbs animation plays during a climb. \\
 Expected Result: Climb animation plays.\\
 Actual Result:  As Expected.\\
+Status: Pass
+\smallskip\\
+Description: Player climb sound plays if climb action initiated\\
+Expected Result: The climb sound plays\\
+Actual Result:  As expected\\
 Status: Pass
 \subsubsection{Slide}
 \textbf{Tests prepared}\\
@@ -534,6 +586,11 @@ Status: Pass
 Description: Slide animation plays if a slide is initiated. \\
 Expected Result: Player slide animation plays which makes the model look as if it is sliding.\\
 Actual Result: As Expected.\\
+Status: Pass
+\smallskip\\
+Description: Player slide sound plays if slide action initiated\\
+Expected Result: The slide sound plays\\
+Actual Result:  As expected\\
 Status: Pass
 \subsubsection{Ledge Grab}
 \textbf{Tests prepared}\\
@@ -641,6 +698,11 @@ Description: Particles effect plays when elevator sabotage button is pressed\\
 Expected Result: Particles are rendered and fall down elevator shaft.\\
 Actual Result: As expected.\\
 Status: Pass
+\smallskip\\
+Description: Elevator sound plays while the elevator descends\\
+Expected Result: The elevator sound plays\\
+Actual Result:  As expected\\
+Status: Pass
 \subsubsection{Door}
 \textbf{Tests prepared}\\
 Description: Door opens when player presses action button while near it and it is closed.\\
@@ -693,6 +755,11 @@ Description: Drone avoids obstacles in it's path while chasing players or patrol
 Expected Result: Drone flies over any obstacles it encounters.\\
 Actual Result: As expected.\\
 Status: Pass
+\smallskip\\
+Description: Drone plays shoot sound whenever it fires at a target\\
+Expected Result: The shoot sound plays\\
+Actual Result:  As expected\\
+Status: Pass
 \subsubsection{Sniper}
 \textbf{Tests prepared}\\
 Description: Sniper targets random locations at the bottom of sniper colliders while there are no players in any of the colliders assigned to the sniper\\
@@ -708,6 +775,11 @@ Status: Pass
 Description: Sniper will stop targeting the player as soon as he exits the sniper collider or is not in line of sight.\\
 Expected Result: Sniper returns to passive mode.\\
 Actual Result: As expected.\\
+Status: Pass
+\smallskip\\
+Description: Sniper plays shoot sound whenever it fires at a target\\
+Expected Result: The shoot sound plays\\
+Actual Result:  As expected\\
 Status: Pass
 \subsubsection{UI}
 \textbf{Tests prepared}\\
