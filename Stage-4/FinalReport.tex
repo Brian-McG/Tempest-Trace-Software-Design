@@ -69,8 +69,8 @@ The Tempest Trace project is focused around providing a two player parkour game 
 The Tempest Trace project is a first-person running game whereby the player competes against the clock and against another player to get from the start to the end of a parkour/ free running track while trying to keep their movements smooth and free flowing. The player is tasked with traversing an obstacle course in as short a time as possible while avoiding enemies who would try to slow down or eliminate the player. In addition to this, the game will feature 2-player local multiplayer in which the players are pitted against each other to see who can complete the course the fastest. The multiplayer mode will also allow players to interact with each other, letting players try to slow their opponent down to get an edge. \\
 Our development methodology included some up-front analysis of the problem in order to break it down into a more well-defined set of requirements and objectives. We then constructed an evolutionary prototype to check that the basic mechanics of the game could work and that we could implement them without too much trouble. Once the prototype was completed, we followed a roughly iterative approach, scheduling the most important features to implement or bugs to fix and then working on those for a few days before re-evaluating the state of the project and repeating the process.
 
-\section{Requirements Captured}
-\subsection{Functional Requirements with use case narrative}
+\section{Requirements captured}
+\subsection{Functional requirements with use case narrative}
 \subsubsection{Move}
 \textbf{Actor:} Player\smallskip\\
 The player specifies which direction he/she wants the character to move in. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system and the appropriate animation is played. The system represents this graphically for both players. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
@@ -81,7 +81,7 @@ If the movement is not allowed the player's character will not move and no adjus
 The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. If there is a low wall in front of the player, it will vault over it. If there is a taller wall the player will grab the top of the wall and pull itself up. If the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump. The system represents this graphically for both players and outputs appropriate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
-\subsubsection{Grab Ledge}
+\subsubsection{Grab ledge}
 \textbf{Actor:} Player\smallskip\\
 If the player jumps and hits an obstacle that does not extend above the player's head the player will grab onto the obstacle and then climb onto the obstacle. If the object extends above the player's head or is indoors (there is a ceiling above the obstacle) the movement will not be allowed.\smallskip\\
 If the movement is not allowed the player's character will fall down until it encounters the floor or until the player is reset due to falling too far.
@@ -116,29 +116,32 @@ If the drone has no target it will attempt to acquire one by checking if there a
 Every game cycle the sniper updates its behaviour. The AI checks with the system whether it has a target, if it has a target, it then checks whether that target is in its line of sight. If the target is in line of sight a shoot delay timer is incremented by the time that has passed. It the timer exceeds a set time, the sniper will then shoot towards the target. The timer is then reset.\smallskip\\
 If neither target is in line of sight the sniper will remain in a passive state where it moves its laser around the area it monitors. If a player enters that area it monitors it will become tracked by the sniper.
 
-\subsubsection{Sound}
-The sound in the game should both immerse the player and create awareness of various game-play elements such as the player being under attack. The sound should not be overly intrusive but should promote a sense of urgency and drive to win in the player. With the exception of the background music, sounds during game-play should always have context (example the feet running sound should only play while the player is running).
-
 \subsubsection{Alter background music}
 \textbf{Actor:} Music system\smallskip\\
 The music system monitors the number of checkpoints each player has passed. If a player has passed a set number of checkpoints the background music is transitioned to a faster tempo track.
 If no player has passed the set number of checkpoints no change is made to the system.
-\subsection{Non-Functional Requirements}
+
+\subsubsection{Sound}
+The sound in the game should both immerse the player and create awareness of various game-play elements such as the player being under attack. The sound should not be overly intrusive but should promote a sense of urgency and drive to win in the player. With the exception of the background music, sounds during game-play should always have context (example the feet running sound should only play while the player is running).
+\subsection{Non-functional requirements}
 \subsubsection{Framerate}
 During game-play the framerate should not drop below 30fps in almost any circumstance. If this does occur it should be possible for the player to lower the game settings to a point where it does not. Since this requirement is dependant on the hardware of the machine the game is being played on it is assumed that the machine meets at least the recommended requirements outlined in the user manual.
 \subsubsection{Flow}
 The players should feel challenged when playing the game. However, the game should not be overly frustrating as this may cause an unenjoyable experience for the player. Multi-player functionality will have some effect on this as players are bored much less often in competitive environments. However, it is essential that a situation where one player is very far ahead of another is avoided if possible.
-\subsubsection{Input Lag}
+\subsubsection{Input lag}
 The player should never feel that his or her inputs are delayed during game-play. This means that player actions are reflected in game with a minimal latency. Since the game is local multi-player, it is reasonable that all player actions should be reflected within 50ms of input.
 \subsubsection{Visuals}
 The visual experience should intuitively indicate to the player how to interact with the world as well as providing an interesting spectacle during game-play. Situations in which the player is uncertain how to proceed should be avoided using visual cues. Such visual cues include arrows on walls to direct the player towards the destination and colour coded objects.
-\subsection{Usability Requirements}
-\subsubsection{Game Start Up}
+\subsection{Usability requirements}
+\subsubsection{Game start-up}
 The game should be in the form of a playable executable file that will run on any windows machine that meets the recommended requirements.
-\subsubsection{Menu Navigation}
+\subsubsection{Menu navigation}
 Menus should be easy to navigate and intuitive to use. It should be intuitive how to start or quit a game and access instructions.
-\subsubsection{Game Controls}
+\subsubsection{Game controls}
 Controls should be simple and easy to learn. They should make use of controller conventions present in similar games currently on the market. There should also be the smallest possible difference between the ease of use of each controller type (mouse and keyboard vs. Xbox controller).
+\subsection{Analysis artefacts produced}
+A number of design artefacts were produced throughout the duration of the project. An analysis class diagram was produced in the early stages of the project to give an indication of the classes required and the relationship between them. State machine diagrams were also produced in the early stages of development for the player controller and artificial intelligence. Later in the development cycle a highly detailed design class diagram was produced (included alongside this report, see section \ref{ss:design-class-diagram}). Further more, decision trees were produced to map out the refined logic for the player controller, drone, and sniper. Lastly, a layered architecture diagram was produced (see figure \ref{fig:architecture}) which showcases the game's overall high level architecture.
+
 \section{Design Overview}
 \label{s:design-overview}
 \subsection{Introduction}
@@ -152,6 +155,7 @@ Within the game the models can either be other classes or GameObjects within the
     \label{fig:mvc}
 \end{figure}
 \subsection{Design class diagram}
+\label{ss:design-class-diagram}
 The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{\textbf{Appendix A - DesignClassDiagram.pdf}}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
 \begin{center}
     \begin{tabular}{|c|c|}
@@ -183,13 +187,13 @@ The algorithms used will be covered in detail in section \ref{s:implementation} 
 \section{Implementation}
 \label{s:implementation}
 \subsection{Player Controller}
-\subsubsection{Re-usability and Encapsulation}
+\subsubsection{Re-usability and encapsulation}
 Since the game must support two independent players, a large amount of code duplication is possible in supporting the interaction of the various game systems with both players. Extensive use of the engine's built-in object-component model is used to write instance-independent scripts that will handle the relevant interactions with the world and then attach them to each player object. \\
 This results in each player object functioning entirely independently, meaning that not only can we support extra players by placing extra player avatars in the world, but bugs and code modifications only occur once and the changes apply to both players.
 \subsubsection{Camera control}
 Control of the player's camera is handled by two different scripts, one for rotation in each of the X and Y axes. This separation of axes is useful because while the rotation in the X axis needs to rotate only the camera (to allow the player to look up or down), the rotation about the Y axis also needs to rotate the entire player object (containing the camera, the 3D model, all attached scripts etc). \\
 In both the X and Y cases, the script gets the relevant player's input for that frame and then rotates itself appropriately.
-\subsubsection{Input Separation}
+\subsubsection{Input separation}
 Having multiple players over a network is not supported so both players must play on the same computer. A way is therefore needed to separate the input for either player so that player one does not respond to input intended for player two (for example). This separation is achieved by inserting an extra layer of abstraction between the code that handles player input, and the engine which acquires that input from the operating system/hardware. \\
 Instead of asking the engine for the state of input directly, the player scripts ask the "InputSplitter" class for the state of player input for only that player, InputSplitter then handles all separation of input invisibly and only gives back the appropriate commands.
 \subsubsection{Environment interaction}
@@ -233,7 +237,7 @@ The constants for each function were found through play testing and through cons
 \end{figure}
 \begin{figure}[H]
     \center{\includegraphics[scale=0.5]{images/DroneDecisionTree.png}}
-    \caption{Decision tree for drone that plays out each game update cycle}
+    \caption{Decision tree for drone that plays out at each game update cycle}
     \label{fig:droneDesisionTree}
 \end{figure}
 \subsection{Sniper}
@@ -247,7 +251,7 @@ When a player enters a trigger monitored by the sniper, there is a configurable 
 Shooting occurs when the player is tracked and the laser is pointing towards the player. There is a configurable delay before each bullet is fired. This is achieved using a simple timer that is updated at each game update cycle. The shoot timer is purposefully not reset when the sniper targets another player. This allows cunning players to decrease the timer such that the sniper cannot shoot yet but will be able to shoot near instantly if the player behind enters that sniper's trigger area. While many of the mechanics in the game offer ways for the player behind to catch up, this offers a means for the player ahead to maintain their lead.
 \begin{figure}[H]
     \center{\includegraphics[scale=0.5]{images/SniperDecisionTree.png}}
-    \caption{Decision tree for sniper that plays out each game update cycle}
+    \caption{Decision tree for sniper that plays out at each game update cycle}
     \label{fig:sniperDecisionTree}
 \end{figure}
 \subsection{Heads-up display (HUD)}
@@ -281,7 +285,6 @@ When the smoke bomb input is given, an animation plays which throws the smoke bo
 \section{Program Validation and Verification}
 
 \begin{table}[H]
-\caption{Testing Plan Summary}
 	\begin{center}
 		\begin{tabular}{ |l|p{10cm}| } 
 			\hline
@@ -292,9 +295,9 @@ When the smoke bomb input is given, an animation plays which throws the smoke bo
 			\hline
 		\end{tabular}
 	\end{center}
+    \caption{Testing Plan Summary}
 \end{table}
 These testing techniques were chosen as they are suitable to test interactive 3D games designed in Unity. Integration testing allowed us to test individual game elemnts in the enviroment they would be used in as well as allowing us to gradually build up smaller components into larger ones which were then tested via validation testing. Validation testing lends itself to intensive play testing which is suitable to testing games. Below there is an extensive record of how we tested a wide variety of possible use cases in order to ensure all apsects of our game worked as intended. User Tests were implemented as it is often impossible for game designers to judge certain aspects of their own game such as how intuitive the controls are. They also allow us to do a larger number of play tests as we are able to utilize a larger testing population.
-
 
 %I Copy-pasted my cases from Stage 3
 %This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
@@ -765,30 +768,31 @@ Actual Result: As expected.\\
 Status: Pass
 \subsection {User Testing}
 %Will add to this section once I get some more user tests
-A variety of users were asked to play the game on both controller and mouse/keyboard input methods. Players were then asked to rank the following gameplay aspects on a scale of 1 to 5 with 1 being very bad and 5 being very good; Controls, Flow, Visuals, Sound, Multi-player and Fun. Users were also asked to provide comments on aspects of the game that caught their attention whether positive or negative. Below is a graph showing the average rating of each aspect of the game that users ranked. Included is a list of comments that were common amongst a variety of users.
+A variety of users were asked to play the game on both controller and mouse/keyboard input methods. Players were then asked to rank the following game-play aspects on a scale of 1 to 5 with 1 being very bad and 5 being very good; Controls, Flow, Visuals, Sound, Multi-player and Fun. Users were also asked to provide comments on aspects of the game that caught their attention whether positive or negative. Below is a graph showing the average rating of each aspect of the game that users ranked. Included is a list of comments that were common amongst a variety of users.
 \begin{figure}[H]
 	\center{\includegraphics[scale=1]{images/UserTestGraph.png}}
-	\caption{Graph showing how users ranked various gameplay aspects out of 5}
+	\caption{Graph showing how users ranked various game-play aspects out of 5}
 	\label{fig:userTestGraph}
 \end{figure}
 \subsubsection{Common user comments}
 \begin{description}
 	\item [Edge Definition] Edges were not well defined, testers often complained about being unable to differentiate between shadows and gaps.
-	\item [Directional Confusion] Confusion as to which direction to go, many users asked for a map or similiar functionality be implmented. A significant number of users did mention that colour cues did help with this issue.
-	\item [Sound] Ambient sound was not suitable for the gameplay, many users said that the sound was too relaxed and that faster, more urgent music would be more suitable
+	\item [Directional Confusion] Confusion as to which direction to go, many users asked for a map or similar functionality be implemented. A significant number of users did mention that colour cues did help with this issue.
+	\item [Sound] Ambient sound was not suitable for the game-play, many users said that the sound was too relaxed and that faster, more urgent music would be more suitable
 	\item [Controls] Many users commented that the controls were well mapped and intuitive to use
-	\item [Multi-player] Most users enjoyed the multi-player aspect of the game saying it made the experince a lot more fun overall
+	\item [Multi-player] Most users enjoyed the multi-player aspect of the game saying it made the experience a lot more fun overall
 \end{description}
 \section{Conclusion}
 As specified in our requirements section, we aimed to have a player that can move, jump, slide and grab onto ledges. While we successfully implemented the movement, jumping and sliding, ledge grabbing has yet to be implemented (as can be seen from our validation tests). This is not due to any unforeseen circumstances, rather that the ledge grab functionality was rated to be of a lower priority than the other motions and so insufficient time has been allocated to it before now.
 It is important to note that this does not hinder the player's ability to play the game because while ledge grab serves to make the player's motion through the world feel more natural, it does not add to the areas around the world that the player can reach. \\
 We managed to successfully implement the player's non-movement-related interaction with the world (re-spawning, smoke grenades, environment interaction and the sniper and drone AI behaviours). \\
-While we did successfully add music to our game, it does not transition to a faster pace track during the game. Having background music ensures that the player is not playing in complete silence and adds to the atmosphere of the game world. We initially planned to have the background music transition to faster pace as the game progresses, whereby a more relaxed track would play near the start of the game, but when the player reaches a particular checkpoint in the level, the background music would change to become more intense.
+While we did successfully add music to our game, it does not transition to a faster pace track during the game. Having background music ensures that the player is not playing in complete silence and adds to the atmosphere of the game world. We initially planned to have the background music transition to faster pace as the game progresses. A more relaxed track would play near the start of the game, but when the player reaches a particular checkpoint in the level, the background music would change to become more intense.
 Again the fact that this has not been implemented is mostly down to it being of less importance than the features that more directly affect game-play (such as the AI logic and the player controller). \\
 In terms of non-functional requirements, we set out to support a consistently high frame rate, clear visuals, minimal input lag and flow of game-play. We managed to achieve the latter two of these goals and succeeded in the former two to a lesser degree.
 While the game runs at a consistent frame rate in most cases, the smoke bomb causes performance issues on some computers. This can be remedied by turning down the render quality settings however, so it is not considered to be a significant problem. \\
 The visual style of the game is a success in most cases, it manages to stay clean while not being too bland. However we noticed during user testing that it is necessary to add details to the environment that inform the player of where they should go so as to prevent confusion. This can be achieved by adding decals to the walls around the world, or simply colouring in parts of the environment to draw the player's eye.
-While we did manage to add some appropriate colouring to the world, more is needed and decals would greatly improve players' sense of direction while playing but there was no time to add decals before the submission deadline.
+While we did manage to add some appropriate colouring to the world, more is needed and decals would greatly improve players' sense of direction while playing but there was no time to add decals before the submission deadline. \\
+With regards to project architecture, the Unity engine's built-in object-component model and prefab systems have been successfully used to create easily replaceable, modular units of code which are then pieced together to create the finished product. This functionality, combined with our use of the Model-View-Controller and Layered design patterns have allowed us to create a codebase that can be thought of in reasonably small logical chunks, thereby improving the ability for team members to pick up- and work on a new area of code with comparative ease. Additionally, this modularization allows for easy code re-use since each script fulfills a very specific purpose and can be used to satisfy that purpose in a fairly wide variety of situations and environments within the game.
 \\ \\
 Overall the project is on-track. We have managed to implement most of the main features so far and already have a playable local-multiplayer running game. As mentioned above there are a few details which remain that would greatly improve the player experience and those will be added in the coming weeks before the final deadline.
 
