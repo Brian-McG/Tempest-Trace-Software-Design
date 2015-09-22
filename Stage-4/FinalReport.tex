@@ -70,74 +70,75 @@ The Tempest Trace project is a first-person running game whereby the player comp
 Our development methodology included some up-front analysis of the problem in order to break it down into a more well-defined set of requirements and objectives. We then constructed an evolutionary prototype to check that the basic mechanics of the game could work and that we could implement them without too much trouble. Once the prototype was completed, we followed a roughly iterative approach, scheduling the most important features to implement or bugs to fix and then working on those for a few days before re-evaluating the state of the project and repeating the process.
 
 \section{Requirements Captured}
-\subsection{Functional Requirements with use cases}
-\subsubsection{Move player}
+\subsection{Functional Requirements with use case narrative}
+\subsubsection{Move}
 \textbf{Actor:} Player\smallskip\\
 The player specifies which direction he/she wants the character to move in. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system and the appropriate animation is played. The system represents this graphically for both players. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
-\subsubsection{Jump player}
+\subsubsection{Jump}
 \textbf{Actor:} Player\smallskip\\
-The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. If there is a box/low wall in front of the player character it will vault over it. If there is a taller wall the player character will grab the top of the wall and pull itself up. If the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump. The system represents this graphically for both players and outputs appropriate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
+The player specifies he/she wants the character to jump. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what sort of obstacle is in close proximity and in front of the player and the appropriate animation is played. If there is a low wall in front of the player, it will vault over it. If there is a taller wall the player will grab the top of the wall and pull itself up. If the wall is too tall the player will just perform the standard jump. If there is no obstacle the player will perform a standard jump. The system represents this graphically for both players and outputs appropriate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
-\subsubsection{Ledge Grab player}
+\subsubsection{Grab Ledge}
 \textbf{Actor:} Player\smallskip\\
-If the player jumps and hits an obstacle that does not extend above the player's head the player will grab onto the obstacle and then climb onto the obstacle. If the object extends above the player's head or is indoors (i. e. there is a ceiling above the obstacle) the movement will not be allowed\smallskip\\
+If the player jumps and hits an obstacle that does not extend above the player's head the player will grab onto the obstacle and then climb onto the obstacle. If the object extends above the player's head or is indoors (there is a ceiling above the obstacle) the movement will not be allowed.\smallskip\\
 If the movement is not allowed the player's character will fall down until it encounters the floor or until the player is reset due to falling too far.
 
-\subsubsection{Slide player}
+\subsubsection{Slide}
 \textbf{Actor:} Player\smallskip\\
 The player specifies he/she wants the character to slide. The system performs collision detection to detect whether the input movement is allowed. If the movement is allowed the player's character is appropriately displaced in the system depending on what slope is in front of the player and the appropriate animation is played. The system represents this graphically for both players and outputs appropriate sound effects. The system checks whether the player has reached the end goal and if so ends the game.\smallskip\\
 If the movement is not allowed the player's character will not move and no adjustments will be made to the system.
 
-\subsubsection{Respawn player}
+\subsubsection{Re-spawn}
 \textbf{Actor:} Player\smallskip\\
-The player's character dies. The system checks where the closest respawn point behind the player is. If there are no obstacles at the spawn location, the player's character appears at the location and the appropriate animation is played. The system represents this graphically for both players and updates the player's character's location.  The system is updated to reflect the player's new position.\smallskip\\
-If the spawn location is blocked, perhaps by the other player or an AI unit the game will delay the respawn up to 1.5 seconds until the spawn location is cleared otherwise it will pick the next closest spawn location.
+The player's character dies. The system retrieves the last re-spawn point that the player has passed. The player's character appears at the location. The system represents this graphically for both players and updates the player's character's location.  The system is updated to reflect the player's new position.\smallskip\\
 
 \subsubsection{Use smoke grenade}
 \textbf{Actor:} Player\smallskip\\
 The player specifies he/she wants the character to use a smoke bomb. The system checks whether the player has smoke grenades playing. If the player has smoke grenades available the appropriate animation is displayed along with the appropriate sound effect and a new smoke cloud object is created at the player's location. Over time the smoke cloud object will shrink and eventually be removed.\smallskip\\
 If the player has no smoke grenade an error sound will be played.
 
-\subsubsection{Update mobile AI behaviour}
-\textbf{Actor:} Time\smallskip\\
-Every 2 seconds the mobile AI updates its behaviour. The AI checks with the system whether it has a target, if it has a target it then checks whether that target is in line of sight, if the target is in line of sight then the AI moves towards the target. If the target is within sufficiently small distance and moving sufficiently slowly the AI will then shoot towards the target.\smallskip\\
-If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets, otherwise it will proceed to it's current target's last seen position. If it cannot find the player at the last seen position it will timeout and return back to patrolling. \smallskip\\
-If the AI has no target it will attempt to acquire one by checking if there are any player characters in line of sight and sufficiently close, if there are none it will continue to patrol between predefined points.
-
-\subsubsection{Update static AI behaviour}
-\textbf{Actor:} Time\smallskip\\
-Every 2 seconds the static AI updates its behaviour. The AI checks with the system whether it has a target, if it has a target, it then checks whether that target is in line of sight. If the target is in line of sight, then the AI increases its accuracy rating. The AI will then shoot towards the target.\smallskip\\
-If the target is not in line of sight the AI checks whether the other possible target is in line of sight, if this is the case it will switch targets and reset its accuracy rating to a default. The AI will then shoot towards the target. If neither target is in line of sight the AI will remain in a passive state with a default accuracy rating until a valid target enters its line of sight at which point it will acquire the target.
-
-\subsubsection{Enviroment Interaction}
+\subsubsection{Interact}
 \textbf{Actor:} Player \smallskip \\
-When the player presses the enviroment interaction button while near an interactable object in the enviroment (Button or Door) the correct contextual action should occur. If the player is near a door the door should open and if the player is near a button the button should change its state to pushed and fire the script attached to it.\smallskip\\
-If the player is not near an enviromental object or the object has already been used (eg. door has been opened) no adjustments should be made to the system.
+When the player presses the environment interaction button while near an interactable (Button or Door) the correct contextual action should occur. If the player is near a door the door should open and if the player is near a button the button should change its state to pushed and fire the script attached to it.\smallskip\\
+If the player is not near an environmental object or the object has already been used (eg. door has been opened) no adjustments should be made to the system.
+
+\subsubsection{Update drone behaviour}
+\textbf{Actor:} Time\smallskip\\
+Every game cycle the drone updates its behaviour. The drone checks with the system whether it has a target. If it has a target it then checks whether it is facing towards the target. If it does, it will shoot towards the target. Otherwise, it will turn to face the target. The trajectory of the bullet is offset using a function of the time the target has been tracked, distance to target and speed of target.\smallskip\\
+The drone moves towards the last known location of the target if it loses sight of the target. If it cannot find the player at the last seen position it will timeout and return back to patrolling. \smallskip\\
+If the drone has no target it will attempt to acquire one by checking if there are any player characters are sufficiently close, if there are none it will continue to patrol between predefined points.
+
+\subsubsection{Update sniper behaviour}
+\textbf{Actor:} Time\smallskip\\
+Every game cycle the sniper updates its behaviour. The AI checks with the system whether it has a target, if it has a target, it then checks whether that target is in its line of sight. If the target is in line of sight a shoot delay timer is incremented by the time that has passed. It the timer exceeds a set time, the sniper will then shoot towards the target. The timer is then reset.\smallskip\\
+If neither target is in line of sight the sniper will remain in a passive state where it moves its laser around the area it monitors. If a player enters that area it monitors it will become tracked by the sniper.
+
+\subsubsection{Sound}
+The sound in the game should both immerse the player and create awareness of various game-play elements such as the player being under attack. The sound should not be overly intrusive but should promote a sense of urgency and drive to win in the player. With the exception of the background music, sounds during game-play should always have context (example the feet running sound should only play while the player is running).
 
 \subsubsection{Alter background music}
-\textbf{Actor:} AI Agent\smallskip\\
-AI agent acquires player as a target. It notifies music system that it is tracking player. If the player is tracked, the music system transitions the background music for the targeted player to a faster tempo track. If the player is already targeted no change is made to the background music for that player. If the AI loses track of the target, it notifies the music system that it is no longer tracking the player. If it is the only AI agent targeting that player, the music system transitions the player's background music back to the default.
+\textbf{Actor:} Music system\smallskip\\
+The music system monitors the number of checkpoints each player has passed. If a player has passed a set number of checkpoints the background music is transitioned to a faster tempo track.
+If no player has passed the set number of checkpoints no change is made to the system.
 \subsection{Non-Functional Requirements}
 \subsubsection{Framerate}
-During gameplay the framerate should not drop below 30fps in almost any circumstance. If this does occur it should be possible for the player to lower the game setings to a point where it does not. Since this requirement is dependant on the hardware of the machine the game is being played on it is assumed that the machine meets at least the minimum requirements outlined in the user manual.
+During game-play the framerate should not drop below 30fps in almost any circumstance. If this does occur it should be possible for the player to lower the game settings to a point where it does not. Since this requirement is dependant on the hardware of the machine the game is being played on it is assumed that the machine meets at least the recommended requirements outlined in the user manual.
 \subsubsection{Flow}
-The players should feel challenged when playing the game. However, the game should not be overly frustrating as this may cause an unenjoyable experience for the player. Multi-player functionality will have some effect on this as players are bored much less often in competitive enviroments. However, it is essential that a situation where one player is very far ahead of another is avoided if possible.
+The players should feel challenged when playing the game. However, the game should not be overly frustrating as this may cause an unenjoyable experience for the player. Multi-player functionality will have some effect on this as players are bored much less often in competitive environments. However, it is essential that a situation where one player is very far ahead of another is avoided if possible.
 \subsubsection{Input Lag}
-The player should never feel that his or her inputs are delayed during gameplay. This means that player actions are reflected in game with a maximum latency, since the game is local multiplayer it is reasonable that all player actions should be reflected within 50ms of input.
+The player should never feel that his or her inputs are delayed during game-play. This means that player actions are reflected in game with a minimal latency. Since the game is local multi-player, it is reasonable that all player actions should be reflected within 50ms of input.
 \subsubsection{Visuals}
-The visual experience should intuitively indicate to the player how to interact with the world as well as providing an interesting spectacle during gameplay. Situations in which the player is uncertain how to proceed should be avoided using visual cues such as diagrams and colour coded objects.
-\subsubsection{Sound}
-The sound in the game should both immerse the player and create awareness of various gameplay elements such as the player being under attack. The sound should not be overly intrusive but should promote a sense of urgency and drive to win in the player. With the exception of the background music sounds during gameplay shoud always have context (eg. the feet running sound should only play while the player is running)
+The visual experience should intuitively indicate to the player how to interact with the world as well as providing an interesting spectacle during game-play. Situations in which the player is uncertain how to proceed should be avoided using visual cues. Such visual cues include arrows on walls to direct the player towards the destination and colour coded objects.
 \subsection{Usability Requirements}
 \subsubsection{Game Start Up}
-The game should be in the form of a playable .exe file that will run on any windows machine that meets the minimum requirements.
+The game should be in the form of a playable executable file that will run on any windows machine that meets the recommended requirements.
 \subsubsection{Menu Navigation}
-Menus should be easy to navigate and intuitive to use. It should be obvious how to start or quit a game and access instructions.
+Menus should be easy to navigate and intuitive to use. It should be intuitive how to start or quit a game and access instructions.
 \subsubsection{Game Controls}
-Controls should be simple and easy to learn. They should make use of controller conventions present in similair games currently on the market. There should also be the smallest possible difference between the ease of use of each controller type (Mouse and keyboard vs. xbox controller)
+Controls should be simple and easy to learn. They should make use of controller conventions present in similar games currently on the market. There should also be the smallest possible difference between the ease of use of each controller type (mouse and keyboard vs. Xbox controller).
 \section{Design Overview}
 \label{s:design-overview}
 \subsection{Introduction}
@@ -151,7 +152,7 @@ Within the game the models can either be other classes or GameObjects within the
     \label{fig:mvc}
 \end{figure}
 \subsection{Design class diagram}
-The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{\textbf{DesignClassDiagram.pdf}}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
+The design class digram is too large to fit into an A4 page, it is therefore a separate document: \textit{\textbf{Appendix A - DesignClassDiagram.pdf}}. The class diagram is extensive and highly detailed and shows the relationships between the classes. It also captures the hierarchy between classes. The following is a description of the notation used within the class diagram:
 \begin{center}
     \begin{tabular}{|c|c|}
         \hline
@@ -738,10 +739,10 @@ A variety of users were asked to play the game on both controller and mouse/keyb
 \section{Conclusion}
 As specified in our requirements section, we aimed to have a player that can move, jump, slide and grab onto ledges. While we successfully implemented the movement, jumping and sliding, ledge grabbing has yet to be implemented (as can be seen from our validation tests). This is not due to any unforeseen circumstances, rather that the ledge grab functionality was rated to be of a lower priority than the other motions and so insufficient time has been allocated to it before now.
 It is important to note that this does not hinder the player's ability to play the game because while ledge grab serves to make the player's motion through the world feel more natural, it does not add to the areas around the world that the player can reach. \\
-We managed to successfully implement the player's non-movement-related interaction with the world (IE respawning, smoke grenades, environment interaction and the static and mobile AI behaviours). \\
-While we did successfully add music to our game, it does not respond to context. Having background music ensures that the player is not playing in complete silence and adds to the atmosphere of the game world. We initially planned to have context-sensitive background music, whereby a more relaxed track would play most of the time, but when the player was in a tense situation, the background music would change to become more intense.
-Again the fact that this has not been implemented is mostly down to it being of less importance than the features that more directly affect gameplay (such as the AI logic and the player controller). \\
-In terms of non-functional requirements, we set out to support a consistently high frame rate, clear visuals, minimal input lag and flow of gameplay. We managed to achieve the latter two of these goals and succeeded in the former two to a lesser degree.
+We managed to successfully implement the player's non-movement-related interaction with the world (re-spawning, smoke grenades, environment interaction and the sniper and drone AI behaviours). \\
+While we did successfully add music to our game, it does not transition to a faster pace track during the game. Having background music ensures that the player is not playing in complete silence and adds to the atmosphere of the game world. We initially planned to have the background music transition to faster pace as the game progresses, whereby a more relaxed track would play near the start of the game, but when the player reaches a particular checkpoint in the level, the background music would change to become more intense.
+Again the fact that this has not been implemented is mostly down to it being of less importance than the features that more directly affect game-play (such as the AI logic and the player controller). \\
+In terms of non-functional requirements, we set out to support a consistently high frame rate, clear visuals, minimal input lag and flow of game-play. We managed to achieve the latter two of these goals and succeeded in the former two to a lesser degree.
 While the game runs at a consistent frame rate in most cases, the smoke bomb causes performance issues on some computers. This can be remedied by turning down the render quality settings however, so it is not considered to be a significant problem. \\
 The visual style of the game is a success in most cases, it manages to stay clean while not being too bland. However we noticed during user testing that it is necessary to add details to the environment that inform the player of where they should go so as to prevent confusion. This can be achieved by adding decals to the walls around the world, or simply colouring in parts of the environment to draw the player's eye.
 While we did manage to add some appropriate colouring to the world, more is needed and decals would greatly improve players' sense of direction while playing but there was no time to add decals before the submission deadline.
