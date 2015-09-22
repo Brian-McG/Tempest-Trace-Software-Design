@@ -714,7 +714,19 @@ Status: Pass
 \subsection {User Testing}
 %Will add to this section once I get some more user tests
 A variety of users were asked to play the game on both controller and mouse/keyboard input methods. Players were then asked to rank the following gameplay aspects on a scale of 1 to 5 with 1 being very bad and 5 being very good; Controls, Flow, Visuals, Sound, Multi-player and Fun. Users were also asked to provide comments on aspects of the game that caught their attention whether positive or negative. Below is a graph showing the average rating of each aspect of the game that users ranked. Included is a table with comments that were common amongst a variety of users.
+
 \section{Conclusion}
+As specified in our requirements section, we aimed to have a player that can move, jump, slide and grab onto ledges. While we successfully implemented the movement, jumping and sliding, ledge grabbing has yet to be implemented (as can be seen from our validation tests). This is not due to any unforeseen circumstances, rather that the ledge grab functionality was rated to be of a lower priority than the other motions and so insufficient time has been allocated to it before now.
+It is important to note that this does not hinder the player's ability to play the game because while ledge grab serves to make the player's motion through the world feel more natural, it does not add to the areas around the world that the player can reach. \\
+We managed to successfully implement the player's non-movement-related interaction with the world (IE respawning, smoke grenades, environment interaction and the static and mobile AI behaviours). \\
+While we did successfully add music to our game, it does not respond to context. Having background music ensures that the player is not playing in complete silence and adds to the atmosphere of the game world. We initially planned to have context-sensitive background music, whereby a more relaxed track would play most of the time, but when the player was in a tense situation, the background music would change to become more intense.
+Again the fact that this has not been implemented is mostly down to it being of less importance than the features that more directly affect gameplay (such as the AI logic and the player controller). \\
+In terms of non-functional requirements, we set out to support a consistently high frame rate, clear visuals, minimal input lag and flow of gameplay. We managed to achieve the latter two of these goals and succeeded in the former two to a lesser degree.
+While the game runs at a consistent frame rate in most cases, the smoke bomb causes performance issues on some computers. This can be remedied by turning down the render quality settings however, so it is not considered to be a significant problem. \\
+The visual style of the game is a success in most cases, it manages to stay clean while not being too bland. However we noticed during user testing that it is necessary to add details to the environment that inform the player of where they should go so as to prevent confusion. This can be achieved by adding decals to the walls around the world, or simply colouring in parts of the environment to draw the player's eye.
+While we did manage to add some appropriate colouring to the world, more is needed and decals would greatly improve players' sense of direction while playing but there was no time to add decals before the submission deadline.
+\\ \\
+Overall the project is on-track. We have managed to implement most of the main features so far and already have a playable local-multiplayer running game. As mentioned above there are a few details which remain that would greatly improve the player experience and those will be added in the coming weeks before the final deadline.
 
 \newpage
 \section*{User Manual}
