@@ -237,7 +237,7 @@ The constants for each function were found through play testing and through cons
 \end{figure}
 \begin{figure}[H]
     \center{\includegraphics[scale=0.5]{images/DroneDecisionTree.png}}
-    \caption{Decision tree for drone that plays out each game update cycle}
+    \caption{Decision tree for drone that plays out at each game update cycle}
     \label{fig:droneDesisionTree}
 \end{figure}
 \subsection{Sniper}
@@ -251,7 +251,7 @@ When a player enters a trigger monitored by the sniper, there is a configurable 
 Shooting occurs when the player is tracked and the laser is pointing towards the player. There is a configurable delay before each bullet is fired. This is achieved using a simple timer that is updated at each game update cycle. The shoot timer is purposefully not reset when the sniper targets another player. This allows cunning players to decrease the timer such that the sniper cannot shoot yet but will be able to shoot near instantly if the player behind enters that sniper's trigger area. While many of the mechanics in the game offer ways for the player behind to catch up, this offers a means for the player ahead to maintain their lead.
 \begin{figure}[H]
     \center{\includegraphics[scale=0.5]{images/SniperDecisionTree.png}}
-    \caption{Decision tree for sniper that plays out each game update cycle}
+    \caption{Decision tree for sniper that plays out at each game update cycle}
     \label{fig:sniperDecisionTree}
 \end{figure}
 \subsection{Heads-up display (HUD)}
