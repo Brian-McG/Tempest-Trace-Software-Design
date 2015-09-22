@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{color}
+\usepackage{bm}	
+\usepackage{float}
+\usepackage{caption, subcaption}
+\usepackage{times}
+\usepackage{fancyhdr}           % Allows better control over headers and footers
+%\usepackage{layout}            % use with \layout to see the page layout for
+%debugging purposes.
+\usepackage[margin=2.5cm]{geometry}  %   set the margins using the
+                                %   geometry package (which is much
+                                %   the easiest way of doing this).
+\usepackage[pdftex]{graphicx}   %   Pictures (means you have to
+                                %   produce pdf output via pdflatex)
+\usepackage[small,compact]{titlesec}   % Try to reduce the white space
+                                % latex loves so much
+\titlelabel{\thetitle. \quad}   % Reduce space around section heads
+                                % and add a full stop after the number
+\pagestyle{fancy}               % Invoke fancy headers
+
+\renewcommand{\abstractname}{\vskip -5mm}  %  Change name of Abstract
+                                %  to nothing and loose some of the
+                                %  excessive white space
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+\begin{document}
+    \begin{titlepage} \begin{center}
+            \textsc{\LARGE University of Cape Town}
+            \\[1.5cm] \textsc{\Large Software Engineering Stage Four} \\\smallskip
+            \textsc{\Large Work Allocation} \\\smallskip
+            \textsc{\Large CSC3003S} \\\smallskip
+            \textsc{\Large \today} \\\smallskip
+            \noindent\rule[0.4mm]{\textwidth}{0.1mm}
+            \\[0.4cm] { \huge \bfseries Tempest Trace \\[0.4cm] }
+            \noindent\rule[0.4mm]{\textwidth}{0.1mm}
+            \\[1cm]
+            \begin{minipage}[t]{0.4\textwidth}
+                \begin{flushleft}\large \emph{Authors:}\\ Brian Mc George - MCGBRI004 \\ Jacques Heunis - HNSJAC003 \\ Timothy Gwynn - GWYTIM001
+                    \\[2cm]
+                \end{flushleft}
+            \end{minipage} \begin{minipage}[t]{0.4\textwidth}
+            \begin{flushright} \large \emph{Supervisor:} \\ Assoc. Prof.~Patrick Marais\\patrick@cs.uct.ac.za\end{flushright}
+            \begin{flushright} \large \emph{Tutor:} \\ Codie Roelf\\Codie.Roelf@alumni.uct.ac.za\end{flushright}
+        \end{minipage}
+    \end{center}
+\end{titlepage}
+
+%%%  Set the headers via fancyhdr package
+\lhead{Capstone Project 2015}  % Short title for running head
+\chead{}
+\rhead{\today}   %  Fixed running head of the date
+\lfoot{}
+\cfoot{\thepage}    %  add page number as centre footer.
+\rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}   % Don't want horizontal line
+                                % under header.
+\section{Brian Mc George - MCGBRI004}
+\section{Jacques Heunis - HNSJAC003}
+\section{Timothy Gwynn - GWYTIM001}
+\end{document}
+
+
+
