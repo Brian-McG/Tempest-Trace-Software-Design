@@ -294,10 +294,41 @@ When the smoke bomb input is given, an animation plays which throws the smoke bo
 			User Tests & Asked volunteers to play through the game and comment on various aspects of gameplay such as look and feel.\\
 			\hline
 		\end{tabular}
-	\end{center}
-    \caption{Testing Plan Summary}
+        \caption{Testing Plan Summary}
+	\end{center}    
 \end{table}
+<<<<<<< HEAD
 These testing techniques were chosen as they are suitable to test interactive 3D games designed in Unity. Integration testing allowed us to test individual game elemnts in the enviroment they would be used in as well as allowing us to gradually build up smaller components into larger ones which were then tested via validation testing. Validation testing lends itself to intensive play testing which is suitable to testing games. Below there is an extensive record of how we tested a wide variety of possible use cases in order to ensure all apsects of our game worked as intended. User Tests were implemented as it is often impossible for game designers to judge certain aspects of their own game such as how intuitive the controls are. They also allow us to do a larger number of play tests as we are able to utilize a larger testing population.
+=======
+These testing techniques were chosen as they are suitable to test interactive 3D games designed in Unity. Integration testing allowed us to test individual game elements in the environment they would be used in as well as allowing us to gradually build up smaller components into larger ones which were then tested via validation testing. Validation testing lends itself to intensive play testing which is suitable to testing games. Table \ref{table:validation_tests} contains an extensive record of how we tested a wide variety the use cases in order to ensure all aspects of our game worked as intended. User tests were implemented as it is often impossible for game designers to judge certain aspects of their own game such as how intuitive the controls are. They also allow us to do a larger number of play tests as we are able to utilize a larger testing pool.
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Test Type & \multicolumn{3}{|c|}{Test Result}\\ \hline
+			& Functional Tests & Animation Tests & Rendering Test\\ \hline
+			Movement Tests & Passed & Passed & n/a\\ \hline
+			Look Tests & Passed & Failed & n/a\\ \hline
+			Vault Tests & Failed & Failed & n/a\\ \hline
+			Jump Tests & Passed & Failed & n/a\\ \hline
+			Climb Tests & Passed & Passed & n/a\\ \hline
+			Slide Tests & Passed & Passed & n/a\\ \hline
+			Ledge Grab Tests & Failed & Failed & n/a\\ \hline
+			Smokebomb Tests & Passed & Passed & Passed\\ \hline
+			Re-spawn Tests & Passed & n/a & Passed\\ \hline
+			Checkpoint Tests & Passed & n/a & n/a\\ \hline
+			Vent Tests & Passed & n/a & Passed\\ \hline
+			Elevator Tests & Passed & n/a & Passed\\ \hline
+			Door Tests & Passed & n/a & Passed\\ \hline
+			Drone Tests & Passed & Passed & Passed\\ \hline
+			Sniper Tests & Passed & n/a & Passed\\ \hline
+			UI Tests & Passed & n/a & Passed\\ \hline
+		\end{tabular}
+        \caption{Validation Tests Summary}
+        \label{table:validation_tests}
+	\end{center}       
+\end{table}
+>>>>>>> 2b8687176523753884218c9799eeab10a8aeb38f
 
 %I Copy-pasted my cases from Stage 3
 %This needs to be expanded quite a lot as it does not cover all the cases e.g. missing cases are ones for elevator (ands its interactions with slow button), door, smokebomb (it only has 2 charges!, its interactions with AI), position in the race (UI), the ledge grap, All of AI interactions many possible cases can be thought up there.
