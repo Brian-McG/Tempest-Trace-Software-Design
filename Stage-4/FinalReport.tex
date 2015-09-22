@@ -176,18 +176,18 @@ The algorithms used will be covered in detail in section \ref{s:implementation} 
 \label{s:implementation}
 \subsection{Player Controller}
 \subsubsection{Re-usability and Encapsulation}
-Since the game must support two independent players, a large amount of code duplication is possible in supporting the interaction of the various game systems with both players. Naturally it is better to avoid code duplication (and in general to stick to the "DRY" - Don't Repeat Yourself - principle) and so extensive use of the engine's built-in object-component model to write instance-independent scripts that will handle the relevant interactions with the world and then simply attach them to the player object. \\
-This results in each player object functioning entirely independently, meaning that not only can we simply place an extra player in the world in order to support extra players, but bugs and code modifications only occur once and then the changes simply apply to both players.
+Since the game must support two independent players, a large amount of code duplication is possible in supporting the interaction of the various game systems with both players. Naturally it is better to avoid code duplication and in general to stick to the "DRY" (Don't Repeat Yourself) principle. Extensive use of the engine's built-in object-component model is used to write instance-independent scripts that will handle the relevant interactions with the world and then attach them to the player object. \\
+This results in each player object functioning entirely independently, meaning that not only can we place an extra player in the world in order to support extra players, but bugs and code modifications only occur once so the changes apply to both players.
 \subsubsection{Camera control}
-Control of the player's camera is handled by two different scripts, one for rotation in each of the X and Y axes. This separation of axes is useful because while the rotation in the X axis needs to rotate only the camera (and allow the player to look up or down), the rotation about the Y axis also needs to rotate the entire player object (containing the camera, the 3D model, all attached scripts etc). \\
-In both the X and Y cases, the script simply gets the relevant player's input for that frame and then rotates itself appropriately.
+Control of the player's camera is handled by two different scripts, one for rotation in each of the X and Y axes. This separation of axes is useful because while the rotation in the X axis needs to rotate only the camera (to allow the player to look up or down), the rotation about the Y axis also needs to rotate the entire player object (containing the camera, the 3D model, all attached scripts etc). \\
+In both the X and Y cases, the script gets the relevant player's input for that frame and then rotates itself appropriately.
 \subsubsection{Input Separation}
-Since our support of multiple players is not over a network and both players must play on the same computer, we need a way to separate the input for either player so that player one does not respond to input intended for player two (for example). This separation is achieved by inserting an extra layer of abstraction between the code that handles player input, and the engine which acquires that input from the operating system/hardware. \\
-Instead of asking the engine for the state of input directly, the player scripts ask the "InputSplitter" class for the state of player input for only that player, InputSplitter then handles all separation of input entirely invisibly and only gives back the appropriate commands.
+Support of multiple players over a network is not supported so both players must play on the same computer. A way is needed to separate the input for either player so that player one does not respond to input intended for player two (for example). This separation is achieved by inserting an extra layer of abstraction between the code that handles player input, and the engine which acquires that input from the operating system/hardware. \\
+Instead of asking the engine for the state of input directly, the player scripts ask the "InputSplitter" class for the state of player input for only that player, InputSplitter then handles all separation of input invisibly and only gives back the appropriate commands.
 \subsubsection{Environment interaction}
-Environment interaction forms the bulk of the code for the player controller. The player needs to be able to compute a number of distinct actions including running, jumping, sliding, climbing and vaulting, all of which require separate handling. Fortunately the transitions between these actions are (in most cases) fairly clear and well-defined, so we use a finite state machine-esque solution. \\
-The player's default state is "Idle", where the player is simply standing still and not moving around at all. We can even consider this to be the same state as the player's next most common state: "Running" (since we can think of idling as simply running with a speed of zero). Running is also the state with the most complicated situation regarding state transitions since all the other states transition in and out of Running. \\
-While in the Running state, the player can change state either by pressing the jump button, or pressing the slide button. When the slide button is pressed the player will go into a low slide across the ground, as long as they are moving fast enough in the first place. This slide will cause the player to slow down over time (which enforces a limit on how far the player can slide) but will allow them to move beneath low-hanging objects and possibly move around the level in an overall smoother or faster fashion. \\
+Environment interaction forms the bulk of the code for the player controller. The player needs to be able to compute a number of distinct actions: running, jumping, sliding, climbing and vaulting. All of these actions require separate handling. Fortunately the transitions between these actions are fairly clear and well-defined. A finite state machine solution is used. \\
+The player's default state is "Idle", where the player is simply standing still and not moving around at all. One can even consider this to be the same state as the player's next most common state: "Running" (since idling can be thought of as simply running with a speed of zero). Running is also the state with the most complicated situation regarding state transitions since all the other states transition in and out of  the running state. \\
+While in the running state, the player can change state either by pressing the jump button, or pressing the slide button. When the slide button is pressed the player will go into a low slide across the ground, as long as they are moving fast enough in the first place. This slide will cause the player to slow down over time (which enforces a limit on how far the player can slide) but will allow them to move beneath low-hanging objects and possibly move around the level in an overall smoother or faster fashion. \\
 If the player presses the jump button, the controller first needs to examine the player's surroundings to see what obstacles there are. If there is a low obstacle on the floor in front of the player, then the player will either climb onto it if they are currently stationary, or vault over it if they are moving. If there is an obstacle in front of the player that is too tall to vault over, but not tall enough that the player cannot reach the top of it, then the player will climb up onto the obstacle. If no such obstacles are present, the player will simply jump.
 \begin{figure}[H]
     \center{\includegraphics[scale=0.4]{images/JumpDecisionTree.png}}
@@ -751,18 +751,5 @@ A variety of users were asked to play the game on both controller and mouse/keyb
 \end{description}
 \newpage
 \begin{thebibliography}{9}
-
-\bibitem[Kopka and Daly(2004)]{KopkaDaly}
-Kopka, H. and Daly, P.W.  (2004) \textit{A Guide to \LaTeXe:
-Document Preparation for Beginners and Advanced Users} (4th~edn).
-Addison-Wesley.
-
-\bibitem[Lamport(1994)]{Lamport}
-Lamport L. (1994) \textit{\LaTeX: A Document Preparation System}
-(2nd~edn). Addison-Wesley.
-
-\bibitem[Mittelbach and Goossens(2004)]{Companion}
-Mittelbach, F. and Goossens, M., (2004) \textit{The \LaTeX\
-Companion} (2nd~edn). Addison-Wesley.
 \end{thebibliography}
 \end{document}
