@@ -19,17 +19,13 @@
 	</socials>
 
 	<description>
-		We're games studio and we make games. We're also capable of editing XML files.
+		Tempest Trace is a competitive player-versus-player first-person running game whereby the player competes against the clock and against another player to get from the start to the end of a parkour/free running track while trying to keep their movements smooth and free flowing. The player is tasked with traversing an obstacle course in as short a time as possible while avoiding enemies who would try to slow down or eliminate the player.
 	</description>
 
 	<histories>
 		<history>
 			<header>Early history</header>
 			<text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel nisi dolor. Pellentesque vitae eros velit, quis venenatis orci. Phasellus elit urna, semper ut gravida et, porta non dui. Aliquam erat volutpat. Aenean porta volutpat imperdiet. Maecenas venenatis, tellus eget vehicula vulputate, augue erat elementum quam, tincidunt laoreet magna orci et mauris. Proin porttitor pharetra nisi, accumsan sollicitudin neque varius a. Aenean ut massa ipsum, id hendrerit lacus. Maecenas posuere egestas nunc at cursus. Etiam mollis libero vel eros pulvinar aliquam. Sed vitae turpis sed nibh venenatis dictum. Sed suscipit orci justo, at sagittis ante. Sed leo nisl, ultricies in fermentum id, aliquam id dolor. Ut laoreet, felis id posuere bibendum, arcu ipsum lacinia est, eu lobortis velit enim eget mi. In ullamcorper ullamcorper enim ut gravida. Vivamus rutrum lacus mollis risus malesuada iaculis.</text>
-		</history>
-		<history>
-			<header>After that</header>
-			<text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem dui, volutpat eu adipiscing sed, rutrum aliquam lacus. Proin sollicitudin consequat dolor id dignissim. Aliquam sem turpis, sagittis lobortis viverra eget, varius vitae nunc. Proin ac lacus porttitor dui sollicitudin elementum. Nulla ut hendrerit est. Fusce vitae arcu erat, vel molestie est. Proin et placerat justo. Proin placerat arcu massa, eu blandit leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam eu lorem sed massa lobortis hendrerit vitae vel odio. Maecenas eget pulvinar tortor. Nunc vitae nisl ac odio bibendum luctus ac a leo. Suspendisse auctor elit et velit sagittis vehicula. Maecenas faucibus blandit rutrum. Duis et sem nibh. Vestibulum placerat elit et dui rhoncus accumsan.</text>
 		</history>
 	</histories>
 
@@ -67,9 +63,9 @@
 																			 	monetize (full permission) -->
 	<additionals>
 		<additional>
-			<title>Company Link #1</title>
-			<description>This link is a link that might be useful. You can check it out at</description>
-			<link>http://somemusicsite.com/thislink</link>
+			<title>Download</title>
+			<description>The game requires Windows 7 (or above) and .NET framework version 2.0 to run and can be downloaded for from this link:</description>
+			<link>http://people.cs.uct.ac.za/~hnsjac003/games/TempestTrace.zip</link>
 		</additional>
 	</additionals>
 
